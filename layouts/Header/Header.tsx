@@ -1,25 +1,17 @@
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Link from 'next/link';
 import { FC } from 'react';
 
 import HeaderLinks from './HeaderLinks';
+import HeaderTop from './HeaderTop';
 
 
 const Header: FC = () => {
     return (
         <AppBar>
             <Container>
-                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <Link passHref href="/">
-                        <Typography component="a" fontWeight="bold" variant="h6">
-                            GAME BLOG
-                        </Typography>
-                    </Link>
-                    <HeaderLinks />
-                </Toolbar>
+                <HeaderTop />
+                <HeaderLinks />
             </Container>
         </AppBar>
     );
