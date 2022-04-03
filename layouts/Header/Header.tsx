@@ -14,12 +14,11 @@ const Header: FC<HeaderProps> = () => {
         <AppBar>
             <Container>
                 <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <Typography component={Link} href="/">
-                        <a>
+                    <Link passHref href="/">
+                        <Typography component="a" fontWeight="bold" variant="h6">
                             GAME BLOG
-                        </a>
-                    </Typography>
-
+                        </Typography>
+                    </Link>
                     <HeaderLinks />
                 </Toolbar>
             </Container>
