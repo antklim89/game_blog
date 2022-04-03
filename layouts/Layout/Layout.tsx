@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
+import Header from '../Header';
+
 
 const Layout: FC = ({ children }) => {
     return (
         <div className="root">
-            <header>
-                HEADER
-            </header>
+            <Header />
             <main>
                 {children}
             </main>
