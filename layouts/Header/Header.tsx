@@ -8,7 +8,7 @@ import HeaderTop from './HeaderTop';
 
 const Header: FC = () => {
     return (
-        <AppBar>
+        <AppBar position="static">
             <Container>
                 <HeaderTop />
                 <HeaderLinks />
