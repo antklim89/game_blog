@@ -5,11 +5,10 @@ import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import { FC } from 'react';
 
-import { HeaderProps } from './Header.types';
 import HeaderLinks from './HeaderLinks';
 
 
-const Header: FC<HeaderProps> = () => {
+const Header: FC = () => {
     return (
         <AppBar>
             <Container>
