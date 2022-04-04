@@ -1,13 +1,17 @@
+import Container from '@mui/material/Container';
 import type { GetStaticProps, NextPage } from 'next';
 
 import Seo from '~/components/Seo';
+import GamesList from '~/layouts/GamesList';
 
 
 const GamesPage: NextPage = () => {
     return (
         <>
             <Seo title="Games" />
-            <h1>GAMES</h1>
+            <Container>
+                <GamesList />
+            </Container>
         </>
     );
 };
