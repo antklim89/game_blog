@@ -2,6 +2,7 @@
 import type { InitOptions } from 'netlify-cms-core'
 import { about } from './about';
 import { games } from './games';
+import { news } from './news';
 import { topHeader } from './topHeader';
 
 
@@ -21,6 +22,7 @@ export const cmsConfig: InitOptions = {
         media_folder: 'public/uploaded/',
         collections: [
             games,
+            news,
             {
                 label: 'Site',
                 name: 'site',
