@@ -17,5 +17,6 @@ export function getGames() {
         gameJson.slug = fileName.replace(/\.json/i, '');
         return gameJson;
     });
+
     return games;
 }
