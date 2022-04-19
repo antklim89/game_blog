@@ -1,7 +1,7 @@
 import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 import type { GetStaticProps, NextPage } from 'next';
 
-import GamesCarousel from '~/components/GamesCarousel';
 import Seo from '~/components/Seo';
 import GamesList from '~/layouts/GamesList';
 import { IGame } from '~/types';
@@ -18,7 +18,14 @@ const Home: NextPage<Props> = ({ games }) => {
         <>
             <Seo title="Home" />
             <Container>
-                <GamesCarousel />
+                <Typography
+                    component="h3"
+                    mt={4}
+                    textAlign="center"
+                    variant="h3"
+                >
+                    Games
+                </Typography>
                 <GamesList games={games} />
             </Container>
         </>

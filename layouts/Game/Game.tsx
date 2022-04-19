@@ -11,11 +11,8 @@ const Game: FC<IGame> = ({ body, title, genre, year, publisher }) => {
             <Typography variant="h1">
                 {title}
             </Typography>
-            <Typography component="h2" variant="h2">
-                {publisher}
-            </Typography>
             <Typography component="h5" sx={{ mb: 4 }} variant="h5">
-                {genre} - {year} year
+                {genre} released by {publisher} in {year} year
             </Typography>
             <Box dangerouslySetInnerHTML={{ __html: body }} />
         </article>
