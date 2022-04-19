@@ -3,26 +3,19 @@ import type { CmsCollection } from 'netlify-cms-core'
 
 
 
-export const projects: CmsCollection = {
-    label: 'Projects',
-    name: 'projects',
-    folder: 'public/content/projects',
+export const games: CmsCollection = {
+    label: 'Games',
+    name: 'games',
+    folder: 'public/content/games',
     extension: 'json',
     media_folder: 'images',
-    public_folder: '/content/projects/images',
+    public_folder: '/content/games/images',
     create: true,
-    slug: '{{fields.slug}}',
-    editor: { preview: true },
-    i18n: true,
+    editor: { preview: false },
     fields: [
-        {
-            name: 'slug',
-            widget: 'string',
-        },
         {
             name: 'body',
             widget: 'markdown',
-            i18n: true,
             required: true,
         },
         {
@@ -30,40 +23,28 @@ export const projects: CmsCollection = {
             widget: 'string',
             pattern: ['^.{5,500}$', 'The title must be between 5 and 500 letters long.'],
             required: true,
-            i18n: true,
         },
         {
-            name: 'link',
+            name: 'genre',
             widget: 'string',
             pattern: ['^.{5,500}$', 'The link must be between 5 and 500 letters long.'],
             required: true,
         },
         {
-            name: 'github',
+            name: 'publisher',
             widget: 'string',
             pattern: ['^.{5,500}$', 'The link must be between 5 and 500 letters long.'],
             required: true,
         },
         {
-            name: 'technologies',
-            widget: 'list',
-            min: 1,
+            name: 'year',
+            widget: 'number',
             required: true,
         },
         {
-            name: 'image',
+            name: 'previewImage',
             widget: 'image',
             required: true,
         },
-        {
-            name: 'images',
-            widget: 'list',
-            min: 1,
-            required: true,
-            field: {
-                name: 'image',
-                widget: 'image',
-            }
-        }
     ],
 }
