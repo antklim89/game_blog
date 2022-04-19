@@ -1,16 +1,23 @@
+
 import Container from '@mui/material/Container';
 import type { GetStaticProps, NextPage } from 'next';
 
 import Seo from '~/components/Seo';
 import GamesList from '~/layouts/GamesList';
+import { IGame } from '~/types';
+import { getGames } from '~/utils';
 
 
-const GamesPage: NextPage = () => {
+interface Props {
+    games: IGame[];
+}
+
+const GamesPage: NextPage<Props> = ({ games }) => {
     return (
         <>
             <Seo title="Games" />
             <Container>
-                <GamesList />
+                <GamesList games={games} />
             </Container>
         </>
     );
@@ -18,8 +25,9 @@ const GamesPage: NextPage = () => {
 
 export default GamesPage;
 
+export const getStaticProps: GetStaticProps<Props> = async () => {
+    const games = await getGames();
 
-export const getStaticProps: GetStaticProps = async () => {
-
-    return { props: { foo: 'bar' } };
+    return { props: { games } };
 };
+

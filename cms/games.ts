@@ -12,6 +12,7 @@ export const games: CmsCollection = {
     public_folder: '/content/games/images',
     create: true,
     editor: { preview: false },
+    slug: '{{year}}{{month}}{{day}}{{hour}}{{minute}}{{second}}-{{slug}}',
     fields: [
         {
             name: 'body',

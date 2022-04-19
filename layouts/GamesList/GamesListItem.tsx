@@ -9,10 +9,10 @@ import { GamesListItemProps } from './GamesList.types';
 
 
 const GamesListItem: FC<GamesListItemProps> = ({
-    id, name, previewImage, genre, publisher, year,
+    slug, title, previewImage, genre, publisher, year,
 }) => {
     return (
-        <Link passHref href={`#${id}`} >
+        <Link passHref href={`/${slug}`} >
             <Grid
                 item
                 component="a"
@@ -30,7 +30,7 @@ const GamesListItem: FC<GamesListItemProps> = ({
                     }}
                     variant="outlined"
                 >
-                    <CardHeader subheader={year} subheaderTypographyProps={{ color: 'white' }} title={name} />
+                    <CardHeader subheader={year} subheaderTypographyProps={{ color: 'white' }} title={title} />
                     <CardContent>
                         <p>
                             Genre: {genre}
