@@ -9,12 +9,10 @@ export const about: CmsCollectionFile = {
     file: 'public/content/about/index.json',
     media_folder: 'images',
     public_folder: '/content/about/images',
-    i18n: true,
     fields: [
         {
             name: 'text',
             widget: 'markdown',
-            i18n: true,
         },
         {
             name: 'image',
