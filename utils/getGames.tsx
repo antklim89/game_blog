@@ -1,22 +1,31 @@
 import { readdirSync, readFileSync } from 'fs';
 import { resolve } from 'path';
 
-import { IGame } from '~/types';
+import { IGame, INews } from '~/types';
 
 
-export function getGames() {
-    const gamesFiles = readdirSync(resolve(process.cwd(), './public/content/games'));
-    const gamesJsons = gamesFiles
+const CONTENT_PATH = './public/content';
+
+export function getFiles<T>(filePath: string): T[] {
+    const files = readdirSync(resolve(process.cwd(), CONTENT_PATH, filePath));
+
+    const jsonFiles = files
         .reverse()
         .slice(0, 6)
         .filter((item) => (/\.json/i).test(item));
 
-    const games = gamesJsons.map((fileName) => {
-        const gameString = readFileSync(resolve(process.cwd(), './public/content/games', fileName), 'utf-8');
-        const gameJson: IGame = JSON.parse(gameString);
+    return jsonFiles.map((fileName) => {
+        const gameString = readFileSync(resolve(process.cwd(), CONTENT_PATH, filePath, fileName), 'utf-8');
+        const gameJson = JSON.parse(gameString);
         gameJson.slug = fileName.replace(/\.json/i, '');
         return gameJson;
     });
+}
 
-    return games;
+export function getGames() {
+    return getFiles<IGame>('games');
+}
+
+export function getNews() {
+    return getFiles<INews>('news');
 }
