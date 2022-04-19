@@ -12,7 +12,7 @@ const GamesListItem: FC<GamesListItemProps> = ({
     slug, title, previewImage, genre, publisher, year,
 }) => {
     return (
-        <Link passHref href={`/${slug}`} >
+        <Link passHref href={`/games/${slug}`} >
             <Grid
                 item
                 component="a"
