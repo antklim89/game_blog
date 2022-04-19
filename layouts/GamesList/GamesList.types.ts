@@ -1,10 +1,10 @@
-import { MOCK_LIST } from './GamesList';
+import { IGame } from '~/types';
 
 
 export interface GamesListProps {
-     // null
+     games: IGame[]
 }
 
-export type GamesListItemProps = typeof MOCK_LIST[0]
+export type GamesListItemProps = IGame
 
 
