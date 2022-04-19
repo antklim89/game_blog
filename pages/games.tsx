@@ -26,8 +26,12 @@ const GamesPage: NextPage<Props> = ({ games }) => {
 export default GamesPage;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    const games = await getGames();
+    try {
+        const games = await getGames();
 
-    return { props: { games } };
+        return { props: { games } };
+    } catch (error) {
+        return { props: { games: [] } };
+    }
 };
 
