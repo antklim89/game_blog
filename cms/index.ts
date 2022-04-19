@@ -2,6 +2,7 @@
 import type { InitOptions } from 'netlify-cms-core'
 import { about } from './about';
 import { games } from './games';
+import { topHeader } from './topHeader';
 
 
 export const cmsConfig: InitOptions = {
@@ -24,7 +25,7 @@ export const cmsConfig: InitOptions = {
                 label: 'Site',
                 name: 'site',
                 editor: { preview: false },
-                files: [about],
+                files: [about, topHeader],
             },
         ],
     },
