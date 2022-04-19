@@ -9,8 +9,8 @@ import HeaderTop from './HeaderTop';
 const Header: FC = () => {
     return (
         <AppBar position="static">
+            <HeaderTop />
             <Container>
-                <HeaderTop />
                 <HeaderLinks />
             </Container>
         </AppBar>
