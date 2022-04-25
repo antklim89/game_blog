@@ -1,13 +1,8 @@
-import { readFileSync } from 'fs';
-import { resolve } from 'path';
-
 import { IGame } from '~/types';
+
+import { getFile } from './getFile';
 
 
 export function getGame(slug: string) {
-    const gameString = readFileSync(resolve(process.cwd(), './public/content/games', `${slug}.json`), 'utf-8');
-    const game: IGame = JSON.parse(gameString);
-
-    game.slug = slug;
-    return game;
+    return getFile<IGame>('game', slug);
 }
