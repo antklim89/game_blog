@@ -2,6 +2,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import type { GetStaticProps, NextPage } from 'next';
 
+import GamesCarousel from '~/components/GamesCarousel';
 import Seo from '~/components/Seo';
 import GamesList from '~/layouts/GamesList';
 import NewsList from '~/layouts/NewsList';
@@ -20,6 +21,7 @@ const Home: NextPage<Props> = ({ games, news }) => {
         <>
             <Seo title="Home" />
             <Container>
+                <GamesCarousel />
                 <Typography
                     component="h3"
                     mt={4}
