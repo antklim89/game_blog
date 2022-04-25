@@ -1,21 +1,13 @@
+import Carousel from 'nuka-carousel';
 import { FC } from 'react';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import Slider from 'react-slick';
 
 import { GamesCarouselProps } from './types';
 
 
 const GamesCarousel: FC<GamesCarouselProps> = () => {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-    };
+
     return (
-        <Slider {...settings}>
+        <Carousel>
             <div>
                 <h3>1</h3>
             </div>
@@ -34,7 +26,7 @@ const GamesCarousel: FC<GamesCarouselProps> = () => {
             <div>
                 <h3>6</h3>
             </div>
-        </Slider>
+        </Carousel>
     );
 };
 
