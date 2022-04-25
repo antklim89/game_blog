@@ -6,12 +6,14 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { FC } from 'react';
 
 import background from './background.jpg';
+import { HeaderProps } from './Header.types';
 import HeaderLogo from './HeaderLogo';
 
 
-const HeaderTop: FC = () => {
+const HeaderTop: FC<HeaderProps> = ({ image, title }) => {
     const matches = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
 
+    if (!image || !title) return null;
     if (!matches) return null;
     return (
         <Box
@@ -27,7 +29,7 @@ const HeaderTop: FC = () => {
             <HeaderLogo />
             <Container>
                 <Typography py={4} textAlign="center">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    {title}
                 </Typography>
             </Container>
         </Box>
