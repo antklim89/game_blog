@@ -1,28 +1,29 @@
-import { readdirSync, readFile, readFileSync } from 'fs';
+import { readFileSync } from 'fs';
 import { resolve } from 'path';
 
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import type { GetStaticProps, NextPage } from 'next';
 
-
 import GamesCarousel from '~/components/GamesCarousel';
 import Seo from '~/components/Seo';
+import Layout from '~/layouts/Layout';
 import NewsList from '~/layouts/NewsList';
 import ReviewList from '~/layouts/ReviewsList';
-import { IReview, INews } from '~/types';
+import { IReview, INews, ITopHeader } from '~/types';
 import { getReviews, getNews } from '~/utils';
 
 
 interface Props {
     reviews: IReview[]
     news: INews[]
+    topHeader: ITopHeader
 }
 
 
-const Home: NextPage<Props> = ({ reviews, news }) => {
+const Home: NextPage<Props> = ({ reviews, news, topHeader }) => {
     return (
-        <>
+        <Layout image={topHeader.image} text={topHeader.text} >
             <Seo title="Home" />
             <Container>
                 <GamesCarousel />
@@ -45,7 +46,7 @@ const Home: NextPage<Props> = ({ reviews, news }) => {
                 </Typography>
                 <NewsList news={news} />
             </Container>
-        </>
+        </Layout>
     );
 };
 
@@ -62,6 +63,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
         return { props: { reviews, news, topHeader } };
     } catch (error) {
-        return { props: { reviews: [], news: [] } };
+        return { props: { reviews: [], news: [], topHeader: {} } };
     }
 };
