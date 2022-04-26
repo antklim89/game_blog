@@ -1,5 +1,5 @@
-export * from './getGames';
+export * from './getReviews';
 export * from './getNews';
-export * from './getGame';
-export * from './getGamesPaths';
+export * from './getReview';
+export * from './getReviewsPaths';
 

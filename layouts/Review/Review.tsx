@@ -2,10 +2,10 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { FC } from 'react';
 
-import { IGame } from '~/types';
+import { IReview } from '~/types';
 
 
-const Game: FC<IGame> = ({ body, title, genre, year, publisher }) => {
+const Review: FC<IReview> = ({ body, title, genre, year, publisher }) => {
     return (
         <article>
             <Typography variant="h1">
@@ -19,5 +19,5 @@ const Game: FC<IGame> = ({ body, title, genre, year, publisher }) => {
     );
 };
 
-export default Game;
+export default Review;
 
