@@ -13,10 +13,9 @@ import { theme } from '../styles/theme';
 
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-
     return (
         <ThemeProvider theme={theme}>
-            <Layout>
+            <Layout topHeader={pageProps.topHeader}>
                 <Component {...pageProps} />
             </Layout>
         </ThemeProvider>

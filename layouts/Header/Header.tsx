@@ -7,10 +7,10 @@ import HeaderLinks from './HeaderLinks';
 import HeaderTop from './HeaderTop';
 
 
-const Header: FC<HeaderProps> = ({ image, title }) => {
+const Header: FC<HeaderProps> = (props) => {
     return (
         <AppBar position="static">
-            <HeaderTop image={image} title={title} />
+            <HeaderTop {...props} />
             <Container>
                 <HeaderLinks />
             </Container>
