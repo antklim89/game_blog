@@ -3,13 +3,13 @@ import type { CmsCollection } from 'netlify-cms-core'
 
 
 
-export const games: CmsCollection = {
-    label: 'Games',
-    name: 'games',
-    folder: 'public/content/games',
+export const reviews: CmsCollection = {
+    label: 'Reviews',
+    name: 'reviews',
+    folder: 'public/content/reviews',
     extension: 'json',
     media_folder: 'images',
-    public_folder: '/content/games/images',
+    public_folder: '/content/reviews/images',
     create: true,
     editor: { preview: false },
     slug: '{{year}}{{month}}{{day}}{{hour}}{{minute}}{{second}}-{{slug}}',

@@ -1,7 +1,7 @@
 /* eslint-disable */
 import type { InitOptions } from 'netlify-cms-core'
 import { about } from './about';
-import { games } from './games';
+import { reviews } from './reviews';
 import { news } from './news';
 import { topHeader } from './topHeader';
 
@@ -21,7 +21,7 @@ export const cmsConfig: InitOptions = {
         publish_mode: 'editorial_workflow',
         media_folder: 'public/uploaded/',
         collections: [
-            games,
+            reviews,
             news,
             {
                 label: 'Site',

@@ -19,8 +19,8 @@ const LINKS = [
         title: 'home',
     },
     {
-        href: '/games',
-        title: 'games',
+        href: '/reviews',
+        title: 'reviews',
     },
     {
         href: '/news',

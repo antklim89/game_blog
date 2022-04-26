@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { FC, useCallback } from 'react';
+import { FC } from 'react';
 
 import { FooterProps } from './Footer.types';
 
@@ -10,10 +10,10 @@ const Footer: FC<FooterProps> = () => {
     return (
         <Box
             component="footer"
-            sx={useCallback(({ palette }) => ({
-                backgroundColor: palette.primary.main,
+            sx={{
+                backgroundColor: ({ palette }) => palette.primary.main,
                 py: 2,
-            }), [])}
+            }}
         >
             <Container>
                 <Typography color="white">

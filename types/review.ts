@@ -1,6 +1,6 @@
 
 
-export interface IGame {
+export interface IReview {
     slug: string
     title: string
     genre: string

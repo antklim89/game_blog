@@ -5,14 +5,14 @@ import Grid from '@mui/material/Grid';
 import Link from 'next/link';
 import { FC } from 'react';
 
-import { GamesListItemProps } from './GamesList.types';
+import { ReviewsListItemProps } from './ReviewsList.types';
 
 
-const GamesListItem: FC<GamesListItemProps> = ({
+const ReviewListItem: FC<ReviewsListItemProps> = ({
     slug, title, previewImage, genre, publisher, year,
 }) => {
     return (
-        <Link passHref href={`/games/${slug}`} >
+        <Link passHref href={`/reviews/${slug}`} >
             <Grid
                 item
                 component="a"
@@ -45,5 +45,5 @@ const GamesListItem: FC<GamesListItemProps> = ({
     );
 };
 
-export default GamesListItem;
+export default ReviewListItem;
 

@@ -2,32 +2,32 @@ import Container from '@mui/material/Container';
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 
 import Seo from '~/components/Seo';
-import Game from '~/layouts/Game';
-import { IGame } from '~/types';
-import { getGamesPaths, getGame } from '~/utils';
+import Review from '~/layouts/Review';
+import { IReview } from '~/types';
+import { getReviewsPaths, getReview } from '~/utils';
 
 
 interface Props {
-    game: IGame;
+    review: IReview;
 }
 
 
-const GamePage: NextPage<Props> = ({ game }) => {
+const ReviewPage: NextPage<Props> = ({ review }) => {
     return (
         <>
-            <Seo title={game.title} />
+            <Seo title={review.title} />
             <Container>
-                <Game {...game} />
+                <Review {...review} />
             </Container>
         </>
     );
 };
 
-export default GamePage;
+export default ReviewPage;
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = getGamesPaths();
+    const paths = getReviewsPaths();
 
     return {
         paths,
@@ -38,9 +38,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<Props, {slug: string}> = async ({ params }) => {
     if (!params) return { notFound: true };
 
-    const game = getGame(params.slug);
+    const review = getReview(params.slug);
 
-    return { props: { game } };
+    return { props: { review } };
 };
 
 

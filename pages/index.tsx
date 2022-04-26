@@ -4,19 +4,19 @@ import type { GetStaticProps, NextPage } from 'next';
 
 import GamesCarousel from '~/components/GamesCarousel';
 import Seo from '~/components/Seo';
-import GamesList from '~/layouts/GamesList';
 import NewsList from '~/layouts/NewsList';
-import { IGame, INews } from '~/types';
-import { getGames, getNews } from '~/utils';
+import ReviewList from '~/layouts/ReviewsList';
+import { IReview, INews } from '~/types';
+import { getReviews, getNews } from '~/utils';
 
 
 interface Props {
-    games: IGame[]
+    reviews: IReview[]
     news: INews[]
 }
 
 
-const Home: NextPage<Props> = ({ games, news }) => {
+const Home: NextPage<Props> = ({ reviews, news }) => {
     return (
         <>
             <Seo title="Home" />
@@ -28,9 +28,9 @@ const Home: NextPage<Props> = ({ games, news }) => {
                     textAlign="center"
                     variant="h3"
                 >
-                    Games
+                    Reviews
                 </Typography>
-                <GamesList games={games} />
+                <ReviewList reviews={reviews} />
                 <Typography
                     component="h3"
                     mt={4}
@@ -50,11 +50,11 @@ export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
     try {
-        const games = await getGames();
+        const reviews = await getReviews();
         const news = await getNews();
 
-        return { props: { games, news } };
+        return { props: { reviews, news } };
     } catch (error) {
-        return { props: { games: [], news: [] } };
+        return { props: { reviews: [], news: [] } };
     }
 };

@@ -1,5 +1,4 @@
-export * from './game';
+export * from './review';
 export * from './news';
-export * from './react';
 
 
