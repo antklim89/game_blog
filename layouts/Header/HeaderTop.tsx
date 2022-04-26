@@ -13,7 +13,7 @@ import HeaderLogo from './HeaderLogo';
 const HeaderTop: FC<HeaderProps> = ({ image, text }) => {
     const matches = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
 
-    if (!image || !text) return null;
+    if (!image) return null;
     if (!matches) return null;
     return (
         <Box
@@ -27,11 +27,13 @@ const HeaderTop: FC<HeaderProps> = ({ image, text }) => {
             }}
         >
             <HeaderLogo />
-            <Container>
-                <Typography py={4} textAlign="center">
-                    {text}
-                </Typography>
-            </Container>
+            {text && (
+                <Container>
+                    <Typography py={4} textAlign="center">
+                        {text}
+                    </Typography>
+                </Container>
+            )}
         </Box>
     );
 };
