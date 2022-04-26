@@ -1,6 +1,10 @@
+import { readdirSync, readFile, readFileSync } from 'fs';
+import { resolve } from 'path';
+
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import type { GetStaticProps, NextPage } from 'next';
+
 
 import GamesCarousel from '~/components/GamesCarousel';
 import Seo from '~/components/Seo';
@@ -53,7 +57,10 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         const reviews = await getReviews();
         const news = await getNews();
 
-        return { props: { reviews, news } };
+        const topHeaderJson = readFileSync(resolve(process.cwd(), './public/content/topHeader/index.json'), 'utf-8');
+        const topHeader = JSON.parse(topHeaderJson);
+
+        return { props: { reviews, news, topHeader } };
     } catch (error) {
         return { props: { reviews: [], news: [] } };
     }

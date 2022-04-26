@@ -10,10 +10,10 @@ import { HeaderProps } from './Header.types';
 import HeaderLogo from './HeaderLogo';
 
 
-const HeaderTop: FC<HeaderProps> = ({ image, title }) => {
+const HeaderTop: FC<HeaderProps> = ({ image, text }) => {
     const matches = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
 
-    if (!image || !title) return null;
+    if (!image || !text) return null;
     if (!matches) return null;
     return (
         <Box
@@ -29,7 +29,7 @@ const HeaderTop: FC<HeaderProps> = ({ image, title }) => {
             <HeaderLogo />
             <Container>
                 <Typography py={4} textAlign="center">
-                    {title}
+                    {text}
                 </Typography>
             </Container>
         </Box>
