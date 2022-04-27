@@ -1,22 +1,20 @@
-import type { GetStaticProps, NextPage } from 'next';
+import Container from '@mui/material/Container';
+import type { NextPage } from 'next';
 
 import Seo from '~/components/Seo';
+import Contacts from '~/layouts/Contacts';
 import Layout from '~/layouts/Layout';
 
 
 const ContactsPage: NextPage = () => {
     return (
         <Layout>
-            <Seo title="contacts" />
-            <h1>Contacts</h1>
+            <Seo title="Contacts" />
+            <Container>
+                <Contacts />
+            </Container>
         </Layout>
     );
 };
 
 export default ContactsPage;
-
-
-export const getStaticProps: GetStaticProps = async () => {
-
-    return { props: { foo: 'bar' } };
-};
