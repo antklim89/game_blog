@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { FC } from 'react';
 
-import background from './background.jpg';
 import { HeaderProps } from './Header.types';
 import HeaderLogo from './HeaderLogo';
 
@@ -22,8 +21,12 @@ const HeaderTop: FC<HeaderProps> = ({ image, text }) => {
                 flexDirection: 'column',
                 alignItems: 'center',
                 py: 4,
-                backgroundImage: `URL(${background.src})`,
+                backgroundImage: `URL(${image})`,
                 minHeight: 320,
+                background: `
+                    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                    no-repeat center/cover  URL(${image})
+                `,
             }}
         >
             <HeaderLogo />
