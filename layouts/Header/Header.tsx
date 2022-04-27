@@ -9,7 +9,7 @@ import HeaderTop from './HeaderTop';
 
 const Header: FC<HeaderProps> = (props) => {
     return (
-        <AppBar position="static">
+        <AppBar position="static" sx={{ mb: 4 }}>
             <HeaderTop {...props} />
             <Container>
                 <HeaderLinks />
