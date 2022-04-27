@@ -1,14 +1,24 @@
+import Container from '@mui/material/Container';
 import type { GetStaticProps, NextPage } from 'next';
 
 import Seo from '~/components/Seo';
+import About from '~/layouts/About';
 import Layout from '~/layouts/Layout';
+import { IAbout } from '~/types/about';
+import { getFile } from '~/utils/getFile';
 
 
-const AboutPage: NextPage = () => {
+interface Props {
+    about: IAbout
+}
+
+const AboutPage: NextPage<Props> = ({ about }) => {
     return (
         <Layout>
             <Seo title="about" />
-            <h1>About</h1>
+            <Container>
+                <About {...about} />
+            </Container>
         </Layout>
     );
 };
@@ -16,7 +26,8 @@ const AboutPage: NextPage = () => {
 export default AboutPage;
 
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
+    const about = await getFile<IAbout>('about', 'index');
 
-    return { props: { foo: 'bar' } };
+    return { props: { about } };
 };
