@@ -12,11 +12,15 @@ export const topHeader: CmsCollectionFile = {
     fields: [
         {
             name: 'text',
-            widget: 'text',
+            widget: 'markdown',
+            required: true,
+            buttons: ['bold', 'italic', 'heading-one', 'heading-two', 'numbered-list', 'bulleted-list'],
+            editor_components: [],
         },
         {
             name: 'image',
             widget: 'image',
+            required: true,
         }
     ],
 }
