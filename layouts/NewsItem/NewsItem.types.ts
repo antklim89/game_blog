@@ -1,0 +1,5 @@
+
+
+export interface NewsItemProps {
+     // null
+}
