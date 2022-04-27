@@ -147,7 +147,7 @@ module.exports = {
         'semi': 2,
         'comma-dangle': [1, 'always-multiline'],
         'quotes': [1, 'single'],
-        'quote-props': [2, 'consistent'],
+        'quote-props': 0,
         'eol-last': 2,
         'no-multiple-empty-lines': [1, { max: 2 }],
         'indent': [1, 4],
