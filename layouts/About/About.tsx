@@ -8,12 +8,6 @@ import { IAbout } from '~/types/about';
 const About: FC<IAbout> = ({ text, image }) => {
     return (
         <article>
-            <Image
-                alt="about"
-                height={480}
-                src={image}
-                width={1920}
-            />
             <Typography component="h1" variant="h3">
                 About Blog
             </Typography>
