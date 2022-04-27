@@ -1,6 +1,3 @@
-import { readFileSync } from 'fs';
-import { resolve } from 'path';
-
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import type { GetStaticProps, NextPage } from 'next';
@@ -60,11 +57,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         const reviews = await getReviews();
         const news = await getNews();
 
-        const topHeaderJson = readFileSync(resolve(process.cwd(), './public/content/topHeader/index.json'), 'utf-8');
-        const topHeader = JSON.parse(topHeaderJson);
-
+        const topHeader = await getFile<ITopHeader>('topHeader', 'index');
         const gamesCarousel = await getFile<{items: IGamesCarousel[]}>('gamesCarousel', 'index');
-
 
         return { props: { reviews, news, topHeader, gamesCarousel: gamesCarousel.items } };
     } catch (error) {
