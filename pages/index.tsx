@@ -10,23 +10,25 @@ import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import NewsList from '~/layouts/NewsList';
 import ReviewList from '~/layouts/ReviewsList';
-import { IReview, INews, ITopHeader } from '~/types';
+import { IReview, INews, ITopHeader, IGamesCarousel } from '~/types';
 import { getReviews, getNews } from '~/utils';
+import { getFile } from '~/utils/getFile';
 
 
 interface Props {
     reviews: IReview[]
     news: INews[]
     topHeader: ITopHeader
+    gamesCarousel: IGamesCarousel[]
 }
 
 
-const Home: NextPage<Props> = ({ reviews, news, topHeader }) => {
+const Home: NextPage<Props> = ({ reviews, news, topHeader, gamesCarousel }) => {
     return (
         <Layout image={topHeader.image} text={topHeader.text} >
             <Seo title="Home" />
             <Container>
-                <GamesCarousel />
+                <GamesCarousel gamesCarousel={gamesCarousel} />
                 <Typography
                     component="h3"
                     mt={4}
@@ -61,8 +63,12 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         const topHeaderJson = readFileSync(resolve(process.cwd(), './public/content/topHeader/index.json'), 'utf-8');
         const topHeader = JSON.parse(topHeaderJson);
 
-        return { props: { reviews, news, topHeader } };
+        const gamesCarousel = await getFile<{items: IGamesCarousel[]}>('gamesCarousel', 'index');
+
+
+        return { props: { reviews, news, topHeader, gamesCarousel: gamesCarousel.items } };
     } catch (error) {
-        return { props: { reviews: [], news: [], topHeader: {} } };
+        console.error(error);
+        return { props: { reviews: [], news: [], topHeader: {}, gamesCarousel: [] } };
     }
 };

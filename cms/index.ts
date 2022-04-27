@@ -4,6 +4,7 @@ import { about } from './about';
 import { reviews } from './reviews';
 import { news } from './news';
 import { topHeader } from './topHeader';
+import { gamesCarousel } from './gamesCarousel';
 
 
 export const cmsConfig: InitOptions = {
@@ -27,7 +28,11 @@ export const cmsConfig: InitOptions = {
                 label: 'Site',
                 name: 'site',
                 editor: { preview: false },
-                files: [about, topHeader],
+                files: [
+                    about,
+                    topHeader,
+                    gamesCarousel,
+                ],
             },
         ],
     },
