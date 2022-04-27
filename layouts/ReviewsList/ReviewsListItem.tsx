@@ -2,6 +2,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import { FC } from 'react';
 
@@ -24,20 +25,27 @@ const ReviewListItem: FC<ReviewsListItemProps> = ({
                         background: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), URL(${previewImage})`,
                         backgroundColor: 'none',
                         backgroundRepeat: 'no-repeat',
-                        backgroundSize: 'cover',
+                        backgroundSize: '100%',
                         backgroundPosition: 'center',
                         color: 'white',
+                        transition: '100ms',
+                        ':hover': { backgroundSize: '105%' },
                     }}
                     variant="outlined"
                 >
-                    <CardHeader subheader={year} subheaderTypographyProps={{ color: 'white' }} title={title} />
+                    <CardHeader
+                        subheader={`${year} year`}
+                        subheaderTypographyProps={{ color: 'white', variant: 'subtitle2' }}
+                        title={title}
+                        titleTypographyProps={{ variant: 'h3', component: 'h4', color: 'white' }}
+                    />
                     <CardContent>
-                        <p>
+                        <Typography>
                             Genre: {genre}
-                        </p>
-                        <p>
+                        </Typography>
+                        <Typography>
                             Published by {publisher}
-                        </p>
+                        </Typography>
                     </CardContent>
                 </Card>
             </Grid>
