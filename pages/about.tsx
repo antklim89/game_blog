@@ -14,7 +14,7 @@ interface Props {
 
 const AboutPage: NextPage<Props> = ({ about }) => {
     return (
-        <Layout>
+        <Layout image={about.image}>
             <Seo title="about" />
             <Container>
                 <About {...about} />
