@@ -28,7 +28,7 @@ export default ReviewPage;
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = getReviewsPaths();
+    const paths = await getReviewsPaths();
 
     return {
         paths,
@@ -39,7 +39,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<Props, {slug: string}> = async ({ params }) => {
     if (!params) return { notFound: true };
 
-    const review = getReview(params.slug);
+    const review = await getReview(params.slug);
 
     return { props: { review } };
 };
