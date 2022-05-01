@@ -1,8 +1,10 @@
+import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
 
@@ -17,19 +19,17 @@ const ReviewListItem: FC<ReviewsListItemProps> = ({
             <Grid
                 item
                 component="a"
-                sm={6}
+                md={6}
+                sm={12}
                 xs={12}
             >
                 <Card
                     sx={{
-                        background: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), URL(${previewImage})`,
-                        backgroundColor: 'none',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundSize: '100%',
-                        backgroundPosition: 'center',
+                        position: 'relative',
+                        backgroundColor: 'transparent',
                         color: 'white',
-                        transition: '100ms',
-                        ':hover': { backgroundSize: '105%' },
+                        '& img': { transition: 'transform 200ms' },
+                        '&:hover img': { transform: 'scale(1.1)' },
                     }}
                     variant="outlined"
                 >
@@ -37,7 +37,7 @@ const ReviewListItem: FC<ReviewsListItemProps> = ({
                         subheader={`${year} year`}
                         subheaderTypographyProps={{ color: 'white', variant: 'subtitle2' }}
                         title={title}
-                        titleTypographyProps={{ variant: 'h3', component: 'h4', color: 'white' }}
+                        titleTypographyProps={{ variant: 'h3', component: 'h4', color: 'white', whiteSpace: 'nowrap' }}
                     />
                     <CardContent>
                         <Typography>
@@ -47,6 +47,20 @@ const ReviewListItem: FC<ReviewsListItemProps> = ({
                             Published by {publisher}
                         </Typography>
                     </CardContent>
+                    <Box
+                        sx={{
+                            position: 'absolute', top: 0, right: 0, left: 0, bottom: 0, zIndex: -1,
+                        }}
+                    >
+                        <Image
+                            alt={title}
+                            height={640}
+                            objectFit="cover"
+                            objectPosition="center"
+                            src={`http://localhost:3000${previewImage}`}
+                            width={1280}
+                        />
+                    </Box>
                 </Card>
             </Grid>
         </Link>
