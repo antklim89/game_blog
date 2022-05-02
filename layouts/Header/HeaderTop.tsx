@@ -1,7 +1,6 @@
 import type { Theme } from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { FC } from 'react';
 
@@ -32,9 +31,7 @@ const HeaderTop: FC<HeaderProps> = ({ image, text }) => {
             <HeaderLogo />
             {text && (
                 <Container>
-                    <Typography py={4} textAlign="center">
-                        <div dangerouslySetInnerHTML={{ __html: text }} />
-                    </Typography>
+                    <Box dangerouslySetInnerHTML={{ __html: text }} sx={{ py: 4, textAlign: 'center' }} />
                 </Container>
             )}
         </Box>
