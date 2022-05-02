@@ -15,7 +15,7 @@ interface Props {
 
 const ReviewPage: NextPage<Props> = ({ review }) => {
     return (
-        <Layout image={review.previewImage}>
+        <Layout image={review.previewImage} title={review.title}>
             <Seo title={review.title} />
             <Container>
                 <Review {...review} />
