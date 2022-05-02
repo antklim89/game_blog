@@ -33,7 +33,7 @@ const HeaderTop: FC<HeaderProps> = ({ image, text }) => {
             {text && (
                 <Container>
                     <Typography py={4} textAlign="center">
-                        {text}
+                        <div dangerouslySetInnerHTML={{ __html: text }} />
                     </Typography>
                 </Container>
             )}
