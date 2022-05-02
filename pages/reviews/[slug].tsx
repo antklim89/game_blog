@@ -5,7 +5,7 @@ import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import Review from '~/layouts/Review';
 import { IReview } from '~/types';
-import { getReviewsPaths, getReview } from '~/utils';
+import { getReviewsPaths, getReview } from '~/utils/server';
 
 
 interface Props {

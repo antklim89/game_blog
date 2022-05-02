@@ -6,7 +6,7 @@ import About from '~/layouts/About';
 import Layout from '~/layouts/Layout';
 import { IAbout } from '~/types/about';
 
-import { getAbout } from '../utils/getAbout';
+import { getAbout } from '../utils/server/getAbout';
 
 
 interface Props {
