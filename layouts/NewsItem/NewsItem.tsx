@@ -13,9 +13,7 @@ const NewsItem: FC<INews> = ({ title, body, publishedAt }) => {
             <Typography sx={{ mb: 4 }} variant="subtitle1">
                 {publishedAt}
             </Typography>
-            <Typography>
-                {body}
-            </Typography>
+            <div dangerouslySetInnerHTML={{ __html: body }} />
         </article>
     );
 };

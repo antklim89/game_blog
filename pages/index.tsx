@@ -8,8 +8,7 @@ import Layout from '~/layouts/Layout';
 import NewsList from '~/layouts/NewsList';
 import ReviewList from '~/layouts/ReviewsList';
 import { IReview, INews, ITopHeader, IGamesCarousel } from '~/types';
-import { getReviews, getNews } from '~/utils';
-import { getFile } from '~/utils/getFile';
+import { getReviews, getNews, getHeaderTop, getGamesCarousel } from '~/utils';
 
 
 interface Props {
@@ -56,9 +55,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     try {
         const reviews = await getReviews();
         const news = await getNews();
-
-        const topHeader = await getFile<ITopHeader>('topHeader', 'index');
-        const gamesCarousel = await getFile<{items: IGamesCarousel[]}>('gamesCarousel', 'index');
+        const topHeader = await getHeaderTop();
+        const gamesCarousel = await getGamesCarousel();
 
         return { props: { reviews, news, topHeader, gamesCarousel: gamesCarousel.items } };
     } catch (error) {
@@ -66,3 +64,5 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         return { props: { reviews: [], news: [], topHeader: {}, gamesCarousel: [] } };
     }
 };
+
+

@@ -1,4 +1,3 @@
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { FC } from 'react';
 
@@ -14,7 +13,7 @@ const Review: FC<IReview> = ({ body, title, genre, year, publisher }) => {
             <Typography component="h5" sx={{ mb: 4 }} variant="h5">
                 {genre} released by {publisher} in {year} year
             </Typography>
-            <Box dangerouslySetInnerHTML={{ __html: body }} />
+            <div dangerouslySetInnerHTML={{ __html: body }} />
         </article>
     );
 };

@@ -1,8 +1,14 @@
+import Showdown from 'showdown';
+
 import { IReview } from '~/types';
 
 import { getFile } from './getFile';
 
 
-export function getReview(slug: string) {
-    return getFile<IReview>('reviews', slug);
+export async function getReview(slug: string) {
+    const review = await getFile<IReview>('reviews', slug);
+
+    review.body = new Showdown.Converter().makeHtml(review.body);
+
+    return review;
 }
