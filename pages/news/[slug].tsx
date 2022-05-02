@@ -5,7 +5,7 @@ import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import NewsItem from '~/layouts/NewsItem';
 import { INews } from '~/types';
-import { getNewsItem, getNewsPaths } from '~/utils';
+import { getNewsItem, getNewsPaths } from '~/utils/server';
 
 
 interface Props {

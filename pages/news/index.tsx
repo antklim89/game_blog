@@ -6,7 +6,7 @@ import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import NewsList from '~/layouts/NewsList';
 import { INews } from '~/types';
-import { getNews } from '~/utils';
+import { getNews } from '~/utils/server';
 
 
 interface Props {

@@ -8,7 +8,7 @@ import Layout from '~/layouts/Layout';
 import NewsList from '~/layouts/NewsList';
 import ReviewList from '~/layouts/ReviewsList';
 import { IReview, INews, ITopHeader, IGamesCarousel } from '~/types';
-import { getReviews, getNews, getHeaderTop, getGamesCarousel } from '~/utils';
+import { getReviews, getNews, getHeaderTop, getGamesCarousel } from '~/utils/server';
 
 
 interface Props {

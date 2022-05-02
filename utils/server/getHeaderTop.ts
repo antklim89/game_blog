@@ -1,7 +1,7 @@
 import Showdown from 'showdown';
 
 import { ITopHeader } from '~/types';
-import { getFile } from '~/utils/getFile';
+import { getFile } from '~/utils/server/getFile';
 
 
 export async function getHeaderTop() {

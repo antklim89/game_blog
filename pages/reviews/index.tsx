@@ -6,7 +6,7 @@ import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import ReviewsList from '~/layouts/ReviewsList';
 import { IReview } from '~/types';
-import { getReviews } from '~/utils';
+import { getReviews } from '~/utils/server';
 
 
 interface Props {
