@@ -34,18 +34,18 @@ const ReviewListItem: FC<ReviewsListItemProps> = ({
                     variant="outlined"
                 >
                     <CardHeader
-                        subheader={`${year} year`}
+                        subheader={`${year} year of release`}
                         subheaderTypographyProps={{ color: 'white', variant: 'subtitle2' }}
                         sx={{ p: [1, 2] }}
                         title={title}
-                        titleTypographyProps={{ variant: 'h4', component: 'h4', color: 'white', whiteSpace: 'nowrap' }}
+                        titleTypographyProps={{ variant: 'h4', component: 'h4', whiteSpace: 'nowrap' }}
                     />
                     <CardContent sx={{ p: [1, 2] }}>
                         <Typography>
-                            Genre: {genre}
+                            {genre}
                         </Typography>
                         <Typography>
-                            Published by {publisher}
+                            Released by {publisher}
                         </Typography>
                     </CardContent>
                     <Box

@@ -26,6 +26,7 @@ const Home: NextPage<Props> = ({ reviews, news, topHeader, gamesCarousel }) => {
             <Container>
                 <GamesCarousel gamesCarousel={gamesCarousel} />
                 <Typography
+                    color="primary"
                     component="h3"
                     mt={4}
                     textAlign="center"
@@ -35,6 +36,7 @@ const Home: NextPage<Props> = ({ reviews, news, topHeader, gamesCarousel }) => {
                 </Typography>
                 <ReviewList reviews={reviews} />
                 <Typography
+                    color="primary"
                     component="h3"
                     mt={4}
                     textAlign="center"

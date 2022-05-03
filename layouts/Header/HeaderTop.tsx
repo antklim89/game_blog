@@ -1,8 +1,6 @@
-import type { Theme } from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import { FC } from 'react';
 
 import { HeaderProps } from './Header.types';
@@ -10,10 +8,8 @@ import HeaderLogo from './HeaderLogo';
 
 
 const HeaderTop: FC<HeaderProps> = ({ image, text, title }) => {
-    const matches = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
 
     if (!image) return null;
-    if (!matches) return null;
     return (
         <Box
             sx={{
@@ -22,7 +18,7 @@ const HeaderTop: FC<HeaderProps> = ({ image, text, title }) => {
                 alignItems: 'center',
                 py: 4,
                 backgroundImage: `URL(${image})`,
-                minHeight: 320,
+                minHeight: [180, 320],
                 background: `
                     linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
                     no-repeat center/cover  URL(${image})
@@ -40,6 +36,7 @@ const HeaderTop: FC<HeaderProps> = ({ image, text, title }) => {
                     <Typography
                         alignItems="center"
                         color="white"
+                        p={4}
                         textAlign="center"
                         variant="h1"
                     >
