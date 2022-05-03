@@ -32,9 +32,7 @@ const NewsListItem: FC<NewsListItemProps> = ({ title, publishedAt, slug, body, p
                             primaryTypographyProps={{ variant: 'h4', component: 'h4' }}
                             secondary={fromNow(publishedAt)}
                         />
-                        <ListItemText
-                            primary={body.slice(0, 200)}
-                        />
+                        <div dangerouslySetInnerHTML={{ __html: body }} />
                     </Box>
                 </ListItem>
             </Link>
