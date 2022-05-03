@@ -28,7 +28,7 @@ export default NewsPage;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
     try {
-        const news = await getNews();
+        const news = await getNews({ page: 1, limit: 5 });
 
         return { props: { news } };
     } catch (error) {

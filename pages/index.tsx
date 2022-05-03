@@ -56,7 +56,7 @@ export default Home;
 export const getStaticProps: GetStaticProps<Props> = async () => {
     try {
         const reviews = await getReviews();
-        const news = await getNews();
+        const news = await getNews({ page: 1, limit: 5 });
         const topHeader = await getHeaderTop();
         const gamesCarousel = await getGamesCarousel();
 
