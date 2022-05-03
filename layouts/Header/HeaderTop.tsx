@@ -20,7 +20,7 @@ const HeaderTop: FC<HeaderProps> = ({ image, text, title }) => {
                 backgroundImage: `URL(${image})`,
                 minHeight: [180, 320],
                 background: `
-                    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                    linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
                     no-repeat center/cover  URL(${image})
                 `,
             }}
