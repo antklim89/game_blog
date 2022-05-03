@@ -1,5 +1,6 @@
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { FC } from 'react';
@@ -8,10 +9,7 @@ import { FC } from 'react';
 const Contacts: FC = () => {
     return (
         <section>
-            <Typography component="h1" sx={{ mb: 4 }} variant="h3">
-                Have a question?<br />Write me.
-            </Typography>
-            <Box
+            <Paper
                 action="/contacts/success"
                 component="form"
                 data-netlify="true"
@@ -21,30 +19,37 @@ const Contacts: FC = () => {
                 sx={{
                     display: 'flex',
                     flexDirection: 'column',
+                    p: 4,
                 }}
             >
+                <Typography component="h1" sx={{ mb: 4 }} variant="h3">
+                    Have a question?<br />Write me.
+                </Typography>
                 <Box component="label" sx={{ display: 'none' }}>
                     Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
                 </Box>
                 <TextField
                     fullWidth
+                    required
+                    label="Name"
                     name="name"
-                    placeholder="Your name"
                     sx={{ mb: 4 }}
                     type="text"
                 />
                 <TextField
                     fullWidth
+                    required
+                    label="Subject"
                     name="subject"
-                    placeholder="Your subject"
                     sx={{ mb: 4 }}
                     type="text"
                 />
                 <TextField
                     fullWidth
                     multiline
+                    required
+                    label="Message"
                     name="message"
-                    placeholder="Your message"
                     rows={5}
                     sx={{ mb: 4 }}
                 />
@@ -61,7 +66,7 @@ const Contacts: FC = () => {
                 >
                     Send
                 </Button>
-            </Box>
+            </Paper>
         </section>
     );
 };
