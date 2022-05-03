@@ -36,10 +36,11 @@ const ReviewListItem: FC<ReviewsListItemProps> = ({
                     <CardHeader
                         subheader={`${year} year`}
                         subheaderTypographyProps={{ color: 'white', variant: 'subtitle2' }}
+                        sx={{ p: [1, 2] }}
                         title={title}
-                        titleTypographyProps={{ variant: 'h3', component: 'h4', color: 'white', whiteSpace: 'nowrap' }}
+                        titleTypographyProps={{ variant: 'h4', component: 'h4', color: 'white', whiteSpace: 'nowrap' }}
                     />
-                    <CardContent>
+                    <CardContent sx={{ p: [1, 2] }}>
                         <Typography>
                             Genre: {genre}
                         </Typography>
@@ -49,14 +50,18 @@ const ReviewListItem: FC<ReviewsListItemProps> = ({
                     </CardContent>
                     <Box
                         sx={{
-                            position: 'absolute', top: 0, right: 0, left: 0, bottom: 0, zIndex: -1,
+                            position: 'absolute',
+                            top: 0,
+                            right: 0,
+                            left: 0,
+                            bottom: 0,
+                            zIndex: -1,
                         }}
                     >
                         <Image
                             alt={title}
-                            height={640}
+                            height={720}
                             objectFit="cover"
-                            objectPosition="center"
                             src={`http://localhost:3000${previewImage}`}
                             width={1280}
                         />
