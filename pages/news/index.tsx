@@ -1,5 +1,4 @@
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 import type { GetStaticProps, NextPage } from 'next';
 
 import Seo from '~/components/Seo';
@@ -18,14 +17,6 @@ const NewsPage: NextPage<Props> = ({ news }) => {
         <Layout>
             <Seo title="News" />
             <Container>
-                <Typography
-                    component="h3"
-                    mt={4}
-                    textAlign="center"
-                    variant="h3"
-                >
-                    News
-                </Typography>
                 <NewsList news={news} />
             </Container>
         </Layout>

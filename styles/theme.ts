@@ -14,9 +14,9 @@ export const theme = createTheme({
         background: { default: background },
     },
     typography: {
-        h1: { color: primaryColor },
-        h2: { color: primaryColor },
-        h3: { color: primaryColor },
-        h4: { color: primaryColor },
+        htmlFontSize: 16,
+        h1: { fontSize: '4rem' },
+        h2: { fontSize: '3.5rem' },
+        h3: { fontSize: '3rem' },
     },
 });
