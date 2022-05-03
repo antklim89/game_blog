@@ -30,7 +30,7 @@ const GamesCarousel: FC<GamesCarouselProps> = ({ gamesCarousel }) => {
                     <Typography
                         sx={{
                             position: 'absolute',
-                            bottom: 0,
+                            bottom: 10,
                             left: 0,
                             backgroundColor: 'rgba(255,255,255,0.4)',
                             px: 8,
