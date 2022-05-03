@@ -7,8 +7,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
 
-import { fromNow } from '~/utils';
-
 import { NewsListItemProps } from './NewsList.types';
 
 
@@ -30,7 +28,7 @@ const NewsListItem: FC<NewsListItemProps> = ({ title, publishedAt, slug, body, p
                         <ListItemText
                             primary={title}
                             primaryTypographyProps={{ variant: 'h4', component: 'h4', color: 'primary' }}
-                            secondary={fromNow(publishedAt)}
+                            secondary={publishedAt}
                         />
                         <div dangerouslySetInnerHTML={{ __html: body }} />
                     </Box>
