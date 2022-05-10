@@ -9,7 +9,7 @@ import { INews, GetFilesResult } from '~/types';
 import { getNews } from '~/utils/server';
 
 
-export const LIMIT = 5;
+export const LIMIT = 10;
 
 export interface Props {
     news: GetFilesResult<INews>
@@ -20,8 +20,9 @@ const NewsPage: NextPage<Props> = ({ news }) => {
         <Layout>
             <Seo title="News" />
             <Container>
-                <Pagination totalPages={news.totalPages} />
+                <Pagination path="/news" totalPages={news.totalPages} />
                 <NewsList news={news.items} />
+                <Pagination path="/news" totalPages={news.totalPages} />
             </Container>
         </Layout>
     );
