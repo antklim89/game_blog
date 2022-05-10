@@ -20,7 +20,7 @@ const NewsListItem: FC<NewsListItemProps> = ({ title, publishedAt, slug, body, p
                         <Image
                             alt="title"
                             height={128}
-                            src={`http://localhost:3000${previewImage}`}
+                            src={`${process.env.URL || ''}${previewImage}`}
                             width={128}
                         />
                     </ListItemAvatar>

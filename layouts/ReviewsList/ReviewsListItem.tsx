@@ -62,7 +62,7 @@ const ReviewListItem: FC<ReviewsListItemProps> = ({
                             alt={title}
                             height={720}
                             objectFit="cover"
-                            src={`http://localhost:3000${previewImage}`}
+                            src={`${process.env.URL || ''}${previewImage}`}
                             width={1280}
                         />
                     </Box>

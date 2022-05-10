@@ -5,8 +5,7 @@ const nextConfig = {
     images: {
         domains: [
             '192.168.90.19',
-            'localhost',
-            new URL(process.env.URL).host,
+            process.env.URL ? new URL(process.env.URL).host : 'localhost',
         ],
     },
 };
