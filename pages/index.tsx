@@ -1,13 +1,16 @@
+import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import type { GetStaticProps, NextPage } from 'next';
+import Link from 'next/link';
 
 import GamesCarousel from '~/components/GamesCarousel';
+import Pagination from '~/components/Pagination';
 import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import NewsList from '~/layouts/NewsList';
 import ReviewList from '~/layouts/ReviewsList';
-import { IReview, INews, ITopHeader, IGamesCarousel, GetFilesResult } from '~/types';
+import type { IReview, INews, ITopHeader, IGamesCarousel, GetFilesResult } from '~/types';
 import { getReviews, getNews, getHeaderTop, getGamesCarousel } from '~/utils/server';
 
 
@@ -35,16 +38,23 @@ const Home: NextPage<Props> = ({ reviews, news, topHeader, gamesCarousel }) => {
                     Reviews
                 </Typography>
                 <ReviewList reviews={reviews.items} />
-                <Typography
-                    color="primary"
-                    component="h3"
-                    mt={4}
-                    textAlign="center"
-                    variant="h3"
-                >
-                    News
-                </Typography>
-                <NewsList news={news.items} />
+                <Box my={4}>
+                    <Link passHref href="/news">
+                        <a>
+                            <Typography
+                                color="primary"
+                                component="h3"
+                                mt={4}
+                                textAlign="center"
+                                variant="h3"
+                            >
+                                News
+                            </Typography>
+                        </a>
+                    </Link>
+                    <NewsList news={news.items} />
+                    <Pagination path="/news" totalPages={news.totalPages} />
+                </Box>
             </Container>
         </Layout>
     );

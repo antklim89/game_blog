@@ -7,7 +7,7 @@ import { PaginationProps } from './Pagination.types';
 import PaginationItem from './PaginationItem';
 
 
-const Pagination: FC<PaginationProps> = ({ totalPages }) => {
+const Pagination: FC<PaginationProps> = ({ totalPages, path }) => {
     const { query: { page } } = useRouter();
     const currentPage = typeof page === 'string' ? parseInt(page, 10) : 1;
 
@@ -17,7 +17,7 @@ const Pagination: FC<PaginationProps> = ({ totalPages }) => {
                 color="primary"
                 count={totalPages}
                 page={currentPage}
-                renderItem={PaginationItem}
+                renderItem={(item) => <PaginationItem {...item} path={path} />}
                 shape="rounded"
                 variant="outlined"
             />
