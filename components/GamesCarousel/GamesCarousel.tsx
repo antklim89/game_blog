@@ -23,7 +23,7 @@ const GamesCarousel: FC<GamesCarouselProps> = ({ gamesCarousel }) => {
                             alt={text}
                             height={480}
                             objectFit="cover"
-                            src={image}
+                            src={`${process.env.URL || ''}${image}`}
                             width={1280}
                         />
                     </Box>
