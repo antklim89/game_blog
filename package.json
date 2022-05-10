@@ -7,7 +7,7 @@
     "dev": "run-p dev:**",
     "dev:next": "next dev -H 0.0.0.0 -p 3000",
     "dev:cms-proxy": "netlify-cms-proxy-server",
-    "tsc": "tsc --noEmit",
+    "dev:typecheck": "tsc --noEmit -w --preserveWatchOutput",
     "build": "next build",
     "start": "next start"
   },
