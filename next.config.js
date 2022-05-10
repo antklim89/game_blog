@@ -6,6 +6,7 @@ const nextConfig = {
         domains: [
             '192.168.90.19',
             'localhost',
+            'game-blog-dev.netlify.app',
         ],
     },
 };
