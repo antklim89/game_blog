@@ -7,13 +7,13 @@ import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import NewsList from '~/layouts/NewsList';
 import ReviewList from '~/layouts/ReviewsList';
-import { IReview, INews, ITopHeader, IGamesCarousel } from '~/types';
+import { IReview, INews, ITopHeader, IGamesCarousel, GetFilesResult } from '~/types';
 import { getReviews, getNews, getHeaderTop, getGamesCarousel } from '~/utils/server';
 
 
 interface Props {
-    reviews: IReview[]
-    news: INews[]
+    reviews: GetFilesResult<IReview>
+    news: GetFilesResult<INews>
     topHeader: ITopHeader
     gamesCarousel: IGamesCarousel[]
 }
@@ -34,7 +34,7 @@ const Home: NextPage<Props> = ({ reviews, news, topHeader, gamesCarousel }) => {
                 >
                     Reviews
                 </Typography>
-                <ReviewList reviews={reviews} />
+                <ReviewList reviews={reviews.items} />
                 <Typography
                     color="primary"
                     component="h3"
@@ -44,7 +44,7 @@ const Home: NextPage<Props> = ({ reviews, news, topHeader, gamesCarousel }) => {
                 >
                     News
                 </Typography>
-                <NewsList news={news} />
+                <NewsList news={news.items} />
             </Container>
         </Layout>
     );
@@ -54,17 +54,12 @@ export default Home;
 
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    try {
-        const reviews = await getReviews();
-        const news = await getNews({ page: 1, limit: 5 });
-        const topHeader = await getHeaderTop();
-        const gamesCarousel = await getGamesCarousel();
+    const reviews = await getReviews();
+    const news = await getNews({ page: 1, limit: 5 });
+    const topHeader = await getHeaderTop();
+    const gamesCarousel = await getGamesCarousel();
 
-        return { props: { reviews, news, topHeader, gamesCarousel: gamesCarousel.items } };
-    } catch (error) {
-        console.error(error);
-        return { props: { reviews: [], news: [], topHeader: {}, gamesCarousel: [] } };
-    }
+    return { props: { reviews, news, topHeader, gamesCarousel: gamesCarousel.items } };
 };
 
 

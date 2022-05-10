@@ -1,15 +1,16 @@
 import Container from '@mui/material/Container';
 import type { GetStaticProps, NextPage } from 'next';
 
+import Pagination from '~/components/Pagination';
 import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import NewsList from '~/layouts/NewsList';
-import { INews } from '~/types';
+import { INews, GetFilesResult } from '~/types';
 import { getNews } from '~/utils/server';
 
 
 interface Props {
-    news: INews[]
+    news: GetFilesResult<INews>
 }
 
 const NewsPage: NextPage<Props> = ({ news }) => {
@@ -17,7 +18,8 @@ const NewsPage: NextPage<Props> = ({ news }) => {
         <Layout>
             <Seo title="News" />
             <Container>
-                <NewsList news={news} />
+                <Pagination totalPages={news.totalPages} />
+                <NewsList news={news.items} />
             </Container>
         </Layout>
     );
@@ -27,12 +29,7 @@ export default NewsPage;
 
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    try {
-        const news = await getNews({ page: 1, limit: 5 });
+    const news = await getNews({ page: 1, limit: 5 });
 
-        return { props: { news } };
-    } catch (error) {
-        console.error(error);
-        return { props: { news: [] } };
-    }
+    return { props: { news } };
 };

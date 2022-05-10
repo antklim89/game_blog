@@ -5,12 +5,12 @@ import type { GetStaticProps, NextPage } from 'next';
 import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import ReviewsList from '~/layouts/ReviewsList';
-import { IReview } from '~/types';
+import { GetFilesResult, IReview } from '~/types';
 import { getReviews } from '~/utils/server';
 
 
 interface Props {
-    reviews: IReview[];
+    reviews: GetFilesResult<IReview>;
 }
 
 const ReviewsPage: NextPage<Props> = ({ reviews }) => {
@@ -18,7 +18,7 @@ const ReviewsPage: NextPage<Props> = ({ reviews }) => {
         <Layout>
             <Seo title="Reviews" />
             <Container>
-                <ReviewsList reviews={reviews} />
+                <ReviewsList reviews={reviews.items} />
             </Container>
         </Layout>
     );
@@ -27,12 +27,8 @@ const ReviewsPage: NextPage<Props> = ({ reviews }) => {
 export default ReviewsPage;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    try {
-        const reviews = await getReviews();
+    const reviews = await getReviews();
 
-        return { props: { reviews } };
-    } catch (error) {
-        return { props: { reviews: [] } };
-    }
+    return { props: { reviews } };
 };
 
