@@ -9,7 +9,9 @@ import { INews, GetFilesResult } from '~/types';
 import { getNews } from '~/utils/server';
 
 
-interface Props {
+export const LIMIT = 5;
+
+export interface Props {
     news: GetFilesResult<INews>
 }
 
@@ -29,7 +31,7 @@ export default NewsPage;
 
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    const news = await getNews({ page: 1, limit: 5 });
+    const news = await getNews({ page: 1, limit: LIMIT });
 
     return { props: { news } };
 };

@@ -1,34 +1,11 @@
-import Container from '@mui/material/Container';
-import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
-import Pagination from '~/components/Pagination';
-import Seo from '~/components/Seo';
-import Layout from '~/layouts/Layout';
-import NewsList from '~/layouts/NewsList';
-import { GetFilesResult, INews } from '~/types';
 import { getNews, getNewsPagesPaths } from '~/utils/server';
 
-
-const LIMIT = 5;
-
-interface Props {
-    news: GetFilesResult<INews>;
-}
+import { LIMIT, Props } from '../index';
 
 
-const ReviewPage: NextPage<Props> = ({ news }) => {
-    return (
-        <Layout>
-            <Seo title="News" />
-            <Container>
-                <Pagination totalPages={news.totalPages} />
-                <NewsList news={news.items} />
-            </Container>
-        </Layout>
-    );
-};
-
-export default ReviewPage;
+export { default } from '../index';
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -48,5 +25,4 @@ export const getStaticProps: GetStaticProps<Props, {page: string}> = async ({ pa
 
     return { props: { news } };
 };
-
 
