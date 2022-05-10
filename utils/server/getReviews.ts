@@ -8,7 +8,7 @@ import { getFiles } from './getFiles';
 export async function getReviews() {
     const reviews = await getFiles<IReview>('reviews');
 
-    reviews.forEach((review) => {
+    reviews.items.forEach((review) => {
         review.body = new Showdown.Converter().makeHtml(review.body);
     });
 

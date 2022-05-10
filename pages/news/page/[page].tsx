@@ -1,17 +1,18 @@
 import Container from '@mui/material/Container';
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 
+import Pagination from '~/components/Pagination';
 import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import NewsList from '~/layouts/NewsList';
-import { INews } from '~/types';
+import { GetFilesResult, INews } from '~/types';
 import { getNews, getNewsPagesPaths } from '~/utils/server';
 
 
 const LIMIT = 5;
 
 interface Props {
-    news: INews[];
+    news: GetFilesResult<INews>;
 }
 
 
@@ -20,7 +21,8 @@ const ReviewPage: NextPage<Props> = ({ news }) => {
         <Layout>
             <Seo title="News" />
             <Container>
-                <NewsList news={news} />
+                <Pagination totalPages={news.totalPages} />
+                <NewsList news={news.items} />
             </Container>
         </Layout>
     );
