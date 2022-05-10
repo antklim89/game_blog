@@ -12,7 +12,7 @@ export const news: CmsCollection = {
     public_folder: '/content/news/images',
     create: true,
     editor: { preview: false },
-    slug: '{{year}}{{month}}{{day}}{{hour}}{{minute}}{{second}}-{{slug}}',
+    slug: '{{slug}}',
     fields: [
         {
             name: 'body',
