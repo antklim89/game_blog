@@ -11,7 +11,7 @@ export const cmsConfig: InitOptions = {
     config: {
         load_config_file: false,
 
-        // site_url: 'https://cozy-clothing.netlify.app',
+        site_url: 'https://game-blog-dev.netlify.app',
 
         backend: {
             name: 'git-gateway',
