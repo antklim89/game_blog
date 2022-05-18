@@ -6,7 +6,7 @@ import _ from 'lodash';
 
 
 const NEWS_NUMBER = 0;
-const REVIEWS_NUMBER = 5;
+const REVIEWS_NUMBER = 25;
 
 /**
  * News
