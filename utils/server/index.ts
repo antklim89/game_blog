@@ -7,4 +7,4 @@ export * from './getNewsPaths';
 export * from './getHeaderTop';
 export * from './getGamesCarousel';
 export * from './getAbout';
-export * from './getNewsPagesPaths';
+export * from './getPagesPaths';

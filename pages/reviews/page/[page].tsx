@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { getNews, getPagesPaths } from '~/utils/server';
+import { getReviews, getPagesPaths } from '~/utils/server';
 
 import { LIMIT, Props } from '../index';
 
@@ -9,7 +9,7 @@ export { default } from '../index';
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const path = await getPagesPaths(LIMIT, 'news');
+    const path = await getPagesPaths(LIMIT, 'reviews');
 
     return {
         paths: path,
@@ -21,8 +21,8 @@ export const getStaticProps: GetStaticProps<Props, {page: string}> = async ({ pa
     if (!params) return { notFound: true };
     const page = parseInt(params.page, 10);
 
-    const news = await getNews({ page, limit: LIMIT });
+    const reviews = await getReviews({ page, limit: LIMIT });
 
-    return { props: { news } };
+    return { props: { reviews } };
 };
 

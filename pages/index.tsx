@@ -38,6 +38,7 @@ const Home: NextPage<Props> = ({ reviews, news, topHeader, gamesCarousel }) => {
                     Reviews
                 </Typography>
                 <ReviewList reviews={reviews.items} />
+                <Pagination path="/reviews" totalPages={reviews.totalPages} />
                 <Box my={4}>
                     <Link passHref href="/news">
                         <a>
@@ -64,8 +65,8 @@ export default Home;
 
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    const reviews = await getReviews();
-    const news = await getNews({ page: 1, limit: 5 });
+    const reviews = await getReviews({ limit: 4 });
+    const news = await getNews({ limit: 5 });
     const topHeader = await getHeaderTop();
     const gamesCarousel = await getGamesCarousel();
 
