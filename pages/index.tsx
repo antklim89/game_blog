@@ -1,11 +1,11 @@
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import type { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 
 import GamesCarousel from '~/components/GamesCarousel';
-import Pagination from '~/components/Pagination';
 import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import NewsList from '~/layouts/NewsList';
@@ -28,22 +28,30 @@ const HomePage: NextPage<Props> = ({ reviews, news, topHeader, gamesCarousel }) 
             <Seo title="Home" />
             <Container>
                 <GamesCarousel gamesCarousel={gamesCarousel} />
-                <Link passHref href="/reviews">
-                    <a>
-                        <Typography
-                            color="primary"
-                            component="h3"
-                            mt={4}
-                            textAlign="center"
-                            variant="h3"
-                        >
-                            Reviews
-                        </Typography>
-                    </a>
-                </Link>
-                <ReviewList reviews={reviews.items} />
-                <Pagination path="/reviews" totalPages={reviews.totalPages} />
-                <Box my={4}>
+                <Box mb={8}>
+                    <Link passHref href="/reviews">
+                        <a>
+                            <Typography
+                                color="primary"
+                                component="h3"
+                                mt={4}
+                                textAlign="center"
+                                variant="h3"
+                            >
+                                Reviews
+                            </Typography>
+                        </a>
+                    </Link>
+                    <ReviewList reviews={reviews.items} />
+                    <Box display="flex" justifyContent="flex-end">
+                        <Link passHref href="/reviews">
+                            <Button color="primary" component="a" variant="outlined" >
+                                Show more...
+                            </Button>
+                        </Link>
+                    </Box>
+                </Box>
+                <Box mb={8}>
                     <Link passHref href="/news">
                         <a>
                             <Typography
@@ -58,7 +66,13 @@ const HomePage: NextPage<Props> = ({ reviews, news, topHeader, gamesCarousel }) 
                         </a>
                     </Link>
                     <NewsList news={news.items} />
-                    <Pagination path="/news" totalPages={news.totalPages} />
+                    <Box display="flex" justifyContent="flex-end">
+                        <Link passHref href="/news">
+                            <Button color="primary" component="a" variant="outlined" >
+                                Show more...
+                            </Button>
+                        </Link>
+                    </Box>
                 </Box>
             </Container>
         </Layout>
