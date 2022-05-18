@@ -5,6 +5,7 @@ import Pagination from '~/components/Pagination';
 import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import NewsList from '~/layouts/NewsList';
+import topImage from '~/public/adam-mills-SgYayrin5HY-unsplash.jpg';
 import { INews, GetFilesResult } from '~/types';
 import { getNews } from '~/utils/server';
 
@@ -17,7 +18,7 @@ export interface Props {
 
 const NewsPage: NextPage<Props> = ({ news }) => {
     return (
-        <Layout>
+        <Layout image={topImage} title="News">
             <Seo title="News" />
             <Container>
                 <Pagination path="/news" totalPages={news.totalPages} />
@@ -32,7 +33,7 @@ export default NewsPage;
 
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    const news = await getNews({ page: 1, limit: LIMIT });
+    const news = await getNews({ limit: LIMIT });
 
     return { props: { news } };
 };
