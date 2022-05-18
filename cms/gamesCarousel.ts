@@ -18,11 +18,17 @@ export const gamesCarousel: CmsCollectionFile = {
                 {
                     name: 'image',
                     widget: 'image',
+                    required: true,
                 },
                 {
                     name: 'text',
+                    widget: 'string',
+                    required: true
+                },
+                {
+                    name: 'link',
                     widget: 'string'
-                }
+                },
             ]
         }
     ],

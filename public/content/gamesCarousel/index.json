@@ -2,7 +2,8 @@
   "items": [
     {
       "image": "/content/gamesCarousel/images/wesley-tingey-l4uck06unm-unsplash.jpg",
-      "text": "lorem ipsum"
+      "text": "lorem ipsum",
+      "link": "/reviews"
     },
     {
       "image": "/content/gamesCarousel/images/kyle-nieber-simo8twzlym-unsplash.jpg",
