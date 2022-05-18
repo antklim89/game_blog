@@ -22,21 +22,25 @@ interface Props {
 }
 
 
-const Home: NextPage<Props> = ({ reviews, news, topHeader, gamesCarousel }) => {
+const HomePage: NextPage<Props> = ({ reviews, news, topHeader, gamesCarousel }) => {
     return (
         <Layout image={topHeader.image} text={topHeader.text} >
             <Seo title="Home" />
             <Container>
                 <GamesCarousel gamesCarousel={gamesCarousel} />
-                <Typography
-                    color="primary"
-                    component="h3"
-                    mt={4}
-                    textAlign="center"
-                    variant="h3"
-                >
-                    Reviews
-                </Typography>
+                <Link passHref href="/reviews">
+                    <a>
+                        <Typography
+                            color="primary"
+                            component="h3"
+                            mt={4}
+                            textAlign="center"
+                            variant="h3"
+                        >
+                            Reviews
+                        </Typography>
+                    </a>
+                </Link>
                 <ReviewList reviews={reviews.items} />
                 <Pagination path="/reviews" totalPages={reviews.totalPages} />
                 <Box my={4}>
@@ -61,7 +65,7 @@ const Home: NextPage<Props> = ({ reviews, news, topHeader, gamesCarousel }) => {
     );
 };
 
-export default Home;
+export default HomePage;
 
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
