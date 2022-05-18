@@ -2,6 +2,7 @@
 import Container from '@mui/material/Container';
 import type { GetStaticProps, NextPage } from 'next';
 
+import Pagination from '~/components/Pagination';
 import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import ReviewsList from '~/layouts/ReviewsList';
@@ -9,7 +10,9 @@ import { GetFilesResult, IReview } from '~/types';
 import { getReviews } from '~/utils/server';
 
 
-interface Props {
+export const LIMIT = 10;
+
+export interface Props {
     reviews: GetFilesResult<IReview>;
 }
 
@@ -18,7 +21,9 @@ const ReviewsPage: NextPage<Props> = ({ reviews }) => {
         <Layout>
             <Seo title="Reviews" />
             <Container>
+                <Pagination path="/reviews" totalPages={reviews.totalPages} />
                 <ReviewsList reviews={reviews.items} />
+                <Pagination path="/reviews" totalPages={reviews.totalPages} />
             </Container>
         </Layout>
     );
@@ -27,7 +32,7 @@ const ReviewsPage: NextPage<Props> = ({ reviews }) => {
 export default ReviewsPage;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    const reviews = await getReviews();
+    const reviews = await getReviews({ limit: LIMIT });
 
     return { props: { reviews } };
 };
