@@ -7,11 +7,12 @@ import Link from 'next/link';
 
 import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
+import topImage from '~/public/ahmad-mohammed-wGc4AQ3BJ_U-unsplash.jpg';
 
 
 const ContactsPage: NextPage = () => {
     return (
-        <Layout>
+        <Layout image={topImage} title="Contacts">
             <Seo title="Contacts" />
             <Container>
                 <Paper sx={{ p: 4 }}>

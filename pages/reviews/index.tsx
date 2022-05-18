@@ -6,6 +6,7 @@ import Pagination from '~/components/Pagination';
 import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import ReviewsList from '~/layouts/ReviewsList';
+import topImage from '~/public/gene-brutty-nheWMnzmGZ4-unsplash.jpg';
 import { GetFilesResult, IReview } from '~/types';
 import { getReviews } from '~/utils/server';
 
@@ -18,7 +19,7 @@ export interface Props {
 
 const ReviewsPage: NextPage<Props> = ({ reviews }) => {
     return (
-        <Layout>
+        <Layout image={topImage} title="Reviews">
             <Seo title="Reviews" />
             <Container>
                 <Pagination path="/reviews" totalPages={reviews.totalPages} />

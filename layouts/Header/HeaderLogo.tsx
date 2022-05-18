@@ -6,7 +6,11 @@ import { FC } from 'react';
 const HeaderLogo: FC = () => {
     return (
         <Link passHref href="/" key="2">
-            <Typography component="a" fontWeight="bold" variant="h5">
+            <Typography
+                component="a"
+                fontWeight="bold"
+                variant="h5"
+            >
                 GAME BLOG
             </Typography>
         </Link>
