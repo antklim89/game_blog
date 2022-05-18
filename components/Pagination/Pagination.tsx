@@ -12,7 +12,7 @@ const Pagination: FC<PaginationProps> = ({ totalPages, path }) => {
     const currentPage = typeof page === 'string' ? parseInt(page, 10) : 1;
 
     return (
-        <Box display="flex" justifyContent="center">
+        <Box display="flex" justifyContent="center" mb={4}>
             <PaginationMui
                 color="primary"
                 count={totalPages}
