@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { getReviews, getPagesPaths } from '~/utils/server';
+import { getReviews, getPagesPaths, getReviewsFields } from '~/utils/server';
 
 import { LIMIT, Props } from '../index';
 
@@ -22,7 +22,8 @@ export const getStaticProps: GetStaticProps<Props, {page: string}> = async ({ pa
     const page = parseInt(params.page, 10);
 
     const reviews = await getReviews({ page, limit: LIMIT });
+    const reviewFields = await getReviewsFields();
 
-    return { props: { reviews } };
+    return { props: { reviews, reviewFields } };
 };
 

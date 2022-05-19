@@ -7,14 +7,15 @@ import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import ReviewsList from '~/layouts/ReviewsList';
 import topImage from '~/public/gene-brutty-nheWMnzmGZ4-unsplash.jpg';
-import { GetFilesResult, IReview } from '~/types';
-import { getReviews } from '~/utils/server';
+import { GetFilesResult, IReview, ReviewFields } from '~/types';
+import { getReviews, getReviewsFields } from '~/utils/server';
 
 
 export const LIMIT = 10;
 
 export interface Props {
     reviews: GetFilesResult<IReview>;
+    reviewFields: ReviewFields
 }
 
 const ReviewsPage: NextPage<Props> = ({ reviews }) => {
@@ -35,6 +36,8 @@ export default ReviewsPage;
 export const getStaticProps: GetStaticProps<Props> = async () => {
     const reviews = await getReviews({ limit: LIMIT });
 
-    return { props: { reviews } };
+    const reviewFields = await getReviewsFields();
+
+    return { props: { reviews, reviewFields } };
 };
 
