@@ -3,7 +3,8 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 import { FC } from 'react';
-import ReactMarkdown from 'react-markdown';
+
+import Markdown from '~/components/Markdown';
 
 import { HeaderProps } from './Header.types';
 import HeaderLogo from './HeaderLogo';
@@ -33,9 +34,9 @@ const HeaderTop: FC<HeaderProps> = ({ image, text, title }) => {
             <HeaderLogo />
             {text && (
                 <Container sx={{ py: 4, textAlign: 'center' }}>
-                    <ReactMarkdown>
+                    <Markdown>
                         {text}
-                    </ReactMarkdown>
+                    </Markdown>
                 </Container>
             )}
             {title && (

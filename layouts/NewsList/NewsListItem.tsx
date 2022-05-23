@@ -6,7 +6,8 @@ import ListItemText from '@mui/material/ListItemText';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
-import ReactMarkdown from 'react-markdown';
+
+import Markdown from '~/components/Markdown';
 
 import { NewsListItemProps } from './NewsList.types';
 
@@ -31,9 +32,9 @@ const NewsListItem: FC<NewsListItemProps> = ({ title, publishedAt, slug, body, p
                             primaryTypographyProps={{ variant: 'h4', component: 'h4', color: 'primary' }}
                             secondary={publishedAt}
                         />
-                        <ReactMarkdown>
+                        <Markdown>
                             {body}
-                        </ReactMarkdown>
+                        </Markdown>
                     </Box>
                 </ListItem>
             </Link>

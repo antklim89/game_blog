@@ -1,15 +1,15 @@
 import { FC } from 'react';
-import ReactMarkdown from 'react-markdown';
 
+import Markdown from '~/components/Markdown';
 import { IAbout } from '~/types/about';
 
 
 const About: FC<IAbout> = ({ text }) => {
     return (
         <article>
-            <ReactMarkdown>
+            <Markdown>
                 {text}
-            </ReactMarkdown>
+            </Markdown>
         </article>
     );
 };
