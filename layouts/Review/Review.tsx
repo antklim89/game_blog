@@ -1,5 +1,6 @@
 import Typography from '@mui/material/Typography';
 import { FC } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 import { IReview } from '~/types';
 
@@ -10,7 +11,9 @@ const Review: FC<IReview> = ({ body, genre, year, publisher }) => {
             <Typography component="h5" sx={{ mb: 4 }} variant="h5">
                 {genre} released by {publisher} in {year} year
             </Typography>
-            <div dangerouslySetInnerHTML={{ __html: body }} />
+            <ReactMarkdown>
+                {body}
+            </ReactMarkdown>
         </article>
     );
 };

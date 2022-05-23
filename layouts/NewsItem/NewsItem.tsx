@@ -1,5 +1,6 @@
 import Typography from '@mui/material/Typography';
 import { FC } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 import { INews } from '~/types';
 
@@ -13,7 +14,7 @@ const NewsItem: FC<INews> = ({ title, body, publishedAt }) => {
             <Typography sx={{ mb: 4 }} variant="subtitle1">
                 {publishedAt}
             </Typography>
-            <div dangerouslySetInnerHTML={{ __html: body }} />
+            <ReactMarkdown>{body}</ReactMarkdown>
         </article>
     );
 };

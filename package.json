@@ -28,9 +28,9 @@
     "nuka-carousel": "^5.0.13",
     "react": "18.0.0",
     "react-dom": "18.0.0",
+    "react-markdown": "^8.0.3",
     "react-slick": "^0.29.0",
-    "sass": "^1.51.0",
-    "showdown": "^2.1.0"
+    "sass": "^1.51.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
