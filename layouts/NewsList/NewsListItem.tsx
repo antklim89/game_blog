@@ -6,6 +6,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 import { NewsListItemProps } from './NewsList.types';
 
@@ -30,7 +31,9 @@ const NewsListItem: FC<NewsListItemProps> = ({ title, publishedAt, slug, body, p
                             primaryTypographyProps={{ variant: 'h4', component: 'h4', color: 'primary' }}
                             secondary={publishedAt}
                         />
-                        <div dangerouslySetInnerHTML={{ __html: body }} />
+                        <ReactMarkdown>
+                            {body}
+                        </ReactMarkdown>
                     </Box>
                 </ListItem>
             </Link>
