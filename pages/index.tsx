@@ -2,8 +2,10 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+import netlifyIdentity from 'netlify-identity-widget';
 import type { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 import GamesCarousel from '~/components/GamesCarousel';
 import Seo from '~/components/Seo';
@@ -23,6 +25,9 @@ interface Props {
 
 
 const HomePage: NextPage<Props> = ({ reviews, news, topHeader, gamesCarousel }) => {
+    useEffect(() => {
+        netlifyIdentity.init({});
+    }, []);
     return (
         <Layout image={topHeader.image} text={topHeader.text} >
             <Seo title="Home" />
