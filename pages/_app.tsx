@@ -4,7 +4,7 @@ import { Theme, ThemeProvider } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import type { AppProps } from 'next/app';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/400-italic.css';
 import '@fontsource/roboto/700.css';
@@ -18,6 +18,14 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         b: { color: palette.secondary.main },
         strong: { color: palette.secondary.main },
     }), []);
+
+    useEffect(() => {
+        import('netlify-identity-widget')
+            .then(({ default: netlifyIdentity }) => {
+                netlifyIdentity.init({});
+            });
+
+    }, []);
 
     return (
         <ThemeProvider theme={theme}>
