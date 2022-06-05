@@ -1,6 +1,6 @@
 import { resolve } from 'path';
 
-import { readJSON, readdir, statSync } from 'fs-extra';
+import { readJSON, readdir } from 'fs-extra';
 import memoize from 'lodash/memoize';
 
 import { GetFilesResult } from '~/types';
@@ -17,19 +17,19 @@ export interface GetFilesOptions {
 const getMemoizedFiles = memoize(async (fileDir: string) => {
     const fileNames = await readdir(fileDir);
 
-    return Promise.all(fileNames
+    const result = await Promise.all(fileNames
         .filter((filename) => (/\.json/i).test(filename))
-        .map((fileName) => ({
-            fileName,
-            time: statSync(resolve(fileDir, fileName)).mtime.getTime(),
-        }))
-        .sort((a, b) => b.time - a.time)
-        .map(({ fileName }) => fileName)
         .map(async (fileName) => {
             const fileJson = await readJSON(resolve(fileDir, fileName), 'utf-8');
             fileJson.slug = fileName.replace(/\.json/i, '');
             return fileJson;
         }));
+
+    result.sort((a, b) => {
+        return new Date(Number(b.createdAt) || 0).getTime() - new Date(Number(a.createdAt) || 0).getTime();
+    });
+
+    return result;
 });
 
 
