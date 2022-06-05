@@ -1,6 +1,4 @@
-/* eslint-disable */
-import type { CmsCollection } from 'netlify-cms-core'
-
+import type { CmsCollection } from 'netlify-cms-core';
 
 
 export const news: CmsCollection = {
@@ -14,6 +12,12 @@ export const news: CmsCollection = {
     editor: { preview: false },
     slug: '{{slug}}',
     fields: [
+        {
+            name: 'createdAt',
+            widget: 'datetime',
+            format: 'X',
+            required: true,
+        },
         {
             name: 'body',
             widget: 'markdown',
@@ -35,4 +39,4 @@ export const news: CmsCollection = {
             required: true,
         },
     ],
-}
+};
