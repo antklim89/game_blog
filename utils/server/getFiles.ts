@@ -11,6 +11,7 @@ import { CONTENT_PATH } from './constants';
 export interface GetFilesOptions {
     limit?: number;
     page?: number;
+    search?: Record<string, string>
 }
 
 
@@ -35,13 +36,24 @@ const getMemoizedFiles = memoize(async (fileDir: string) => {
 
 export async function getFiles<T>(
     filePath: string,
-    { limit = 6, page = 1 }: GetFilesOptions = { limit: 6, page: 1 },
+    { limit = 6, page = 1, search }: GetFilesOptions = { limit: 6, page: 1 },
 ): Promise<GetFilesResult<T>> {
     const fileDir = resolve(process.cwd(), CONTENT_PATH, filePath);
     const fileJsons = await getMemoizedFiles(fileDir);
 
+    const searchedFiles = searchFiles(fileJsons, search);
+
     return {
-        items: fileJsons.slice((page - 1) * limit, (page * limit)) as T[],
-        totalPages: Math.ceil(fileJsons.length / limit),
+        items: searchedFiles.slice((page - 1) * limit, (page * limit)) as T[],
+        totalPages: Math.ceil(searchedFiles.length / limit),
     };
 }
+
+
+function searchFiles(fileJsons: Record<string, unknown>[], search?: Record<string, string>) {
+    if (!search) return fileJsons;
+    return fileJsons.filter((file) => {
+        return Object.entries(search).every(([key, value]) => file[key] === value);
+    });
+}
+
