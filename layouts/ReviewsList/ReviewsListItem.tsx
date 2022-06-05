@@ -12,7 +12,7 @@ import { ReviewsListItemProps } from './ReviewsList.types';
 
 
 const ReviewListItem: FC<ReviewsListItemProps> = ({
-    slug, title, previewImage, genre, publisher, year,
+    slug, title, previewImage, genre, publisher, gameRelease,
 }) => {
     return (
         <Link passHref href={`/reviews/${slug}`} >
@@ -34,7 +34,7 @@ const ReviewListItem: FC<ReviewsListItemProps> = ({
                     variant="outlined"
                 >
                     <CardHeader
-                        subheader={`${year} year of release`}
+                        subheader={new Date(gameRelease).toLocaleDateString()}
                         subheaderTypographyProps={{ color: 'white', variant: 'subtitle2' }}
                         sx={{ p: [1, 2] }}
                         title={title}

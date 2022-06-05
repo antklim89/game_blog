@@ -5,8 +5,9 @@ export interface IReview {
     title: string
     genre: string
     publisher: string
-    year: number
+    developer: string
+    createdAt: string
+    gameRelease: string
     previewImage: string
     body: string
-
 }
