@@ -102,6 +102,7 @@ module.exports = {
         '@typescript-eslint/no-shadow': 2,
         '@typescript-eslint/no-unused-vars': [1, { argsIgnorePattern: '^_' }],
         '@typescript-eslint/no-empty-interface': 0,
+        '@typescript-eslint/indent': [1, 4],
 
         /**
         * JavaScript
@@ -151,7 +152,7 @@ module.exports = {
         'quote-props': 0,
         'eol-last': 2,
         'no-multiple-empty-lines': [1, { max: 2 }],
-        'indent': [1, 4],
+        'indent': 0,
         'max-len': [1, { code: 120, ignoreComments: true, ignoreStrings: true }],
         'no-restricted-syntax': [2, 'WithStatement'],
         'camelcase': [1, { properties: 'never' }],
