@@ -1,4 +1,3 @@
-
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import type { GetServerSideProps, NextPage } from 'next';
@@ -13,7 +12,7 @@ import { GetFilesResult, IReview, ReviewFields } from '~/types';
 import { getReviews, getReviewsFields } from '~/utils/server';
 
 
-export const LIMIT = 10;
+export const LIMIT = 2;
 
 export interface Props {
     reviews: GetFilesResult<IReview>;
@@ -21,6 +20,7 @@ export interface Props {
 }
 
 const ReviewsPage: NextPage<Props> = ({ reviews, reviewFields }) => {
+
     return (
         <Layout image={topImage} title="Reviews">
             <Seo title="Reviews" />

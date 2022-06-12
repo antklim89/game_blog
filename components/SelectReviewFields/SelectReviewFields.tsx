@@ -5,7 +5,6 @@ import { useRouter } from 'next/router';
 import { ChangeEventHandler, FC, useCallback } from 'react';
 
 import { ReviewFields } from '~/types';
-import { setSearchParams } from '~/utils';
 
 
 const SELECT_GENRE = 'Select Genre';
@@ -14,20 +13,18 @@ const SELECT_PUBLISHER = 'Select Publisher';
 const SelectReviewFields: FC<ReviewFields> = ({ genres, publishers }) => {
     const router = useRouter();
 
-    const handleGenreSelect: ChangeEventHandler<HTMLInputElement> = useCallback((e) => {
-        if (e.target.value === SELECT_GENRE) {
-            setSearchParams(router, 'genre', '');
-            return;
-        }
-        setSearchParams(router, 'genre', e.target.value);
+    const handleFieldSelect: ChangeEventHandler<HTMLInputElement> = useCallback((e) => {
+        const newPath = e.target.value === SELECT_GENRE
+            ? '/reviews'
+            : `/reviews/genre/${e.target.value}/page/1`;
+        router.push(newPath);
     }, [router.asPath]);
 
     const handlePublisherSelect: ChangeEventHandler<HTMLInputElement> = useCallback((e) => {
-        if (e.target.value === SELECT_PUBLISHER) {
-            setSearchParams(router, 'publisher', '');
-            return;
-        }
-        setSearchParams(router, 'publisher', e.target.value);
+        const newPath = e.target.value === SELECT_PUBLISHER
+            ? '/reviews'
+            : `/reviews/publisher/${e.target.value}/page/1`;
+        router.push(newPath);
     }, [router.asPath]);
 
     return (
@@ -37,7 +34,7 @@ const SelectReviewFields: FC<ReviewFields> = ({ genres, publishers }) => {
                 label={SELECT_GENRE}
                 sx={{ mr: [1, null, 4] }}
                 value={router.query.genre || SELECT_GENRE}
-                onChange={handleGenreSelect}
+                onChange={handleFieldSelect}
             >
                 <MenuItem value={SELECT_GENRE}>{SELECT_GENRE}</MenuItem>
                 {genres.map((genre) => (
