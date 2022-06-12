@@ -1,5 +1,5 @@
 import Container from '@mui/material/Container';
-import type { GetServerSideProps, NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 
 import Pagination from '~/components/Pagination';
 import Seo from '~/components/Seo';
@@ -32,9 +32,8 @@ const NewsPage: NextPage<Props> = ({ news }) => {
 export default NewsPage;
 
 
-export const getServerSideProps: GetServerSideProps<Props> = async ({ query }) => {
-    const page = typeof query.page === 'string' ? parseInt(query.page, 10) : 1;
-    const news = await getNews({ limit: LIMIT, page });
+export const getStaticProps: GetStaticProps<Props> = async () => {
+    const news = await getNews({ limit: LIMIT });
 
     return { props: { news } };
 };
