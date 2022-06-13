@@ -10,9 +10,11 @@ export async function getReviewsFields(): Promise<ReviewFields> {
     return reviews.items.reduce<ReviewFields>((acc, review) => {
         if (!acc.genres.includes(review.genre)) acc.genres.push(review.genre);
         if (!acc.publishers.includes(review.publisher)) acc.publishers.push(review.publisher);
+        if (!acc.developers.includes(review.developer)) acc.developers.push(review.developer);
         return acc;
     }, {
         genres: [],
         publishers: [],
+        developers: [],
     });
 }
