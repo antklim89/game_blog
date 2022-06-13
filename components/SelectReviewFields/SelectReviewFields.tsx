@@ -9,8 +9,9 @@ import { ReviewFields } from '~/types';
 
 const SELECT_GENRE = 'Select Genre';
 const SELECT_PUBLISHER = 'Select Publisher';
+const SELECT_DEVELOPER = 'Select Developer';
 
-const SelectReviewFields: FC<ReviewFields> = ({ genres, publishers }) => {
+const SelectReviewFields: FC<ReviewFields> = ({ genres, publishers, developers }) => {
     const router = useRouter();
 
     const handleFieldSelect: ChangeEventHandler<HTMLInputElement> = useCallback((e) => {
@@ -24,6 +25,13 @@ const SelectReviewFields: FC<ReviewFields> = ({ genres, publishers }) => {
         const newPath = e.target.value === SELECT_PUBLISHER
             ? '/reviews'
             : `/reviews/publisher/${e.target.value}/page/1`;
+        router.push(newPath);
+    }, [router.asPath]);
+
+    const handleDeveloperSelect: ChangeEventHandler<HTMLInputElement> = useCallback((e) => {
+        const newPath = e.target.value === SELECT_DEVELOPER
+            ? '/reviews'
+            : `/reviews/developer/${e.target.value}/page/1`;
         router.push(newPath);
     }, [router.asPath]);
 
@@ -51,6 +59,18 @@ const SelectReviewFields: FC<ReviewFields> = ({ genres, publishers }) => {
                 <MenuItem value={SELECT_PUBLISHER}>{SELECT_PUBLISHER}</MenuItem>
                 {publishers.map((publisher) => (
                     <MenuItem key={publisher} value={publisher}>{publisher}</MenuItem>
+                ))}
+            </TextField>
+            <TextField
+                select
+                label={SELECT_DEVELOPER}
+                sx={{ ml: [1, null, 4] }}
+                value={router.query.developer || SELECT_DEVELOPER}
+                onChange={handleDeveloperSelect}
+            >
+                <MenuItem value={SELECT_DEVELOPER}>{SELECT_DEVELOPER}</MenuItem>
+                {developers.map((developer) => (
+                    <MenuItem key={developer} value={developer}>{developer}</MenuItem>
                 ))}
             </TextField>
         </Box>
