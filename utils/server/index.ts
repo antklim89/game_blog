@@ -9,3 +9,4 @@ export * from './getGamesCarousel';
 export * from './getAbout';
 export * from './getPagesPaths';
 export * from './getReviewsFields';
+export * from './getReviewsFIeldPaths';

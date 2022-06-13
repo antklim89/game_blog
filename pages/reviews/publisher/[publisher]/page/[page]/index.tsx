@@ -1,11 +1,11 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { LIMIT, Props } from '~/pages/reviews';
-import { getReviews, getReviewsFields, getReviewsPaths } from '~/utils/server';
+import { getReviews, getReviewsFields, getReviewsPathsByPublisher } from '~/utils/server';
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = await getReviewsPaths();
+    const paths = await getReviewsPathsByPublisher(LIMIT);
 
     return {
         paths,
