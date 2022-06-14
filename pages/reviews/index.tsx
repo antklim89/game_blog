@@ -43,7 +43,7 @@ const ReviewsPage: NextPage<Props> = ({ reviews, reviewFields }) => {
 
 export default ReviewsPage;
 
-export const getServerSideProps: GetServerSideProps<Props> = async ({ query }) => {
+export const getStaticProps: GetServerSideProps<Props> = async ({ query }) => {
     const page = typeof query.page === 'string' ? parseInt(query.page, 10) : 1;
     const search = {
         ...typeof query.genre === 'string' ? { genre: query.genre } : {},
