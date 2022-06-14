@@ -4,34 +4,34 @@ import TextField from '@mui/material/TextField';
 import { useRouter } from 'next/router';
 import { ChangeEventHandler, FC, useCallback } from 'react';
 
-import { ReviewFields } from '~/types';
+import { ReviewFieldsList } from '~/types';
 
 
 const SELECT_GENRE = 'Select Genre';
 const SELECT_PUBLISHER = 'Select Publisher';
 const SELECT_DEVELOPER = 'Select Developer';
 
-const SelectReviewFields: FC<ReviewFields> = ({ genres, publishers, developers }) => {
+const SelectReviewFields: FC<ReviewFieldsList> = ({ genre, publisher, developer }) => {
     const router = useRouter();
 
     const handleFieldSelect: ChangeEventHandler<HTMLInputElement> = useCallback((e) => {
         const newPath = e.target.value === SELECT_GENRE
             ? '/reviews'
-            : `/reviews/genre/${e.target.value}/page/1`;
+            : `/reviews/search/genre/${e.target.value}/page/1`;
         router.push(newPath);
     }, [router.asPath]);
 
     const handlePublisherSelect: ChangeEventHandler<HTMLInputElement> = useCallback((e) => {
         const newPath = e.target.value === SELECT_PUBLISHER
             ? '/reviews'
-            : `/reviews/publisher/${e.target.value}/page/1`;
+            : `/reviews/search/publisher/${e.target.value}/page/1`;
         router.push(newPath);
     }, [router.asPath]);
 
     const handleDeveloperSelect: ChangeEventHandler<HTMLInputElement> = useCallback((e) => {
         const newPath = e.target.value === SELECT_DEVELOPER
             ? '/reviews'
-            : `/reviews/developer/${e.target.value}/page/1`;
+            : `/reviews/search/developer/${e.target.value}/page/1`;
         router.push(newPath);
     }, [router.asPath]);
 
@@ -45,8 +45,8 @@ const SelectReviewFields: FC<ReviewFields> = ({ genres, publishers, developers }
                 onChange={handleFieldSelect}
             >
                 <MenuItem value={SELECT_GENRE}>{SELECT_GENRE}</MenuItem>
-                {genres.map((genre) => (
-                    <MenuItem key={genre} value={genre}>{genre}</MenuItem>
+                {genre.map((genreItem) => (
+                    <MenuItem key={genreItem} value={genreItem}>{genreItem}</MenuItem>
                 ))}
             </TextField>
             <TextField
@@ -57,8 +57,8 @@ const SelectReviewFields: FC<ReviewFields> = ({ genres, publishers, developers }
                 onChange={handlePublisherSelect}
             >
                 <MenuItem value={SELECT_PUBLISHER}>{SELECT_PUBLISHER}</MenuItem>
-                {publishers.map((publisher) => (
-                    <MenuItem key={publisher} value={publisher}>{publisher}</MenuItem>
+                {publisher.map((publisherItem) => (
+                    <MenuItem key={publisherItem} value={publisherItem}>{publisherItem}</MenuItem>
                 ))}
             </TextField>
             <TextField
@@ -69,8 +69,8 @@ const SelectReviewFields: FC<ReviewFields> = ({ genres, publishers, developers }
                 onChange={handleDeveloperSelect}
             >
                 <MenuItem value={SELECT_DEVELOPER}>{SELECT_DEVELOPER}</MenuItem>
-                {developers.map((developer) => (
-                    <MenuItem key={developer} value={developer}>{developer}</MenuItem>
+                {developer.map((developerItem) => (
+                    <MenuItem key={developerItem} value={developerItem}>{developerItem}</MenuItem>
                 ))}
             </TextField>
         </Box>

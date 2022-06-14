@@ -8,7 +8,7 @@ import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import ReviewsList from '~/layouts/ReviewsList';
 import topImage from '~/public/gene-brutty-nheWMnzmGZ4-unsplash.jpg';
-import { GetFilesResult, IReview, ReviewFields } from '~/types';
+import { GetFilesResult, IReview, ReviewFieldsList } from '~/types';
 import { getReviews, getReviewsFields } from '~/utils/server';
 
 
@@ -16,7 +16,7 @@ export const LIMIT = 2;
 
 export interface Props {
     reviews: GetFilesResult<IReview>;
-    reviewFields: ReviewFields
+    reviewFields: ReviewFieldsList
 }
 
 const ReviewsPage: NextPage<Props> = ({ reviews, reviewFields }) => {

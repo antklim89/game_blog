@@ -1,20 +1,20 @@
 import type { IReview } from '~/types';
-import { ReviewFields } from '~/types/ReviewFields';
+import { ReviewFieldsList } from '~/types/ReviewFields';
 
 import { getFiles } from './getFiles';
 
 
-export async function getReviewsFields(): Promise<ReviewFields> {
+export async function getReviewsFields(): Promise<ReviewFieldsList> {
     const reviews = await getFiles<IReview>('reviews', { limit: Number.MAX_SAFE_INTEGER });
 
-    return reviews.items.reduce<ReviewFields>((acc, review) => {
-        if (!acc.genres.includes(review.genre)) acc.genres.push(review.genre);
-        if (!acc.publishers.includes(review.publisher)) acc.publishers.push(review.publisher);
-        if (!acc.developers.includes(review.developer)) acc.developers.push(review.developer);
+    return reviews.items.reduce<ReviewFieldsList>((acc, review) => {
+        if (!acc.genre.includes(review.genre)) acc.genre.push(review.genre);
+        if (!acc.publisher.includes(review.publisher)) acc.publisher.push(review.publisher);
+        if (!acc.developer.includes(review.developer)) acc.developer.push(review.developer);
         return acc;
     }, {
-        genres: [],
-        publishers: [],
-        developers: [],
+        genre: [],
+        publisher: [],
+        developer: [],
     });
 }

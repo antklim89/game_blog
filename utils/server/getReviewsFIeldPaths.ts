@@ -1,50 +1,45 @@
-import flatten from 'lodash/flatten';
+import flatten from 'lodash/flattenDeep';
 import times from 'lodash/times';
 
-import { ReviewFields } from '~/types';
+import { ReviewFieldsNames } from '~/types';
 
 import { getFiles } from './getFiles';
 import { getReviewsFields } from './getReviewsFields';
 
 
-type Fields = keyof ReviewFields;
+export type ReviewsFilterFieldsParams = {
+    page: string;
+    fieldValue: string;
+    fieldName: string;
+}
 
-type GetReviewsPathsByPublisher = {
-    params: {
-        page: string;
-        publisher: string;
-    };
-}[];
-
-type GetReviewsPathsByGenre = {
-    params: {
-        page: string;
-        genre: string;
-    };
+type ReviewsFilterPaths = {
+    params: ReviewsFilterFieldsParams;
 }[];
 
 
-async function getReviewsPathsBase(
-    field: Fields,
-    searchField: string,
-    limit: number = Number.MAX_SAFE_INTEGER,
-): Promise<unknown> {
+export async function getReviewsFilterPaths(limit: number = Number.MAX_SAFE_INTEGER) {
     const reviewFields = await getReviewsFields();
+    const fieldNames: ReviewFieldsNames[] = ['developer', 'publisher', 'genre'];
 
-    const paths = await Promise.all(reviewFields[field].map(async (item) => {
-        const files = await getFiles('reviews', { search: { [searchField]: item }, limit });
+    const paths: ReviewsFilterPaths = [];
 
-        return times(files.totalPages, (i) => ({ params: { page: `${i + 1}`, [searchField]: item } }));
+    await Promise.all(fieldNames.map(async (fieldName) => {
+
+        return Promise.all(reviewFields[fieldName].map(async (fieldValue) => {
+            const files = await getFiles('reviews', { search: { [fieldName]: fieldValue }, limit });
+
+            return times(files.totalPages, (i) => {
+                paths.push({
+                    params: {
+                        page: `${i + 1}`,
+                        fieldValue,
+                        fieldName,
+                    },
+                });
+            });
+        }));
     }));
 
     return flatten(paths);
-}
-
-
-export async function getReviewsPathsByPublisher(limit: number): Promise<GetReviewsPathsByPublisher> {
-    return getReviewsPathsBase('publishers', 'publisher', limit) as Promise<GetReviewsPathsByPublisher>;
-}
-
-export async function getReviewsPathsByGenre(limit: number): Promise<GetReviewsPathsByGenre> {
-    return getReviewsPathsBase('genres', 'genre', limit) as Promise<GetReviewsPathsByGenre>;
 }

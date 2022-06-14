@@ -1,7 +1,9 @@
 
 
-export interface ReviewFields {
-    genres: string[];
-    publishers: string[];
-    developers: string[];
+export interface ReviewFieldsList {
+    genre: string[];
+    publisher: string[];
+    developer: string[];
 }
+
+export type ReviewFieldsNames = keyof ReviewFieldsList
