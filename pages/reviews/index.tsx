@@ -12,7 +12,7 @@ import { GetFilesResult, IReview, ReviewFieldsList } from '~/types';
 import { getReviews, getReviewsFields } from '~/utils/server';
 
 
-export const LIMIT = 2;
+export const LIMIT = 10;
 
 export interface Props {
     reviews: GetFilesResult<IReview>;
@@ -43,14 +43,8 @@ const ReviewsPage: NextPage<Props> = ({ reviews, reviewFields }) => {
 
 export default ReviewsPage;
 
-export const getStaticProps: GetServerSideProps<Props> = async ({ query }) => {
-    const page = typeof query.page === 'string' ? parseInt(query.page, 10) : 1;
-    const search = {
-        ...typeof query.genre === 'string' ? { genre: query.genre } : {},
-        ...typeof query.publisher === 'string' ? { publisher: query.publisher } : {},
-    };
-
-    const reviews = await getReviews({ limit: LIMIT, page, search });
+export const getStaticProps: GetServerSideProps<Props, { page?: string }> = async () => {
+    const reviews = await getReviews({ limit: LIMIT });
 
     const reviewFields = await getReviewsFields();
 
