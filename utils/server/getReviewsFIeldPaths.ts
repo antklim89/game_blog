@@ -1,7 +1,7 @@
 import flatten from 'lodash/flattenDeep';
 import times from 'lodash/times';
 
-import { ReviewFieldsNames } from '~/types';
+import { reviewFieldFilterNames } from '~/constants';
 
 import { getFiles } from './getFiles';
 import { getReviewsFields } from './getReviewsFields';
@@ -20,11 +20,10 @@ type ReviewsFilterPaths = {
 
 export async function getReviewsFilterPaths(limit: number = Number.MAX_SAFE_INTEGER) {
     const reviewFields = await getReviewsFields();
-    const fieldNames: ReviewFieldsNames[] = ['developer', 'publisher', 'genre'];
 
     const paths: ReviewsFilterPaths = [];
 
-    await Promise.all(fieldNames.map(async (fieldName) => {
+    await Promise.all(reviewFieldFilterNames.map(async (fieldName) => {
 
         return Promise.all(reviewFields[fieldName].map(async (fieldValue) => {
             const files = await getFiles('reviews', { search: { [fieldName]: fieldValue }, limit });
