@@ -3,10 +3,10 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
-import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
 
+import Image from '~/components/Image';
 import Markdown from '~/components/Markdown';
 
 import { NewsListItemProps } from './NewsList.types';
@@ -22,7 +22,7 @@ const NewsListItem: FC<NewsListItemProps> = ({ title, publishedAt, slug, body, p
                         <Image
                             alt="title"
                             height={128}
-                            src={`${process.env.URL || ''}${previewImage}`}
+                            src={previewImage}
                             width={128}
                         />
                     </ListItemAvatar>

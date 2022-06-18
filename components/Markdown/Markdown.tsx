@@ -1,9 +1,10 @@
 import Box from '@mui/material/Box';
-import Image from 'next/image';
 import { FC, ImgHTMLAttributes, useCallback, AnchorHTMLAttributes } from 'react';
 import ReactMarkdown from 'react-markdown';
 
-import { MarkdownProps } from './types';
+import Image from '~/components/Image';
+
+import { MarkdownProps } from './Markdown.types';
 
 
 const Markdown: FC<MarkdownProps> = ({ components, children, ...props }) => {
@@ -13,7 +14,7 @@ const Markdown: FC<MarkdownProps> = ({ components, children, ...props }) => {
             height={400}
             objectFit="contain"
             objectPosition="left"
-            src={`${process.env.URL || ''}${src}`}
+            src={src || ''}
             width={1280}
         />
     ), []);

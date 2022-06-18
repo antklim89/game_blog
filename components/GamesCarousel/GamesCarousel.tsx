@@ -1,9 +1,10 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Image from 'next/image';
 import Link from 'next/link';
 import Carousel from 'nuka-carousel';
 import { FC, ReactNode } from 'react';
+
+import Image from '~/components/Image';
 
 import { GamesCarouselProps } from './GamesCarousel.types';
 
@@ -35,7 +36,7 @@ const GamesCarousel: FC<GamesCarouselProps> = ({ gamesCarousel }) => {
                                 alt={text}
                                 height={480}
                                 objectFit="cover"
-                                src={`${process.env.URL || ''}${image}`}
+                                src={image}
                                 width={1280}
                             />
                         </Box>

@@ -4,9 +4,10 @@ import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
+
+import Image from '~/components/Image';
 
 import { ReviewsListItemProps } from './ReviewsList.types';
 
@@ -63,7 +64,7 @@ const ReviewListItem: FC<ReviewsListItemProps> = ({
                             alt={title}
                             height={720}
                             objectFit="cover"
-                            src={`${process.env.URL || ''}${previewImage}`}
+                            src={previewImage}
                             width={1280}
                         />
                     </Box>
