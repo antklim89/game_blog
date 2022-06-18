@@ -56,6 +56,7 @@ const ReviewListItem: FC<ReviewsListItemProps> = ({
                             left: 0,
                             bottom: 0,
                             zIndex: -1,
+                            filter: 'brightness(0.7)',
                         }}
                     >
                         <Image
