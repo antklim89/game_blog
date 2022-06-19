@@ -1,4 +1,8 @@
 {
-  "text": "Lorem ipsum dolor, sit **amet** consectetur adipisicing elit.",
-  "image": "/content/topHeader/images/ryan-quintal-t8_tn3tqmoi-unsplash.jpg"
+  "homeText": "# Welcome\n\nLorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates eaque, vel facere impedit nulla at corrupti. Inventore eius voluptatibus ratione impedit excepturi exercitationem, eaque enim et tempore nulla est nihil? **Animi** velit necessitatibus voluptatibus, quasi qui dignissimos vel, repellat optio magni cum illum, facere consectetur sapiente iure nesciunt ab eligendi **repudiandae** magnam asperiores! Perferendis tenetur dignissimos at, minima, voluptate nemo, voluptates quos officiis tempora atque nam. Asperiores unde doloribus fuga eius? Eaque mollitia porro impedit?",
+  "homeImage": "/content/topHeader/images/ryan-quintal-t8_tn3tqmoi-unsplash.jpg",
+  "reviewsImage": "/content/topHeader/images/gene-brutty-nhewmnzmgz4-unsplash.jpg",
+  "newsImage": "/content/topHeader/images/kyle-nieber-simo8twzlym-unsplash.jpg",
+  "aboutImage": "/content/topHeader/images/adam-mills-sgyayrin5hy-unsplash.jpg",
+  "contactsImage": "/content/topHeader/images/wesley-tingey-l4uck06unm-unsplash.jpg"
 }

@@ -2,17 +2,22 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import type { NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 
 import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
-import topImage from '~/public/ahmad-mohammed-wGc4AQ3BJ_U-unsplash.jpg';
+import { ITopHeader } from '~/types';
+import { getTopHeader } from '~/utils/server';
 
 
-const ContactsPage: NextPage = () => {
+interface Props {
+    topHeader: ITopHeader
+}
+
+const ContactsPage: NextPage<Props> = ({ topHeader }) => {
     return (
-        <Layout image={topImage} title="Contacts">
+        <Layout image={topHeader.contactsImage} title="Contacts">
             <Seo title="Contacts" />
             <Container>
                 <Paper sx={{ p: 4 }}>
@@ -39,3 +44,9 @@ const ContactsPage: NextPage = () => {
 };
 
 export default ContactsPage;
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+    const topHeader = await getTopHeader();
+
+    return { props: { topHeader } };
+};

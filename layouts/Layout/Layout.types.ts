@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
-import { ITopHeader } from '~/types';
+import { HeaderProps } from '~/layouts/Header/Header.types';
 
 
-export interface LayoutProps extends ITopHeader {
+export interface LayoutProps extends HeaderProps {
     children: ReactNode
 }

@@ -1,6 +1,4 @@
-/* eslint-disable */
-import type { CmsCollectionFile } from 'netlify-cms-core'
-
+import type { CmsCollectionFile } from 'netlify-cms-core';
 
 
 export const topHeader: CmsCollectionFile = {
@@ -11,16 +9,36 @@ export const topHeader: CmsCollectionFile = {
     public_folder: '/content/topHeader/images',
     fields: [
         {
-            name: 'text',
+            name: 'homeText',
             widget: 'markdown',
             required: true,
             buttons: ['bold', 'italic', 'heading-one', 'heading-two', 'numbered-list', 'bulleted-list'],
             editor_components: [],
         },
         {
-            name: 'image',
+            name: 'homeImage',
             widget: 'image',
             required: true,
-        }
+        },
+        {
+            name: 'reviewsImage',
+            widget: 'image',
+            required: true,
+        },
+        {
+            name: 'newsImage',
+            widget: 'image',
+            required: true,
+        },
+        {
+            name: 'aboutImage',
+            widget: 'image',
+            required: true,
+        },
+        {
+            name: 'contactsImage',
+            widget: 'image',
+            required: true,
+        },
     ],
-}
+};

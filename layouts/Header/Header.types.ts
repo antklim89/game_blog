@@ -1,4 +1,6 @@
-import { ITopHeader } from '~/types';
 
-
-export type HeaderProps = ITopHeader
+export type HeaderProps = {
+    text?: string
+    image?: string
+    title?: string
+}

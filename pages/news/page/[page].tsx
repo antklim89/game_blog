@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { getNews, getPagesPaths } from '~/utils/server';
+import { getNews, getPagesPaths, getTopHeader } from '~/utils/server';
 
 import { LIMIT, Props } from '../index';
 
@@ -22,7 +22,8 @@ export const getStaticProps: GetStaticProps<Props, {page: string}> = async ({ pa
     const page = parseInt(params.page, 10);
 
     const news = await getNews({ page, limit: LIMIT });
+    const topHeader = await getTopHeader();
 
-    return { props: { news } };
+    return { props: { news, topHeader } };
 };
 

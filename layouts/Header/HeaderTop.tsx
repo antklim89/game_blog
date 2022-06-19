@@ -1,9 +1,9 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import Image from 'next/image';
 import { FC } from 'react';
 
+import Image from '~/components/Image';
 import Markdown from '~/components/Markdown';
 
 import { HeaderProps } from './Header.types';
@@ -11,12 +11,7 @@ import HeaderLogo from './HeaderLogo';
 
 
 const HeaderTop: FC<HeaderProps> = ({ image, text, title }) => {
-
     if (!image) return null;
-
-    const imageProps = typeof image === 'string'
-        ? { src: `${process.env.URL || ''}${image}` }
-        : { ...image, src: `${process.env.URL || ''}${image.src}` };
 
     return (
         <Box
@@ -65,9 +60,8 @@ const HeaderTop: FC<HeaderProps> = ({ image, text, title }) => {
                     alt="top image"
                     height={720}
                     objectFit="cover"
+                    src={image}
                     width={1280}
-                    {...imageProps}
-                    placeholder={typeof image === 'string' ? 'empty' : 'blur'}
                 />
             </Box>
         </Box>

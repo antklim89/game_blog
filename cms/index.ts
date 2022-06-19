@@ -1,10 +1,10 @@
-/* eslint-disable */
-import type { InitOptions } from 'netlify-cms-core'
+import type { InitOptions } from 'netlify-cms-core';
+
 import { about } from './about';
-import { reviews } from './reviews';
-import { news } from './news';
-import { topHeader } from './topHeader';
 import { gamesCarousel } from './gamesCarousel';
+import { news } from './news';
+import { reviews } from './reviews';
+import { topHeader } from './topHeader';
 
 
 export const cmsConfig: InitOptions = {

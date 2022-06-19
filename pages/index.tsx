@@ -11,7 +11,7 @@ import Layout from '~/layouts/Layout';
 import NewsList from '~/layouts/NewsList';
 import ReviewList from '~/layouts/ReviewsList';
 import type { IReview, INews, ITopHeader, IGamesCarousel, GetFilesResult } from '~/types';
-import { getReviews, getNews, getHeaderTop, getGamesCarousel } from '~/utils/server';
+import { getReviews, getNews, getTopHeader, getGamesCarousel } from '~/utils/server';
 
 
 interface Props {
@@ -24,7 +24,7 @@ interface Props {
 
 const HomePage: NextPage<Props> = ({ reviews, news, topHeader, gamesCarousel }) => {
     return (
-        <Layout image={topHeader.image} text={topHeader.text} >
+        <Layout image={topHeader.homeImage} text={topHeader.homeText} >
             <Seo title="Home" />
             <Container>
                 <GamesCarousel gamesCarousel={gamesCarousel} />
@@ -85,7 +85,7 @@ export default HomePage;
 export const getStaticProps: GetStaticProps<Props> = async () => {
     const reviews = await getReviews({ limit: 4 });
     const news = await getNews({ limit: 5 });
-    const topHeader = await getHeaderTop();
+    const topHeader = await getTopHeader();
     const gamesCarousel = await getGamesCarousel();
 
     return { props: { reviews, news, topHeader, gamesCarousel: gamesCarousel.items } };

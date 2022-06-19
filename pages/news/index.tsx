@@ -5,20 +5,20 @@ import Pagination from '~/components/Pagination';
 import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import NewsList from '~/layouts/NewsList';
-import topImage from '~/public/adam-mills-SgYayrin5HY-unsplash.jpg';
-import { INews, GetFilesResult } from '~/types';
-import { getNews } from '~/utils/server';
+import { INews, GetFilesResult, ITopHeader } from '~/types';
+import { getNews, getTopHeader } from '~/utils/server';
 
 
 export const LIMIT = 10;
 
 export interface Props {
     news: GetFilesResult<INews>
+    topHeader: ITopHeader
 }
 
-const NewsPage: NextPage<Props> = ({ news }) => {
+const NewsPage: NextPage<Props> = ({ news, topHeader }) => {
     return (
-        <Layout image={topImage} title="News">
+        <Layout image={topHeader.newsImage} title="News">
             <Seo title="News" />
             <Container>
                 <Pagination path="/news" totalPages={news.totalPages} />
@@ -34,6 +34,7 @@ export default NewsPage;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
     const news = await getNews({ limit: LIMIT });
+    const topHeader = await getTopHeader();
 
-    return { props: { news } };
+    return { props: { news, topHeader } };
 };

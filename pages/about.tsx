@@ -4,18 +4,21 @@ import type { GetStaticProps, NextPage } from 'next';
 import Seo from '~/components/Seo';
 import About from '~/layouts/About';
 import Layout from '~/layouts/Layout';
+import { ITopHeader } from '~/types';
 import { IAbout } from '~/types/about';
+import { getTopHeader } from '~/utils/server';
 
 import { getAbout } from '../utils/server/getAbout';
 
 
 interface Props {
     about: IAbout
+    topHeader: ITopHeader
 }
 
-const AboutPage: NextPage<Props> = ({ about }) => {
+const AboutPage: NextPage<Props> = ({ about, topHeader }) => {
     return (
-        <Layout image={about.image} title="About Blog">
+        <Layout image={topHeader.aboutImage} title="About Blog">
             <Seo title="about" />
             <Container>
                 <About {...about} />
@@ -29,7 +32,8 @@ export default AboutPage;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
     const about = await getAbout();
+    const topHeader = await getTopHeader();
 
-    return { props: { about } };
+    return { props: { about, topHeader } };
 };
 

@@ -1,8 +1,10 @@
-import { StaticImageData } from 'next/image';
 
 
 export interface ITopHeader {
-    text?: string
-    title?: string
-    image?: string | StaticImageData
+    homeText: string;
+    homeImage: string;
+    reviewsImage: string;
+    newsImage: string;
+    aboutImage: string;
+    contactsImage: string;
 }
