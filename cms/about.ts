@@ -14,9 +14,5 @@ export const about: CmsCollectionFile = {
             name: 'text',
             widget: 'markdown',
         },
-        {
-            name: 'image',
-            widget: 'image',
-        }
     ],
 }
