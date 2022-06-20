@@ -1,18 +1,16 @@
-import Typography from '@mui/material/Typography';
+import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
+
+import logo from './Header.logo.svg';
 
 
 const HeaderLogo: FC = () => {
     return (
         <Link passHref href="/" key="2">
-            <Typography
-                component="a"
-                fontWeight="bold"
-                variant="h5"
-            >
-                GAME BLOG
-            </Typography>
+            <a>
+                <Image alt="logo" src={logo} />
+            </a>
         </Link>
     );
 };
