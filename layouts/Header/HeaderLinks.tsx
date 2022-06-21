@@ -78,7 +78,6 @@ const HeaderLinks: FC = () => {
                 >
                     <MenuIcon />
                 </IconButton>
-                <HeaderLogo />
                 <Drawer
                     anchor="right"
                     open={isOpen}
