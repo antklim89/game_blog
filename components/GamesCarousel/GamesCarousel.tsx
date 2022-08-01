@@ -2,18 +2,12 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import Carousel from 'nuka-carousel';
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 
 import Image from '~/components/Image';
 
 import { GamesCarouselProps } from './GamesCarousel.types';
 
-
-declare module 'nuka-carousel' {
-    interface CarouselProps {
-        children: ReactNode
-    }
-}
 
 const GamesCarousel: FC<GamesCarouselProps> = ({ gamesCarousel }) => {
     return (
