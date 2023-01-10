@@ -31,8 +31,13 @@ export default AboutPage;
 
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    const about = await getAbout();
-    const topHeader = await getTopHeader();
+    const [
+        about,
+        topHeader,
+    ] = await Promise.all([
+        getAbout(),
+        getTopHeader(),
+    ]);
 
     return { props: { about, topHeader } };
 };

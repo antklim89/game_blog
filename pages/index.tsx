@@ -83,10 +83,17 @@ export default HomePage;
 
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    const reviews = await getReviews({ limit: 4 });
-    const news = await getNews({ limit: 5 });
-    const topHeader = await getTopHeader();
-    const gamesCarousel = await getGamesCarousel();
+    const [
+        reviews,
+        news,
+        topHeader,
+        gamesCarousel,
+    ] = await Promise.all([
+        getReviews({ limit: 4 }),
+        getNews({ limit: 5 }),
+        getTopHeader(),
+        getGamesCarousel(),
+    ]);
 
     return { props: { reviews, news, topHeader, gamesCarousel: gamesCarousel.items } };
 };

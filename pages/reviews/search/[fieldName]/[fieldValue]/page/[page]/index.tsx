@@ -16,11 +16,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<Props, ReviewsFilterFieldsParams> = async ({ params }) => {
     if (!params) return { notFound: true };
-    const { fieldValue, fieldName, page } = params;
+    const { fieldValue, fieldName } = params;
+    const page = parseInt(params.page, 10);
 
-    const reviews = await getReviews({ page: parseInt(page, 10), limit: LIMIT, search: { [fieldName]: fieldValue } });
-    const reviewFields = await getReviewsFields();
-    const topHeader = await getTopHeader();
+    const [
+        reviews,
+        reviewFields,
+        topHeader,
+    ] = await Promise.all([
+        getReviews({ page, limit: LIMIT, search: { [fieldName]: fieldValue } }),
+        getReviewsFields(),
+        getTopHeader(),
+    ]);
 
     return { props: { reviews, reviewFields, topHeader } };
 };

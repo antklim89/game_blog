@@ -43,11 +43,15 @@ const ReviewsPage: NextPage<Props> = ({ reviews, reviewFields, topHeader }) => {
 export default ReviewsPage;
 
 export const getStaticProps: GetServerSideProps<Props, { page?: string }> = async () => {
-    const reviews = await getReviews({ limit: LIMIT });
-    const topHeader = await getTopHeader();
-
-    const reviewFields = await getReviewsFields();
-
+    const [
+        reviews,
+        reviewFields,
+        topHeader,
+    ] = await Promise.all([
+        getReviews({ limit: LIMIT }),
+        getReviewsFields(),
+        getTopHeader(),
+    ]);
     return { props: { reviews, reviewFields, topHeader } };
 };
 

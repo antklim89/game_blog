@@ -33,8 +33,13 @@ export default NewsPage;
 
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    const news = await getNews({ limit: LIMIT });
-    const topHeader = await getTopHeader();
+    const [
+        news,
+        topHeader,
+    ] = await Promise.all([
+        getNews({ limit: LIMIT }),
+        getTopHeader(),
+    ]);
 
     return { props: { news, topHeader } };
 };
