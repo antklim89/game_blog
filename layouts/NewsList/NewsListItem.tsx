@@ -15,29 +15,26 @@ import { NewsListItemProps } from './NewsList.types';
 const NewsListItem: FC<NewsListItemProps> = ({ title, publishedAt, slug, body, previewImage }) => {
     return (
         <>
-
-            <Link passHref href={`/news/${slug}`}>
-                <ListItem component="a">
-                    <ListItemAvatar sx={{ display: ['none', 'block'], mr: 4 }}>
-                        <Image
-                            alt="title"
-                            height={128}
-                            src={previewImage}
-                            width={128}
-                        />
-                    </ListItemAvatar>
-                    <Box>
-                        <ListItemText
-                            primary={title}
-                            primaryTypographyProps={{ variant: 'h4', component: 'h4', color: 'primary' }}
-                            secondary={publishedAt}
-                        />
-                        <Markdown>
-                            {body}
-                        </Markdown>
-                    </Box>
-                </ListItem>
-            </Link>
+            <ListItem component={Link} href={`/news/${slug}`}>
+                <ListItemAvatar sx={{ display: ['none', 'block'], mr: 4 }}>
+                    <Image
+                        alt="title"
+                        height={128}
+                        src={previewImage}
+                        width={128}
+                    />
+                </ListItemAvatar>
+                <Box>
+                    <ListItemText
+                        primary={title}
+                        primaryTypographyProps={{ variant: 'h4', component: 'h4', color: 'primary' }}
+                        secondary={publishedAt}
+                    />
+                    <Markdown>
+                        {body}
+                    </Markdown>
+                </Box>
+            </ListItem>
             <Divider component="li" variant="inset" />
         </>
     );

@@ -10,8 +10,6 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Link from 'next/link';
 import { FC, useState, useCallback } from 'react';
 
-import HeaderLogo from './HeaderLogo';
-
 
 const LINKS = [
     {
@@ -50,11 +48,9 @@ const HeaderLinks: FC = () => {
 
     const links = LINKS.map(({ href, title }) => (
         <MenuItem key={title} onClick={handleCloseDrawer}>
-            <Link passHref href={href}>
-                <Typography component="a" textTransform="uppercase">
-                    {title}
-                </Typography>
-            </Link>
+            <Typography component={Link} href={href} textTransform="uppercase">
+                {title}
+            </Typography>
         </MenuItem>
     ));
 

@@ -19,17 +19,16 @@ const GamesCarousel: FC<GamesCarouselProps> = ({ gamesCarousel }) => {
         >
             {gamesCarousel.map(({ image, text, link = '' }) => (
                 <Box
-                    passHref
                     component={link ? Link : 'div'}
                     href={link}
                     key={image}
                 >
-                    <Box component="a" sx={{ position: 'relative', display: 'block' }}>
+                    <Box sx={{ position: 'relative', display: 'block' }}>
                         <Box>
                             <Image
                                 alt={text}
                                 height={480}
-                                objectFit="cover"
+                                // objectFit="cover"
                                 src={image}
                                 width={1280}
                             />

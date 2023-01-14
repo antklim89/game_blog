@@ -29,49 +29,47 @@ const HomePage: NextPage<Props> = ({ reviews, news, topHeader, gamesCarousel }) 
             <Container>
                 <GamesCarousel gamesCarousel={gamesCarousel} />
                 <Box mb={8}>
-                    <Link passHref href="/reviews">
-                        <a>
-                            <Typography
-                                color="primary"
-                                component="h3"
-                                mt={4}
-                                textAlign="center"
-                                variant="h3"
-                            >
-                                Reviews
-                            </Typography>
-                        </a>
+                    <Link href="/reviews">
+                        <Typography
+                            color="primary"
+                            component="h3"
+                            mt={4}
+                            textAlign="center"
+                            variant="h3"
+                        >
+                            Reviews
+                        </Typography>
                     </Link>
                     <ReviewList reviews={reviews.items} />
                     <Box display="flex" justifyContent="flex-end">
-                        <Link passHref href="/reviews">
-                            <Button color="primary" component="a" variant="outlined" >
-                                Show more...
-                            </Button>
-                        </Link>
+                        <Button
+                            // color="primary" component={Link} href="/reviews"
+                            variant="outlined"
+                        >
+                            Show more...
+                        </Button>
                     </Box>
                 </Box>
                 <Box mb={8}>
-                    <Link passHref href="/news">
-                        <a>
-                            <Typography
-                                color="primary"
-                                component="h3"
-                                mt={4}
-                                textAlign="center"
-                                variant="h3"
-                            >
-                                News
-                            </Typography>
-                        </a>
+                    <Link href="/news">
+                        <Typography
+                            color="primary"
+                            component="h3"
+                            mt={4}
+                            textAlign="center"
+                            variant="h3"
+                        >
+                            News
+                        </Typography>
                     </Link>
                     <NewsList news={news.items} />
                     <Box display="flex" justifyContent="flex-end">
-                        <Link passHref href="/news">
-                            <Button color="primary" component="a" variant="outlined" >
-                                Show more...
-                            </Button>
-                        </Link>
+                        <Button
+                            // color="primary" component={Link} href="/news"
+                            variant="outlined"
+                        >
+                            Show more...
+                        </Button>
                     </Box>
                 </Box>
             </Container>

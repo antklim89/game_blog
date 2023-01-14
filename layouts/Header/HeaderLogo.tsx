@@ -7,10 +7,8 @@ import logo from './Header.logo.svg';
 
 const HeaderLogo: FC = () => {
     return (
-        <Link passHref href="/" key="2">
-            <a>
-                <Image alt="logo" src={logo} />
-            </a>
+        <Link href="/" key="2">
+            <Image alt="logo" src={logo} />
         </Link>
     );
 };

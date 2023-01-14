@@ -11,12 +11,11 @@ const PaginationItem: FC<PaginationItemProps> = (item) => {
         : item.path(item.page || 1);
 
     return (
-        <Link passHref href={href}>
-            <PaginationItemMui
-                component="a"
-                {...item}
-            />
-        </Link>
+        <PaginationItemMui
+            component={Link}
+            href={href}
+            {...item}
+        />
     );
 };
 

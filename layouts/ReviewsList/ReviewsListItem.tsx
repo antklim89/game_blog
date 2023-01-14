@@ -16,10 +16,9 @@ const ReviewListItem: FC<ReviewsListItemProps> = ({
     slug, title, previewImage, genre, publisher, gameRelease,
 }) => {
     return (
-        <Link passHref href={`/reviews/${slug}`} >
+        <Link href={`/reviews/${slug}`} >
             <Grid
                 item
-                component="a"
                 md={6}
                 sm={12}
                 xs={12}
@@ -63,7 +62,7 @@ const ReviewListItem: FC<ReviewsListItemProps> = ({
                         <Image
                             alt={title}
                             height={720}
-                            objectFit="cover"
+                            // objectFit="cover"
                             src={previewImage}
                             width={1280}
                         />

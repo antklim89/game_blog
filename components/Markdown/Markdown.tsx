@@ -12,8 +12,8 @@ const Markdown: FC<MarkdownProps> = ({ components, children, ...props }) => {
         <Image
             alt={alt || 'image'}
             height={400}
-            objectFit="contain"
-            objectPosition="left"
+            // objectFit="contain"
+            // objectPosition="left"
             src={src || ''}
             width={1280}
         />

@@ -32,11 +32,9 @@ const ContactsPage: NextPage<Props> = ({ topHeader }) => {
                     >
                         the message was sent successfully
                     </Typography>
-                    <Link passHref href="/">
-                        <Button component="a" variant="contained">
-                            &larr;&emsp;go home
-                        </Button>
-                    </Link>
+                    <Button component={Link} href="/" variant="contained">
+                        &larr;&emsp;go home
+                    </Button>
                 </Paper>
             </Container>
         </Layout>

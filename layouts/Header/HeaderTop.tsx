@@ -27,26 +27,30 @@ const HeaderTop: FC<HeaderProps> = ({ image, text, title }) => {
             }}
         >
             <HeaderLogo />
-            {text && (
-                <Container sx={{ py: 4, textAlign: 'center' }}>
-                    <Markdown>
-                        {text}
-                    </Markdown>
-                </Container>
-            )}
-            {title && (
-                <Container sx={{ display: 'flex', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
-                    <Typography
-                        alignItems="center"
-                        color="white"
-                        p={4}
-                        textAlign="center"
-                        variant="h1"
-                    >
-                        {title}
-                    </Typography>
-                </Container>
-            )}
+            {text
+                ? (
+                    <Container sx={{ py: 4, textAlign: 'center' }}>
+                        <Markdown>
+                            {text}
+                        </Markdown>
+                    </Container>
+                )
+                : null}
+            {title
+                ? (
+                    <Container sx={{ display: 'flex', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
+                        <Typography
+                            alignItems="center"
+                            color="white"
+                            p={4}
+                            textAlign="center"
+                            variant="h1"
+                        >
+                            {title}
+                        </Typography>
+                    </Container>
+                )
+                : null}
             <Box
                 sx={{
                     position: 'absolute',
@@ -59,7 +63,7 @@ const HeaderTop: FC<HeaderProps> = ({ image, text, title }) => {
                 <Image
                     alt="top image"
                     height={720}
-                    objectFit="cover"
+                    // objectFit="cover"
                     src={image}
                     width={1280}
                 />
