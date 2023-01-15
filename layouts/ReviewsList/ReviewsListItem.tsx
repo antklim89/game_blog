@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { FC } from 'react';
 
 import Image from '~/components/Image';
+import { formatDate } from '~/utils';
 
 import { ReviewsListItemProps } from './ReviewsList.types';
 
@@ -35,7 +36,7 @@ const ReviewListItem: FC<ReviewsListItemProps> = ({
                     variant="outlined"
                 >
                     <CardHeader
-                        subheader={new Date(gameRelease).toLocaleDateString()}
+                        subheader={formatDate(gameRelease)}
                         subheaderTypographyProps={{ color: 'white', variant: 'subtitle2' }}
                         sx={{ p: [1, 2] }}
                         title={title}
