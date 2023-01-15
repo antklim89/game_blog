@@ -1,16 +1,16 @@
 {
   "items": [
     {
-      "image": "/content/gamesCarousel/images/wesley-tingey-l4uck06unm-unsplash.jpg",
+      "image": "/content/gamesCarousel/images/wesley-tingey-l4uck06unm-unsplash.webp",
       "text": "lorem ipsum",
       "link": "/reviews"
     },
     {
-      "image": "/content/gamesCarousel/images/kyle-nieber-simo8twzlym-unsplash.jpg",
+      "image": "/content/gamesCarousel/images/kyle-nieber-simo8twzlym-unsplash.webp",
       "text": "nesciunt dolorem reprehenderit"
     },
     {
-      "image": "/content/gamesCarousel/images/adam-mills-sgyayrin5hy-unsplash.jpg",
+      "image": "/content/gamesCarousel/images/adam-mills-sgyayrin5hy-unsplash.webp",
       "text": "reprehenderit voluptas eum eveniet"
     }
   ]
