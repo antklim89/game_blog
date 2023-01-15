@@ -22,13 +22,14 @@ const SelectReviewFields: FC<ReviewFieldsList> = (props) => {
     );
 
     return (
-        <Box display="flex" my={[1, null, 4]}>
+        <Box display="flex" flexDirection={['column', 'row']} width="100%">
             {reviewFieldFilterNames.map((fieldName) => (
                 <TextField
+                    fullWidth
                     select
                     key={fieldName}
                     label={`Select ${fieldName}`}
-                    sx={{ mr: [1, null, 4] }}
+                    sx={{ mr: [1, null, 4], my: [1, null, 4] }}
                     value={fieldName === router.query.fieldName ? router.query.fieldValue : `Select ${fieldName}`}
                     onChange={handleFieldSelect(fieldName)}
                 >

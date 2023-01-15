@@ -21,12 +21,18 @@ const Pagination: FC<PaginationProps> = ({ totalPages }) => {
     }, [router.asPath]);
 
     return (
-        <Box display="flex" justifyContent="center" my={[1, null, 4]}>
+        <Box
+            display="flex"
+            flexWrap="nowrap"
+            justifyContent="center"
+            my={[1, null, 4]}
+        >
             <PaginationMui
                 color="primary"
                 count={totalPages}
                 page={currentPage}
                 shape="rounded"
+                sx={{ '& ul': { flexWrap: 'nowrap' } }}
                 variant="outlined"
                 onChange={handlePageSelect}
             />
