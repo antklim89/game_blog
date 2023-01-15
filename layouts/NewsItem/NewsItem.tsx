@@ -3,6 +3,7 @@ import { FC } from 'react';
 
 import Markdown from '~/components/Markdown';
 import { INews } from '~/types';
+import { formatDate } from '~/utils';
 
 
 const NewsItem: FC<INews> = ({ title, body, publishedAt }) => {
@@ -12,7 +13,7 @@ const NewsItem: FC<INews> = ({ title, body, publishedAt }) => {
                 {title}
             </Typography>
             <Typography sx={{ mb: 4 }} variant="subtitle1">
-                {publishedAt}
+                {formatDate(publishedAt)}
             </Typography>
             <Markdown>{body}</Markdown>
         </article>

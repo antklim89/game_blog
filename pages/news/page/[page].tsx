@@ -21,8 +21,13 @@ export const getStaticProps: GetStaticProps<Props, {page: string}> = async ({ pa
     if (!params) return { notFound: true };
     const page = parseInt(params.page, 10);
 
-    const news = await getNews({ page, limit: LIMIT });
-    const topHeader = await getTopHeader();
+    const [
+        news,
+        topHeader,
+    ] = await Promise.all([
+        getNews({ page, limit: LIMIT }),
+        getTopHeader(),
+    ]);
 
     return { props: { news, topHeader } };
 };

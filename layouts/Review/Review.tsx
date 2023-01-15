@@ -3,6 +3,7 @@ import { FC } from 'react';
 
 import Markdown from '~/components/Markdown';
 import { IReview } from '~/types';
+import { formatDate } from '~/utils';
 
 
 const Review: FC<IReview> = ({ body, genre, gameRelease, publisher, developer }) => {
@@ -12,7 +13,7 @@ const Review: FC<IReview> = ({ body, genre, gameRelease, publisher, developer })
                 <b>Genre:</b> {genre}<br />
                 <b>Publisher:</b> {publisher}<br />
                 <b>Developer:</b> {developer}<br />
-                <b>Release:</b> {new Date(gameRelease).toLocaleDateString()}<br />
+                <b>Release:</b> {formatDate(gameRelease)}<br />
             </Typography>
             <Markdown>
                 {body}
