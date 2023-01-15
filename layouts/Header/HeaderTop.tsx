@@ -58,12 +58,12 @@ const HeaderTop: FC<HeaderProps> = ({ image, text, title }) => {
                     '& > span': { position: 'static !important' },
                     zIndex: '0 !important',
                     filter: 'brightness(0.7)',
+                    '& img': { objectFit: 'cover', width: '100%' },
                 }}
             >
                 <Image
                     alt="top image"
                     height={720}
-                    // objectFit="cover"
                     src={image}
                     width={1280}
                 />

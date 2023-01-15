@@ -24,11 +24,10 @@ const GamesCarousel: FC<GamesCarouselProps> = ({ gamesCarousel }) => {
                     key={image}
                 >
                     <Box sx={{ position: 'relative', display: 'block' }}>
-                        <Box>
+                        <Box sx={{ '& img': { objectFit: 'cover', width: '100%' } }}>
                             <Image
                                 alt={text}
                                 height={480}
-                                // objectFit="cover"
                                 src={image}
                                 width={1280}
                             />

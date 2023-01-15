@@ -16,13 +16,14 @@ const ReviewListItem: FC<ReviewsListItemProps> = ({
     slug, title, previewImage, genre, publisher, gameRelease,
 }) => {
     return (
-        <Link href={`/reviews/${slug}`} >
-            <Grid
-                item
-                md={6}
-                sm={12}
-                xs={12}
-            >
+        <Grid
+            item
+            md={6}
+            sm={12}
+            width="100%"
+            xs={12}
+        >
+            <Link href={`/reviews/${slug}`} >
                 <Card
                     sx={{
                         position: 'relative',
@@ -57,19 +58,19 @@ const ReviewListItem: FC<ReviewsListItemProps> = ({
                             bottom: 0,
                             zIndex: -1,
                             filter: 'brightness(0.7)',
+                            '& img': { objectFit: 'cover', width: '100%' },
                         }}
                     >
                         <Image
                             alt={title}
                             height={720}
-                            // objectFit="cover"
                             src={previewImage}
                             width={1280}
                         />
                     </Box>
                 </Card>
-            </Grid>
-        </Link>
+            </Link>
+        </Grid>
     );
 };
 
