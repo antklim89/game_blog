@@ -2,12 +2,8 @@
 const nextConfig = {
     reactStrictMode: true,
     compress: true,
-    images: {
-        domains: [
-            '192.168.90.19',
-            process.env.URL ? new URL(process.env.URL).host : 'localhost',
-        ],
-    },
+    images: { domains: [process.env.URL ? new URL(process.env.URL).hostname : 'localhost'] },
+    env: { NEXT_PUBLIC_URL: process.env.URL },
 };
 
 module.exports = nextConfig;
