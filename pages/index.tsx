@@ -43,7 +43,9 @@ const HomePage: NextPage<Props> = ({ reviews, news, topHeader, gamesCarousel }) 
                     <ReviewList reviews={reviews.items} />
                     <Box display="flex" justifyContent="flex-end">
                         <Button
-                            // color="primary" component={Link} href="/reviews"
+                            color="primary"
+                            component={Link}
+                            href="/reviews"
                             variant="outlined"
                         >
                             Show more...
@@ -65,7 +67,9 @@ const HomePage: NextPage<Props> = ({ reviews, news, topHeader, gamesCarousel }) 
                     <NewsList news={news.items} />
                     <Box display="flex" justifyContent="flex-end">
                         <Button
-                            // color="primary" component={Link} href="/news"
+                            color="primary"
+                            component={Link}
+                            href="/news"
                             variant="outlined"
                         >
                             Show more...
