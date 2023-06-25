@@ -29,7 +29,7 @@ const HeaderTop: FC<HeaderProps> = ({ image, text, title }) => {
             <HeaderLogo />
             {text
                 ? (
-                    <Container sx={{ py: 4, textAlign: 'center' }}>
+                    <Container sx={{ py: 4, textAlign: 'center', whiteSpace: 'pre-wrap' }}>
                         <Markdown>
                             {text}
                         </Markdown>
