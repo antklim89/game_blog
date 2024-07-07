@@ -9,7 +9,11 @@
     "dev:cms-proxy": "netlify-cms-proxy-server",
     "dev:typecheck": "tsc --noEmit -w --preserveWatchOutput",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "docker:dev": "docker compose -f docker-compose.dev.yml up",
+    "docker:prod": "docker compose up",
+    "docker:build": "docker compose build",
+    "docker:start": "docker compose start"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",

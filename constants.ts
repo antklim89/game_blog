@@ -7,6 +7,6 @@ export const DEFAULT_TITLE = process.env.DEFAULT_TITLE || 'Game Blog';
 
 export const reviewFieldFilterNames: ReviewFieldsNames[] = ['developer', 'publisher', 'genre'];
 
-export const SITE_URL = process.env.NEXT_PUBLIC_URL || (() => {
+export const SITE_URL = process.env.URL || (() => {
     throw new Error('"URL" env is required.');
 })();
