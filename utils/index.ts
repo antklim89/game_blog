@@ -1,2 +1,1 @@
-export * from './fromNow';
-export * from './dateFormater';
+export { formatDate } from './formatDate';
