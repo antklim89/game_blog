@@ -39,7 +39,8 @@
     "react-markdown": "^9.0.1",
     "react-share": "^5.1.0",
     "react-slick": "^0.30.2",
-    "sass": "^1.78.0"
+    "sass": "^1.78.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.4.1",
