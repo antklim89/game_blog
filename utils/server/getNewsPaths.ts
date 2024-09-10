@@ -1,6 +1,6 @@
 import { getPaths } from './getPaths';
 
 
-export function getNewsPaths() {
-    return getPaths('news');
+export async function getNewsPaths() {
+  return getPaths('news');
 }

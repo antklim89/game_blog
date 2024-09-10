@@ -1,35 +1,35 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import type { GetStaticPaths, GetStaticProps } from 'next';
+import { getPagesPaths, getReviews, getReviewsFields, getTopHeader } from '~/utils/server';
+// eslint-disable-next-line no-restricted-imports
+import { LIMIT, type Props } from '../index';
 
-import { getReviews, getPagesPaths, getReviewsFields, getTopHeader } from '~/utils/server';
 
-import { LIMIT, Props } from '../index';
-
-
+// eslint-disable-next-line no-restricted-imports
 export { default } from '../index';
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const path = await getPagesPaths(LIMIT, 'reviews');
+  const path = await getPagesPaths(LIMIT, 'reviews');
 
-    return {
-        paths: path,
-        fallback: false,
-    };
+  return {
+    paths: path,
+    fallback: false,
+  };
 };
 
-export const getStaticProps: GetStaticProps<Props, {page: string}> = async ({ params }) => {
-    if (!params) return { notFound: true };
-    const page = parseInt(params.page, 10);
-    const [
-        reviews,
-        reviewFields,
-        topHeader,
-    ] = await Promise.all([
-        getReviews({ page, limit: LIMIT }),
-        getReviewsFields(),
-        getTopHeader(),
-    ]);
+export const getStaticProps: GetStaticProps<Props, { page: string }> = async ({ params }) => {
+  if (!params) return { notFound: true };
+  const page = Number.parseInt(params.page, 10);
+  const [
+    reviews,
+    reviewFields,
+    topHeader,
+  ] = await Promise.all([
+    getReviews({ page, limit: LIMIT }),
+    getReviewsFields(),
+    getTopHeader(),
+  ]);
 
-    return { props: { reviews, reviewFields, topHeader } };
+  return { props: { reviews, reviewFields, topHeader } };
 };
 

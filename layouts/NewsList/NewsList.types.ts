@@ -1,8 +1,8 @@
-import { INews } from '~/types';
+import type { INews } from '~/types';
 
 
 export interface NewsListProps {
-     news: INews[]
+  news: INews[];
 }
 
-export type NewsListItemProps = INews
+export type NewsListItemProps = INews;

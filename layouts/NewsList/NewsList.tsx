@@ -1,18 +1,18 @@
 import List from '@mui/material/List';
-import { FC } from 'react';
+import type { FC } from 'react';
 
-import { NewsListProps } from './NewsList.types';
 import NewsListItem from './NewsListItem';
+import type { NewsListProps } from './NewsList.types';
 
 
 const NewsList: FC<NewsListProps> = ({ news }) => {
-    return (
-        <List>
-            {news.map((newsItem) => (
-                <NewsListItem {...newsItem} key={newsItem.title} />
-            ))}
-        </List>
-    );
+  return (
+    <List>
+      {news.map(newsItem => (
+        <NewsListItem {...newsItem} key={newsItem.title} />
+      ))}
+    </List>
+  );
 };
 
 export default NewsList;

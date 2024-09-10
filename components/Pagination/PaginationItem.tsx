@@ -1,22 +1,23 @@
 import PaginationItemMui from '@mui/material/PaginationItem';
 import Link from 'next/link';
-import { FC } from 'react';
+import type { FC } from 'react';
 
-import { PaginationItemProps } from './Pagination.types';
+import type { PaginationItemProps } from './Pagination.types';
 
 
-const PaginationItem: FC<PaginationItemProps> = (item) => {
-    const href = typeof item.path === 'string'
-        ? `${item.path}${item.page === 1 ? '' : `/page/${item.page}`}`
-        : item.path(item.page || 1);
+const PaginationItem: FC<PaginationItemProps> = ({ path, page, ...props }) => {
+  const href = typeof path === 'string'
+    ? `${path}${page === 1 ? '' : `/page/${page ?? '0'}`}`
+    : path(page ?? 1);
 
-    return (
-        <PaginationItemMui
-            component={Link}
-            href={href}
-            {...item}
-        />
-    );
+  return (
+    <PaginationItemMui
+      component={Link}
+      href={href}
+      {...props}
+      page={page}
+    />
+  );
 };
 
 export default PaginationItem;

@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 
 import { faker } from '@faker-js/faker';
 import _ from 'lodash';
@@ -13,20 +13,20 @@ const REVIEWS_NUMBER = 50;
  */
 const newsDir = path.resolve('public/content/news');
 for (let index = 0; index < NEWS_NUMBER; index += 1) {
-    const title = faker.lorem.words(_.random(3, 6, false));
-    const dateNow = new Date();
-    dateNow.setMinutes(index);
-    const fileName = `${_.kebabCase(title)}.json`;
+  const title = faker.lorem.words(_.random(3, 6, false));
+  const dateNow = new Date();
+  dateNow.setMinutes(index);
+  const fileName = `${_.kebabCase(title)}.json`;
 
-    const newsItem = JSON.stringify({
-        createdAt: dateNow,
-        publishedAt: dateNow.toUTCString(),
-        body: faker.lorem.paragraphs(_.random(3, 6, false)),
-        title: _.capitalize(title),
-        previewImage: `/images/news-ph-${_.random(1, 5, false)}.webp`,
-    }, null, 4);
+  const newsItem = JSON.stringify({
+    createdAt: dateNow,
+    publishedAt: dateNow.toUTCString(),
+    body: faker.lorem.paragraphs(_.random(3, 6, false)),
+    title: _.capitalize(title),
+    previewImage: `/images/news-ph-${_.random(1, 5, false)}.webp`,
+  }, null, 4);
 
-    fs.writeFileSync(path.resolve(newsDir, fileName), newsItem);
+  fs.writeFileSync(path.resolve(newsDir, fileName), newsItem);
 }
 
 /**
@@ -38,21 +38,21 @@ const developers = _.times(20, () => faker.company.name());
 const publishers = _.times(20, () => faker.company.name());
 
 for (let index = 0; index < REVIEWS_NUMBER; index += 1) {
-    const title = faker.lorem.words(_.random(3, 6, false));
-    const dateNow = new Date();
-    dateNow.setMinutes(index);
-    const fileName = `${_.kebabCase(title)}.json`;
+  const title = faker.lorem.words(_.random(3, 6, false));
+  const dateNow = new Date();
+  dateNow.setMinutes(index);
+  const fileName = `${_.kebabCase(title)}.json`;
 
-    const reviewsItem = JSON.stringify({
-        body: faker.lorem.paragraphs(_.random(3, 6, false)),
-        createdAt: dateNow,
-        title: _.capitalize(title),
-        genre: _.sample(genres),
-        publisher: _.sample(publishers),
-        developer: _.sample(developers),
-        gameRelease: faker.date.between('1989-01-01T00:00:00.000Z', '2020-01-01T00:00:00.000Z'),
-        previewImage: `/images/reviews-ph-${_.random(1, 5, false)}.webp`,
-    }, null, 4);
+  const reviewsItem = JSON.stringify({
+    body: faker.lorem.paragraphs(_.random(3, 6, false)),
+    createdAt: dateNow,
+    title: _.capitalize(title),
+    genre: _.sample(genres),
+    publisher: _.sample(publishers),
+    developer: _.sample(developers),
+    gameRelease: faker.date.between('1989-01-01T00:00:00.000Z', '2020-01-01T00:00:00.000Z'),
+    previewImage: `/images/reviews-ph-${_.random(1, 5, false)}.webp`,
+  }, null, 4);
 
-    fs.writeFileSync(path.resolve(reviewsDir, fileName), reviewsItem);
+  fs.writeFileSync(path.resolve(reviewsDir, fileName), reviewsItem);
 }

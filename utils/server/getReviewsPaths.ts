@@ -2,13 +2,13 @@ import { getPaths } from './getPaths';
 
 
 type GetReviewsPaths = {
-    params: {
-        slug: string;
-    };
+  params: {
+    slug: string;
+  };
 }[];
 
 
 export async function getReviewsPaths(): Promise<GetReviewsPaths> {
-    return getPaths('reviews');
+  return getPaths('reviews');
 }
 

@@ -1,5 +1,5 @@
 
 
 export interface FooterProps {
-     // null
+  // null
 }

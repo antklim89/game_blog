@@ -1,17 +1,16 @@
-import { FC } from 'react';
-
+import type { FC } from 'react';
 import Markdown from '~/components/Markdown';
-import { IAbout } from '~/types/about';
+import type { IAbout } from '~/types/about';
 
 
 const About: FC<IAbout> = ({ text }) => {
-    return (
-        <article>
-            <Markdown>
-                {text}
-            </Markdown>
-        </article>
-    );
+  return (
+    <article>
+      <Markdown>
+        {text}
+      </Markdown>
+    </article>
+  );
 };
 
 export default About;

@@ -4,29 +4,29 @@ import type { GetStaticProps, NextPage } from 'next';
 import Seo from '~/components/Seo';
 import Contacts from '~/layouts/Contacts';
 import Layout from '~/layouts/Layout';
-import { ITopHeader } from '~/types';
+import type { ITopHeader } from '~/types';
 import { getTopHeader } from '~/utils/server';
 
 
 interface Props {
-    topHeader: ITopHeader
+  topHeader: ITopHeader;
 }
 
 const ContactsPage: NextPage<Props> = ({ topHeader }) => {
-    return (
-        <Layout image={topHeader.contactsImage} title="Contacts">
-            <Seo title="Contacts" />
-            <Container>
-                <Contacts />
-            </Container>
-        </Layout>
-    );
+  return (
+    <Layout image={topHeader.contactsImage} title="Contacts">
+      <Seo title="Contacts" />
+      <Container>
+        <Contacts />
+      </Container>
+    </Layout>
+  );
 };
 
 export default ContactsPage;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    const topHeader = await getTopHeader();
+  const topHeader = await getTopHeader();
 
-    return { props: { topHeader } };
+  return { props: { topHeader } };
 };

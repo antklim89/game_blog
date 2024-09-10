@@ -1,6 +1,6 @@
-import { ReactMarkdownOptions } from 'react-markdown/lib/react-markdown';
+import type { Options } from 'react-markdown';
 
 
-export interface MarkdownProps extends ReactMarkdownOptions {
-    children: string
+export interface MarkdownProps extends Options {
+  children: string;
 }

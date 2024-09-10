@@ -2,8 +2,6 @@ import path from 'node:path';
 import antfu from '@antfu/eslint-config';
 
 
-console.log(path.resolve('./tsconfig.json'))
-
 export default antfu(
   {
     stylistic: {
@@ -60,7 +58,17 @@ export default antfu(
   {
     files: ['**/*.tsx', '**/*.jsx'],
     rules: {
-      'react-refresh/only-export-components': ['error', { allowExportNames: ['dynamicParams', 'dynamic', 'generateStaticParams', 'generateMetadata', 'metadata'] }],
+      'react-refresh/only-export-components': ['error', {
+        allowExportNames: [
+          'dynamicParams',
+          'dynamic',
+          'generateStaticParams',
+          'generateMetadata',
+          'metadata',
+          'getStaticProps',
+          'getStaticPaths',
+        ],
+      }],
       'style/jsx-max-props-per-line': ['warn', { maximum: { multi: 1, single: 3 } }],
       'style/jsx-sort-props': ['error', { callbacksLast: true, shorthandFirst: true }],
     },

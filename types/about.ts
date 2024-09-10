@@ -1,6 +1,6 @@
 
 
 export interface IAbout {
-    image: string
-    text: string
+  image: string;
+  text: string;
 }

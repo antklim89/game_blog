@@ -1,10 +1,10 @@
-import { IReview } from '~/types';
+import type { IReview } from '~/types';
 
 
 export interface ReviewsListProps {
-     reviews: IReview[]
+  reviews: IReview[];
 }
 
-export type ReviewsListItemProps = IReview
+export type ReviewsListItemProps = IReview;
 
 

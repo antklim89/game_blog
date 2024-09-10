@@ -1,8 +1,8 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-import { HeaderProps } from '~/layouts/Header/Header.types';
+import type { HeaderProps } from '~/layouts/Header/Header.types';
 
 
 export interface LayoutProps extends HeaderProps {
-    children: ReactNode
+  children: ReactNode;
 }

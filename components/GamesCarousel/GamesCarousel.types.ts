@@ -1,6 +1,6 @@
-import { IGamesCarousel } from '~/types';
+import type { IGamesCarousel } from '~/types';
 
 
 export interface GamesCarouselProps {
-    gamesCarousel: IGamesCarousel[]
+  gamesCarousel: IGamesCarousel[];
 }
