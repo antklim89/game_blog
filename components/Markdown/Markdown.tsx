@@ -1,5 +1,10 @@
 import Box from '@mui/material/Box';
-import { type AnchorHTMLAttributes, type FC, type ImgHTMLAttributes, useCallback } from 'react';
+import {
+  type AnchorHTMLAttributes,
+  type FC,
+  type ImgHTMLAttributes,
+  useCallback,
+} from 'react';
 import ReactMarkdown from 'react-markdown';
 import Image from '~/components/Image';
 import type { MarkdownProps } from './Markdown.types';

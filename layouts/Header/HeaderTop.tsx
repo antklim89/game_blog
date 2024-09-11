@@ -36,7 +36,13 @@ const HeaderTop: FC<HeaderProps> = ({ image, text, title }) => {
         : null}
       {title != null
         ? (
-            <Container sx={{ display: 'flex', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
+            <Container sx={{
+              display: 'flex',
+              height: '100%',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+            >
               <Typography
                 alignItems="center"
                 color="white"
