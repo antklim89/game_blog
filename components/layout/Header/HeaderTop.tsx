@@ -2,8 +2,8 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import type { FC } from 'react';
-import Image from '~/components/Image';
-import Markdown from '~/components/Markdown';
+import Image from '~/components/ui/Image';
+import Markdown from '~/components/ui/Markdown';
 import HeaderLogo from './HeaderLogo';
 import type { HeaderProps } from './Header.types';
 

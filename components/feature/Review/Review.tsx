@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import type { FC } from 'react';
-import Markdown from '~/components/Markdown';
-import SocialShare from '~/components/SocialShare';
+import Markdown from '~/components/ui/Markdown';
+import SocialShare from '~/components/ui/SocialShare';
 import type { IReview } from '~/lib/types';
 import { formatDate } from '~/lib/utils';
 

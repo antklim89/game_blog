@@ -1,9 +1,9 @@
 import Container from '@mui/material/Container';
 import type { GetStaticProps, NextPage } from 'next';
-import Pagination from '~/components/Pagination';
+import NewsList from '~/components/feature/NewsList';
+import Layout from '~/components/layout/Layout';
 import Seo from '~/components/Seo';
-import Layout from '~/layouts/Layout';
-import NewsList from '~/layouts/NewsList';
+import Pagination from '~/components/ui/Pagination';
 import { getNews, getTopHeader } from '~/lib/contentLoaders';
 import type { INews, ITopHeader, Paginated } from '~/lib/types';
 

@@ -7,7 +7,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import type { FC } from 'react';
-import Image from '~/components/Image';
+import Image from '~/components/ui/Image';
 import type { GamesCarouselProps } from './GamesCarousel.types';
 
 

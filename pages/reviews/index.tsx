@@ -1,11 +1,11 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import type { GetServerSideProps, NextPage } from 'next';
-import Pagination from '~/components/Pagination';
-import SelectReviewFields from '~/components/SelectReviewFields';
+import ReviewsList from '~/components/feature/ReviewsList';
+import SelectReviewFields from '~/components/feature/SelectReviewFields';
+import Layout from '~/components/layout/Layout';
 import Seo from '~/components/Seo';
-import Layout from '~/layouts/Layout';
-import ReviewsList from '~/layouts/ReviewsList';
+import Pagination from '~/components/ui/Pagination';
 import { getReviews, getReviewsFields, getTopHeader } from '~/lib/contentLoaders';
 import type {
   IReview,

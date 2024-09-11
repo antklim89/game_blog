@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import Markdown from '~/components/Markdown';
+import Markdown from '~/components/ui/Markdown';
 import type { IAbout } from '~/lib/types';
 
 

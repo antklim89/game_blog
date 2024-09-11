@@ -4,11 +4,11 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import type { GetStaticProps, NextPage } from 'next';
-import GamesCarousel from '~/components/GamesCarousel';
+import GamesCarousel from '~/components/feature/GamesCarousel';
+import NewsList from '~/components/feature/NewsList';
+import ReviewList from '~/components/feature/ReviewsList';
+import Layout from '~/components/layout/Layout';
 import Seo from '~/components/Seo';
-import Layout from '~/layouts/Layout';
-import NewsList from '~/layouts/NewsList';
-import ReviewList from '~/layouts/ReviewsList';
 import {
   getGamesCarousel,
   getNews,

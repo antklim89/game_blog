@@ -6,7 +6,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import type { FC } from 'react';
-import Image from '~/components/Image';
+import Image from '~/components/ui/Image';
 import { formatDate } from '~/lib/utils';
 import type { ReviewsListItemProps } from './ReviewsList.types';
 

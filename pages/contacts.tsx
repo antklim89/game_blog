@@ -1,8 +1,8 @@
 import Container from '@mui/material/Container';
 import type { GetStaticProps, NextPage } from 'next';
+import Contacts from '~/components/feature/Contacts';
+import Layout from '~/components/layout/Layout';
 import Seo from '~/components/Seo';
-import Contacts from '~/layouts/Contacts';
-import Layout from '~/layouts/Layout';
 import { getTopHeader } from '~/lib/contentLoaders';
 import type { ITopHeader } from '~/lib/types';
 

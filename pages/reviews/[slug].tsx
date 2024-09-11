@@ -1,8 +1,8 @@
 import Container from '@mui/material/Container';
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import Review from '~/components/feature/Review';
+import Layout from '~/components/layout/Layout';
 import Seo from '~/components/Seo';
-import Layout from '~/layouts/Layout';
-import Review from '~/layouts/Review';
 import { getReview } from '~/lib/contentLoaders';
 import { getReviewsPaths } from '~/lib/getStaticPaths';
 import type { IReview } from '~/lib/types';

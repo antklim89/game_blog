@@ -5,8 +5,8 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import Link from 'next/link';
 import type { FC } from 'react';
-import Image from '~/components/Image';
-import Markdown from '~/components/Markdown';
+import Image from '~/components/ui/Image';
+import Markdown from '~/components/ui/Markdown';
 import { formatDate } from '~/lib/utils';
 import type { NewsListItemProps } from './NewsList.types';
 

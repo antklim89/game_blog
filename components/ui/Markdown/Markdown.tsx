@@ -6,7 +6,7 @@ import {
   useCallback,
 } from 'react';
 import ReactMarkdown from 'react-markdown';
-import Image from '~/components/Image';
+import Image from '~/components/ui/Image';
 import type { MarkdownProps } from './Markdown.types';
 
 
