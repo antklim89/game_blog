@@ -3,7 +3,6 @@ import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import { useRouter } from 'next/router';
 import { type ChangeEventHandler, type FC, useCallback } from 'react';
-import { reviewFieldFilterNames } from '~/lib/constants';
 import type { ReviewFieldsList } from '~/lib/types';
 
 
@@ -22,7 +21,7 @@ const SelectReviewFields: FC<ReviewFieldsList> = (props) => {
 
   return (
     <Box display="flex" flexDirection={['column', 'row']} width="100%">
-      {reviewFieldFilterNames.map(fieldName => (
+      {Object.entries(props).map(([fieldName, value]: [string, ReviewFieldsList[keyof ReviewFieldsList] ]) => (
         <TextField
           fullWidth
           select
@@ -33,8 +32,7 @@ const SelectReviewFields: FC<ReviewFieldsList> = (props) => {
           onChange={handleFieldSelect(fieldName)}
         >
           <MenuItem value={`Select ${fieldName}`}>{`Select ${fieldName}`}</MenuItem>
-          {/* eslint-disable-next-line react/prefer-destructuring-assignment */}
-          {props[fieldName].map(fieldValue => (
+          {value.map(fieldValue => (
             <MenuItem key={fieldValue} value={fieldValue}>{fieldValue}</MenuItem>
           ))}
         </TextField>
