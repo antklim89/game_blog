@@ -1,13 +1,17 @@
 import Typography from '@mui/material/Typography';
 import type { FC } from 'react';
-
 import Markdown from '~/components/Markdown';
 import SocialShare from '~/components/SocialShare';
-import type { INews } from '~/types';
-import { formatDate } from '~/utils';
+import type { INews } from '~/lib/types';
+import { formatDate } from '~/lib/utils';
 
 
-const NewsItem: FC<INews> = ({ title, body, publishedAt, previewImage }) => {
+const NewsItem: FC<INews> = ({
+  title,
+  body,
+  publishedAt,
+  previewImage,
+}) => {
   return (
     <article>
       <Typography color="primary" variant="h1">

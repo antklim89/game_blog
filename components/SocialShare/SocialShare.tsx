@@ -12,7 +12,7 @@ import {
 } from 'react-share';
 import type { FC } from 'react';
 
-import { SITE_URL } from '~/constants';
+import { SITE_URL } from '~/lib/constants';
 
 import type { SocialShareProps } from './SocialShare.types';
 

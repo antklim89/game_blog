@@ -1,5 +1,6 @@
 import type { GetStaticPaths, GetStaticProps } from 'next';
-import { getNews, getPagesPaths, getTopHeader } from '~/utils/server';
+import { getNews, getTopHeader } from '~/lib/contentLoaders';
+import { getPagesPaths } from '~/lib/getStaticPaths';
 // eslint-disable-next-line no-restricted-imports
 import { LIMIT, type Props } from '../index';
 
@@ -9,10 +10,10 @@ export { default } from '../index';
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const path = await getPagesPaths(LIMIT, 'news');
+  const paths = await getPagesPaths(LIMIT, 'news');
 
   return {
-    paths: path,
+    paths,
     fallback: false,
   };
 };

@@ -1,4 +1,4 @@
-import type { INews } from '~/types';
+import type { INews } from '~/lib/types';
 
 
 export interface NewsListProps {

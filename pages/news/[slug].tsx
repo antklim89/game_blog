@@ -1,11 +1,11 @@
 import Container from '@mui/material/Container';
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-
 import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import NewsItem from '~/layouts/NewsItem';
-import type { INews } from '~/types';
-import { getNewsItem, getNewsPaths } from '~/utils/server';
+import { getNewsItem } from '~/lib/contentLoaders';
+import { getNewsPaths } from '~/lib/getStaticPaths';
+import type { INews } from '~/lib/types';
 
 
 interface Props {

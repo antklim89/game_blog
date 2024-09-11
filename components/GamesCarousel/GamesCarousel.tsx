@@ -3,9 +3,7 @@ import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import { Carousel } from 'nuka-carousel';
 import type { FC } from 'react';
-
 import Image from '~/components/Image';
-
 import type { GamesCarouselProps } from './GamesCarousel.types';
 
 

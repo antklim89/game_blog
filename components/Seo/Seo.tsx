@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { type FC, memo } from 'react';
-import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from '~/constants';
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from '~/lib/constants';
 import type { SeoProps } from './Seo.types';
 
 

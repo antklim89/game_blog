@@ -3,8 +3,9 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import Review from '~/layouts/Review';
-import type { IReview } from '~/types';
-import { getReview, getReviewsPaths } from '~/utils/server';
+import { getReview } from '~/lib/contentLoaders';
+import { getReviewsPaths } from '~/lib/getStaticPaths';
+import type { IReview } from '~/lib/types';
 
 
 interface Props {

@@ -4,25 +4,40 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import type { GetStaticProps, NextPage } from 'next';
-
 import GamesCarousel from '~/components/GamesCarousel';
 import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import NewsList from '~/layouts/NewsList';
 import ReviewList from '~/layouts/ReviewsList';
-import type { GetFilesResult, IGamesCarousel, INews, IReview, ITopHeader } from '~/types';
-import { getGamesCarousel, getNews, getReviews, getTopHeader } from '~/utils/server';
+import {
+  getGamesCarousel,
+  getNews,
+  getReviews,
+  getTopHeader,
+} from '~/lib/contentLoaders';
+import type {
+  IGamesCarousel,
+  INews,
+  IReview,
+  ITopHeader,
+  Paginated,
+} from '~/lib/types';
 
 
 interface Props {
-  reviews: GetFilesResult<IReview>;
-  news: GetFilesResult<INews>;
+  reviews: Paginated<IReview>;
+  news: Paginated<INews>;
   topHeader: ITopHeader;
-  gamesCarousel: IGamesCarousel[];
+  gamesCarousel: IGamesCarousel['items'];
 }
 
 
-const HomePage: NextPage<Props> = ({ reviews, news, topHeader, gamesCarousel }) => {
+const HomePage: NextPage<Props> = ({
+  reviews,
+  news,
+  topHeader,
+  gamesCarousel,
+}) => {
   return (
     <Layout image={topHeader.homeImage} text={topHeader.homeText}>
       <Seo title="Home" />
@@ -97,7 +112,12 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     getGamesCarousel(),
   ]);
 
-  return { props: { reviews, news, topHeader, gamesCarousel: gamesCarousel.items } };
+  return { props: {
+    reviews,
+    news,
+    topHeader,
+    gamesCarousel: gamesCarousel.items,
+  } };
 };
 
 

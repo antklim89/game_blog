@@ -1,7 +1,7 @@
 import type { GetStaticPaths, GetStaticProps } from 'next';
-
+import { getReviews, getReviewsFields, getTopHeader } from '~/lib/contentLoaders';
+import { getReviewsFilterPaths, type ReviewsFilterFieldsParams } from '~/lib/getStaticPaths';
 import { LIMIT, type Props } from '~/pages/reviews';
-import { getReviews, getReviewsFields, getReviewsFilterPaths, getTopHeader, type ReviewsFilterFieldsParams } from '~/utils/server';
 
 
 export const getStaticPaths: GetStaticPaths = async () => {

@@ -1,5 +1,6 @@
 import type { GetStaticPaths, GetStaticProps } from 'next';
-import { getPagesPaths, getReviews, getReviewsFields, getTopHeader } from '~/utils/server';
+import { getReviews, getReviewsFields, getTopHeader } from '~/lib/contentLoaders';
+import { getPagesPaths } from '~/lib/getStaticPaths';
 // eslint-disable-next-line no-restricted-imports
 import { LIMIT, type Props } from '../index';
 

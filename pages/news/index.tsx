@@ -4,15 +4,15 @@ import Pagination from '~/components/Pagination';
 import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import NewsList from '~/layouts/NewsList';
-import type { GetFilesResult, INews, ITopHeader } from '~/types';
-import { getNews, getTopHeader } from '~/utils/server';
+import { getNews, getTopHeader } from '~/lib/contentLoaders';
+import type { INews, ITopHeader, Paginated } from '~/lib/types';
 
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const LIMIT = 10;
 
 export interface Props {
-  news: GetFilesResult<INews>;
+  news: Paginated<INews>;
   topHeader: ITopHeader;
 }
 

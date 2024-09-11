@@ -6,15 +6,20 @@ import SelectReviewFields from '~/components/SelectReviewFields';
 import Seo from '~/components/Seo';
 import Layout from '~/layouts/Layout';
 import ReviewsList from '~/layouts/ReviewsList';
-import type { GetFilesResult, IReview, ITopHeader, ReviewFieldsList } from '~/types';
-import { getReviews, getReviewsFields, getTopHeader } from '~/utils/server';
+import { getReviews, getReviewsFields, getTopHeader } from '~/lib/contentLoaders';
+import type {
+  IReview,
+  ITopHeader,
+  Paginated,
+  ReviewFieldsList,
+} from '~/lib/types';
 
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const LIMIT = 10;
 
 export interface Props {
-  reviews: GetFilesResult<IReview>;
+  reviews: Paginated<IReview>;
   reviewFields: ReviewFieldsList;
   topHeader: ITopHeader;
 }

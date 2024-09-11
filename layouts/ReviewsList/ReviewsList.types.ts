@@ -1,4 +1,4 @@
-import type { IReview } from '~/types';
+import type { IReview } from '~/lib/types';
 
 
 export interface ReviewsListProps {

@@ -5,15 +5,19 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import Link from 'next/link';
 import type { FC } from 'react';
-
 import Image from '~/components/Image';
 import Markdown from '~/components/Markdown';
-import { formatDate } from '~/utils';
-
+import { formatDate } from '~/lib/utils';
 import type { NewsListItemProps } from './NewsList.types';
 
 
-const NewsListItem: FC<NewsListItemProps> = ({ title, publishedAt, slug, body, previewImage }) => {
+const NewsListItem: FC<NewsListItemProps> = ({
+  title,
+  publishedAt,
+  slug,
+  body,
+  previewImage,
+}) => {
   return (
     <>
       <ListItem component={Link} href={`/news/${slug}`}>

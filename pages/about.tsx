@@ -3,10 +3,8 @@ import type { GetStaticProps, NextPage } from 'next';
 import Seo from '~/components/Seo';
 import About from '~/layouts/About';
 import Layout from '~/layouts/Layout';
-import type { ITopHeader } from '~/types';
-import type { IAbout } from '~/types/about';
-import { getTopHeader } from '~/utils/server';
-import { getAbout } from '~/utils/server/getAbout';
+import { getAbout, getTopHeader } from '~/lib/contentLoaders';
+import type { IAbout, ITopHeader } from '~/lib/types';
 
 
 interface Props {

@@ -3,8 +3,8 @@ import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import { useRouter } from 'next/router';
 import { type ChangeEventHandler, type FC, useCallback } from 'react';
-import { reviewFieldFilterNames } from '~/constants';
-import type { ReviewFieldsList } from '~/types';
+import { reviewFieldFilterNames } from '~/lib/constants';
+import type { ReviewFieldsList } from '~/lib/types';
 
 
 const SelectReviewFields: FC<ReviewFieldsList> = (props) => {

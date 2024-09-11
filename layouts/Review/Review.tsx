@@ -1,11 +1,10 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import type { FC } from 'react';
-
 import Markdown from '~/components/Markdown';
 import SocialShare from '~/components/SocialShare';
-import type { IReview } from '~/types';
-import { formatDate } from '~/utils';
+import type { IReview } from '~/lib/types';
+import { formatDate } from '~/lib/utils';
 
 
 const Review: FC<IReview> = ({
