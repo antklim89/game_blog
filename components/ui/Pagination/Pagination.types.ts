@@ -1,13 +1,8 @@
-import type { PaginationRenderItemParams } from '@mui/material';
 
-
-type PaginationPath = string | ((page: number) => string);
 
 export interface PaginationProps {
   totalPages: number;
-  path: PaginationPath;
+  path: string;
+  currentPage: number;
 }
 
-export type PaginationItemProps = PaginationRenderItemParams & {
-  path: PaginationPath;
-};

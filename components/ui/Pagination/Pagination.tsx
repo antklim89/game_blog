@@ -1,23 +1,13 @@
+'use client';
 import Box from '@mui/material/Box';
 import PaginationMui from '@mui/material/Pagination';
-import { useRouter } from 'next/router';
-import { type FC, useCallback } from 'react';
+import PaginationItemMui from '@mui/material/PaginationItem';
+import Link from 'next/link';
+import type { FC } from 'react';
 import type { PaginationProps } from './Pagination.types';
 
 
-const Pagination: FC<PaginationProps> = ({ totalPages }) => {
-  const router = useRouter();
-  const { query: { page } } = useRouter();
-  const currentPage = typeof page === 'string' ? Number.parseInt(page, 10) : 1;
-
-  const handlePageSelect = useCallback(async (_: unknown, newPage: number) => {
-    const newPath = (router.pathname.endsWith('[page]'))
-      ? router.asPath.replace(/\/page\/\d+$/, `/page/${newPage}`)
-      : `${router.pathname}/page/${newPage}`;
-
-    await router.push(newPath);
-  }, [router]);
-
+const Pagination: FC<PaginationProps> = ({ currentPage, path, totalPages }) => {
   return (
     <Box
       display="flex"
@@ -29,14 +19,21 @@ const Pagination: FC<PaginationProps> = ({ totalPages }) => {
         color="primary"
         count={totalPages}
         page={currentPage}
+        renderItem={({ page, onClick: _, ...item }) => (
+          <PaginationItemMui
+            component={Link}
+            href={`${path}/${(page ?? 1).toString()}`}
+            page={page}
+            {...item}
+          />
+        )}
         shape="rounded"
+        siblingCount={2}
         sx={{ '& ul': { flexWrap: 'nowrap' } }}
         variant="outlined"
-        onChange={handlePageSelect}
       />
     </Box>
   );
 };
 
 export default Pagination;
-
