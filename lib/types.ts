@@ -11,7 +11,7 @@ import type {
 export interface FilesFilterOptions {
   limit?: number;
   page?: number;
-  search?: Record<string, string>;
+  search?: Record<string, string | undefined>;
 }
 
 export interface Paginated<T> {
