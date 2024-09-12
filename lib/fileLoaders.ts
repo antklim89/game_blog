@@ -9,12 +9,12 @@ export const CONTENT_PATH = path.resolve(process.cwd(), 'public/content');
 
 export function filterContent<T extends Record<string, unknown>>(
   content: T[],
-  search?: Record<string, string>,
+  search?: Record<string, string | undefined>,
 ): T[] {
   if (!search) return content;
   if (typeof content !== 'object') return content;
   return content.filter((file) => {
-    return Object.entries(search).every(([key, value]) => file[key] === value);
+    return Object.entries(search).every(([key, value]) => value == null || file[key] === value);
   });
 }
 export function paginateContent<T extends Record<string, unknown>>(
