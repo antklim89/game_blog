@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
-import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import type { FC } from 'react';
@@ -20,13 +20,7 @@ const ReviewListItem: FC<ReviewsListItemProps> = ({
   gameRelease,
 }) => {
   return (
-    <Grid
-      item
-      md={6}
-      sm={12}
-      width="100%"
-      xs={12}
-    >
+    <Grid size={{ md: 6, sm: 12, xs: 12 }}>
       <Link href={`/reviews/${slug}`}>
         <Card
           sx={{

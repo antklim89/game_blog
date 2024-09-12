@@ -1,3 +1,4 @@
+'use client';
 import MenuIcon from '@mui/icons-material/Menu';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -48,7 +49,11 @@ const HeaderLinks: FC = () => {
 
   const links = LINKS.map(({ href, title }) => (
     <MenuItem key={title} onClick={handleCloseDrawer}>
-      <Typography component={Link} href={href} textTransform="uppercase">
+      <Typography
+        component={Link}
+        href={href}
+        textTransform="uppercase"
+      >
         {title}
       </Typography>
     </MenuItem>
@@ -83,7 +88,7 @@ const HeaderLinks: FC = () => {
         >
           <Box
             sx={{
-              background: ({ palette }) => palette.primary.main,
+              background: 'primary.main',
               minWidth: 320,
               color: 'white',
               height: '100%',

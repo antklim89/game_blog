@@ -2,7 +2,6 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import type { FC } from 'react';
-
 import type { FooterProps } from './Footer.types';
 
 
@@ -11,7 +10,7 @@ const Footer: FC<FooterProps> = () => {
     <Box
       component="footer"
       sx={{
-        backgroundColor: ({ palette }) => palette.primary.main,
+        backgroundColor: 'primary.main',
         py: 2,
       }}
     >

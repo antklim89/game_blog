@@ -1,14 +1,15 @@
 import List from '@mui/material/List';
 import type { FC } from 'react';
-
+import { getNews } from '~/lib/contentLoaders';
 import NewsListItem from './NewsListItem';
-import type { NewsListProps } from './NewsList.types';
 
 
-const NewsList: FC<NewsListProps> = ({ news }) => {
+const NewsList: FC = async () => {
+  const news = await getNews({ limit: 5 });
+
   return (
     <List>
-      {news.map(newsItem => (
+      {news.items.map(newsItem => (
         <NewsListItem {...newsItem} key={newsItem.title} />
       ))}
     </List>
