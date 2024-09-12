@@ -1,13 +1,10 @@
 import process from 'node:process';
-import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
-import Footer from '~/components/layout/Footer';
-import Header from '~/components/layout/Header';
 import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from '~/lib/constants';
 import { globalStyles, theme } from '~/lib/theme';
 import '@fontsource/roboto/400.css';
@@ -45,11 +42,7 @@ function RootLayout({ children }: { children: ReactNode }) {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <GlobalStyles styles={globalStyles} />
-          <Box component="body" sx={{ display: 'grid', gridTemplateRows: 'auto 1fr auto', height: '100vh' }}>
-            <Header />
-            <main>{children}</main>
-            <Footer />
-          </Box>
+          {children}
         </ThemeProvider>
       </AppRouterCacheProvider>
     </html>

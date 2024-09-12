@@ -6,11 +6,15 @@ import Link from 'next/link';
 import GamesCarousel from '~/components/feature/GamesCarousel';
 import NewsList from '~/components/feature/NewsList';
 import ReviewsList from '~/components/feature/ReviewsList';
+import Layout from '~/components/layout/Layout';
+import { getTopHeader } from '~/lib/contentLoaders';
 
 
 async function HomePage() {
+  const { homeImage } = await getTopHeader();
+
   return (
-    <div>
+    <Layout image={homeImage}>
       <Container>
         <GamesCarousel />
         <Box mb={8}>
@@ -62,7 +66,7 @@ async function HomePage() {
           </Box>
         </Box>
       </Container>
-    </div>
+    </Layout>
   );
 }
 
