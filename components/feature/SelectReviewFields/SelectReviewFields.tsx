@@ -23,30 +23,37 @@ const SelectReviewFields: FC<SelectReviewFieldsProps> = async ({
       gap={2}
       width="100%"
     >
-      {Object.entries(reviewFields).map(([fieldName, fieldOptions]: [string, ReviewFieldsList[keyof ReviewFieldsList] ]) => (
-        <TextField
-          fullWidth
-          select
-          key={fieldName}
-          label={`Select ${fieldName}`}
-          value={fieldSelectedValues[fieldName as keyof ReviewFieldsList]}
-        >
-          <MenuItem value="all">
-            <Link href={createReviewsHref({ ...fieldSelectedValues, [fieldName]: 'all' })}>
-              Select
-              {' '}
-              {fieldName}
-            </Link>
-          </MenuItem>
-          {fieldOptions.map(fieldValue => (
-            <MenuItem key={fieldValue} value={fieldValue}>
-              <Link href={createReviewsHref({ ...fieldSelectedValues, [fieldName]: fieldValue })}>
-                {fieldValue}
-              </Link>
+      {Object
+        .entries(reviewFields)
+        .map(([fieldName, fieldOptions]: [string, ReviewFieldsList[keyof ReviewFieldsList] ]) => (
+          <TextField
+            fullWidth
+            select
+            key={fieldName}
+            label={`Select ${fieldName}`}
+            value={fieldSelectedValues[fieldName as keyof ReviewFieldsList]}
+          >
+            {/** @ts-expect-error component prop exists */}
+            <MenuItem
+              component={Link}
+              href={createReviewsHref({ ...fieldSelectedValues, [fieldName]: 'all' })}
+              value="all"
+            >
+              Select {fieldName}
             </MenuItem>
-          ))}
-        </TextField>
-      ))}
+            {fieldOptions.map(fieldValue => (
+              // @ts-expect-error component prop exists
+              <MenuItem
+                component={Link}
+                href={createReviewsHref({ ...fieldSelectedValues, [fieldName]: fieldValue })}
+                key={fieldValue}
+                value={fieldValue}
+              >
+                {fieldValue}
+              </MenuItem>
+            ))}
+          </TextField>
+        ))}
     </Box>
   );
 };
