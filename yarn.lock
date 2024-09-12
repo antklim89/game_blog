@@ -109,7 +109,7 @@
   dependencies:
     "@babel/types" "^7.25.6"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.12.0", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.15.4", "@babel/runtime@^7.18.3", "@babel/runtime@^7.20.13", "@babel/runtime@^7.25.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.12.0", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.15.4", "@babel/runtime@^7.18.3", "@babel/runtime@^7.20.13", "@babel/runtime@^7.25.0", "@babel/runtime@^7.25.6", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
   version "7.25.6"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.25.6.tgz#9afc3289f7184d8d7f98b099884c26317b9264d2"
   integrity sha512-VBj9MYyDb9tuLq7yzqjgzt6Q+IBQLrGZfdjOekyEirZPHxXWoTSGUTMrpsfi58Up73d13NfYLv8HT9vmznjzhQ==
@@ -960,6 +960,13 @@
   integrity sha512-WaTPSvKcx8X7NdWAHzJWDZv+YXvK0MUY8+JI/r4/q2GgIa5RW+n4+08CGX6jB7sWhU1R3zy28NfsDUwwQjOThw==
   dependencies:
     "@babel/runtime" "^7.25.0"
+
+"@mui/material-nextjs@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@mui/material-nextjs/-/material-nextjs-6.1.0.tgz#993e03297e3b96d279525dd0821f912b490596f4"
+  integrity sha512-sltDMnCm/AbLsuKEOTyMHXoHKSKCsr6miYc+izOX6LTfyyD1ahuJj4+bNM35+NJjAgCESMG8TOxiLOjirZ5rHg==
+  dependencies:
+    "@babel/runtime" "^7.25.6"
 
 "@mui/material@^6.0.2":
   version "6.0.2"
@@ -3100,6 +3107,24 @@ electron-to-chromium@^1.5.4:
   version "1.5.18"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.18.tgz#5fe62b9d21efbcfa26571066502d94f3ed97e495"
   integrity sha512-1OfuVACu+zKlmjsNdcJuVQuVE61sZOLbNM4JAQ1Rvh6EOj0/EUKhMJjRH73InPlXSh8HIJk1cVZ8pyOV/FMdUQ==
+
+embla-carousel-react@^8.2.0:
+  version "8.2.1"
+  resolved "https://registry.yarnpkg.com/embla-carousel-react/-/embla-carousel-react-8.2.1.tgz#0202bd6b04f749cf9a56ad86f4549f75b7bb43bb"
+  integrity sha512-YKtARk101mp00Zb6UAFkkvK+5XRo92LAtO9xLFeDnQ/XU9DqFhKnRy1CedRRj0/RSk6MTFDx3MqOQue3gJj9DA==
+  dependencies:
+    embla-carousel "8.2.1"
+    embla-carousel-reactive-utils "8.2.1"
+
+embla-carousel-reactive-utils@8.2.1:
+  version "8.2.1"
+  resolved "https://registry.yarnpkg.com/embla-carousel-reactive-utils/-/embla-carousel-reactive-utils-8.2.1.tgz#c62fdb6f77c6dcd68bcdaba62523acacb8e633fc"
+  integrity sha512-LXMVOOyv09ZKRxRQXYMX1FpVGcypsuxdcidNcNlBQUN2mK7hkmjVFQwwhfnnY39KMi88XYnYPBgMxfTe0vxSrA==
+
+embla-carousel@8.2.1:
+  version "8.2.1"
+  resolved "https://registry.yarnpkg.com/embla-carousel/-/embla-carousel-8.2.1.tgz#d156be420f47d9f61f444eb789c9901cce43f7f8"
+  integrity sha512-9mTDtyMZJhFuuW5pixhTT4iLiJB1l3dH3IpXUKCsgLlRlHCiySf/wLKy5xIAzmxIsokcQ50xea8wi7BCt0+Rxg==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -6210,11 +6235,6 @@ nth-check@^2.0.1, nth-check@^2.1.1:
   integrity sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==
   dependencies:
     boolbase "^1.0.0"
-
-nuka-carousel@^8.0.1:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/nuka-carousel/-/nuka-carousel-8.0.1.tgz#57e35f3b1507e3d746ed8afd897ff479e6c028fe"
-  integrity sha512-dnJBBU6psWT590GQwXApJlZQ5yReVwav4c+LImLaUwgzSZhDT6f1l/bGGOTzU9HqC70wZaHiZ/pWk0BJ+4VGZQ==
 
 object-assign@^4, object-assign@^4.1.0, object-assign@^4.1.1:
   version "4.1.1"
