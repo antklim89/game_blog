@@ -77,6 +77,7 @@ export default antfu(
       }],
       'style/jsx-max-props-per-line': ['warn', { maximum: { multi: 1, single: 3 } }],
       'style/jsx-sort-props': ['error', { callbacksLast: true, shorthandFirst: true }],
+      'style/jsx-one-expression-per-line': ['error', { allow: 'non-jsx' }],
     },
   },
 );
