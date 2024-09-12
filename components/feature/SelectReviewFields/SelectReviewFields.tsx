@@ -1,39 +1,49 @@
 import Box from '@mui/material/Box';
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
-import { useRouter } from 'next/router';
-import { type ChangeEventHandler, type FC, useCallback } from 'react';
+import Link from 'next/link';
+import type { FC } from 'react';
+import { getReviewsFields } from '~/lib/contentLoaders';
 import type { ReviewFieldsList } from '~/lib/types';
+import type { SelectReviewFieldsProps } from './SelectReviewFields.types';
 
 
-const SelectReviewFields: FC<ReviewFieldsList> = (props) => {
-  const router = useRouter();
-
-  const handleFieldSelect: (fieldName: string) => ChangeEventHandler<HTMLInputElement> = useCallback(
-    fieldName => async (e) => {
-      const newPath = e.target.value === `Select ${fieldName}`
-        ? '/reviews'
-        : `/reviews/search/${fieldName}/${e.target.value}/page/1`;
-      await router.push(newPath);
-    },
-    [router],
-  );
+const SelectReviewFields: FC<SelectReviewFieldsProps> = async ({
+  publisher = 'all',
+  developer = 'all',
+  genre = 'all',
+}) => {
+  const reviewFields = await getReviewsFields();
+  const fieldSelectedValues = { developer, genre, publisher } as const;
 
   return (
-    <Box display="flex" flexDirection={['column', 'row']} width="100%">
-      {Object.entries(props).map(([fieldName, value]: [string, ReviewFieldsList[keyof ReviewFieldsList] ]) => (
+    <Box
+      display="flex"
+      flexDirection={['column', 'row']}
+      gap={2}
+      width="100%"
+    >
+      {Object.entries(reviewFields).map(([fieldName, fieldOptions]: [string, ReviewFieldsList[keyof ReviewFieldsList] ]) => (
         <TextField
           fullWidth
           select
           key={fieldName}
           label={`Select ${fieldName}`}
-          sx={{ mr: [1, null, 4], my: [1, null, 4] }}
-          value={fieldName === router.query.fieldName ? router.query.fieldValue : `Select ${fieldName}`}
-          onChange={handleFieldSelect(fieldName)}
+          value={fieldSelectedValues[fieldName as keyof ReviewFieldsList]}
         >
-          <MenuItem value={`Select ${fieldName}`}>{`Select ${fieldName}`}</MenuItem>
-          {value.map(fieldValue => (
-            <MenuItem key={fieldValue} value={fieldValue}>{fieldValue}</MenuItem>
+          <MenuItem value="all">
+            <Link href={createReviewsHref({ ...fieldSelectedValues, [fieldName]: 'all' })}>
+              Select
+              {' '}
+              {fieldName}
+            </Link>
+          </MenuItem>
+          {fieldOptions.map(fieldValue => (
+            <MenuItem key={fieldValue} value={fieldValue}>
+              <Link href={createReviewsHref({ ...fieldSelectedValues, [fieldName]: fieldValue })}>
+                {fieldValue}
+              </Link>
+            </MenuItem>
           ))}
         </TextField>
       ))}
@@ -43,4 +53,15 @@ const SelectReviewFields: FC<ReviewFieldsList> = (props) => {
 
 export default SelectReviewFields;
 
+function createReviewsHref({
+  publisher,
+  developer,
+  genre,
+}: {
+  publisher: string;
+  developer: string;
+  genre: string;
+}): string {
+  return `/reviews/${publisher}/${developer}/${genre}/1`;
+}
 
