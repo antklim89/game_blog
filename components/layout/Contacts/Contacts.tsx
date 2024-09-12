@@ -1,8 +1,10 @@
+'use client';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
+import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
@@ -28,7 +30,7 @@ const Contacts: FC = () => {
   };
 
   return (
-    <section>
+    <Container component="section">
       <Paper
         component="form"
         data-netlify="true"
@@ -106,7 +108,7 @@ const Contacts: FC = () => {
           {loading ? <CircularProgress color="secondary" sx={{ position: 'absolute' }} /> : null}
         </Button>
       </Paper>
-    </section>
+    </Container>
   );
 };
 
