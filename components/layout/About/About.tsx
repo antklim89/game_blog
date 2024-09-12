@@ -1,9 +1,11 @@
 import type { FC } from 'react';
 import Markdown from '~/components/ui/Markdown';
-import type { IAbout } from '~/lib/types';
+import { getAbout } from '~/lib/contentLoaders';
 
 
-const About: FC<IAbout> = ({ text }) => {
+const About: FC = async () => {
+  const { text } = await getAbout();
+
   return (
     <article>
       <Markdown>
