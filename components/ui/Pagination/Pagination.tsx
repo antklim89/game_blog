@@ -8,6 +8,8 @@ import type { PaginationProps } from './Pagination.types';
 
 
 const Pagination: FC<PaginationProps> = ({ currentPage, path, totalPages }) => {
+  if (totalPages <= 1) return null;
+
   return (
     <Box
       display="flex"
