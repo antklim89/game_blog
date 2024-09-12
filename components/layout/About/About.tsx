@@ -1,3 +1,4 @@
+import Container from '@mui/material/Container';
 import type { FC } from 'react';
 import Markdown from '~/components/ui/Markdown';
 import { getAbout } from '~/lib/contentLoaders';
@@ -7,11 +8,11 @@ const About: FC = async () => {
   const { text } = await getAbout();
 
   return (
-    <article>
+    <Container component="article">
       <Markdown>
         {text}
       </Markdown>
-    </article>
+    </Container>
   );
 };
 

@@ -1,4 +1,3 @@
-import Container from '@mui/material/Container';
 import type { Metadata } from 'next';
 import About from '~/components/layout/About';
 import Layout from '~/components/layout/Layout';
@@ -14,9 +13,7 @@ async function AboutPage() {
 
   return (
     <Layout image={aboutImage}>
-      <Container>
-        <About />
-      </Container>
+      <About />
     </Layout>
   );
 }
