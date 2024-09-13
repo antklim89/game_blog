@@ -37,7 +37,7 @@ const ReviewListItem: FC<ReviewsListItemProps> = ({
             subheaderTypographyProps={{ color: 'white', variant: 'subtitle2' }}
             sx={{ p: [1, 2] }}
             title={title}
-            titleTypographyProps={{ variant: 'h4', component: 'h4', whiteSpace: 'nowrap' }}
+            titleTypographyProps={{ component: 'h4' }}
           />
           <CardContent sx={{ p: [1, 2] }}>
             <Typography>
