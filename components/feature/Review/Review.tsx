@@ -7,18 +7,24 @@ import type { IReview } from '~/lib/types';
 import { formatDate } from '~/lib/utils';
 
 
-const Review: FC<IReview> = ({
-  body,
-  genre,
-  gameRelease,
-  publisher,
-  developer,
-  title,
-  previewImage,
-}) => {
+const Review: FC<{ review: IReview }> = ({ review }) => {
+  const {
+    body,
+    genre,
+    gameRelease,
+    publisher,
+    developer,
+    title,
+    previewImage,
+  } = review;
+
   return (
     <article>
-      <Box display="flex" flexDirection={{ xs: 'column', sm: 'column', md: 'row-reverse' }} justifyContent="space-between">
+      <Box
+        display="flex"
+        flexDirection={{ xs: 'column', sm: 'column', md: 'row-reverse' }}
+        justifyContent="space-between"
+      >
         <SocialShare image={previewImage} title={title} />
         <Typography sx={{ mb: 4 }}>
           <b>Genre:</b>
