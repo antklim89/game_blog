@@ -20,7 +20,7 @@ const NewsListItem: FC<NewsListItemProps> = ({
 }) => {
   return (
     <>
-      <ListItem component={Link} href={`/news/${slug}`}>
+      <ListItem component={Link} href={`/news-item/${slug}`}>
         <ListItemAvatar sx={{ display: ['none', 'block'], mr: 4 }}>
           <Image
             alt="title"

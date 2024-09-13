@@ -21,7 +21,7 @@ const ReviewListItem: FC<ReviewListItemProps> = ({
 }) => {
   return (
     <Grid size={{ md: 6, sm: 12, xs: 12 }}>
-      <Link href={`/reviews/${slug}`}>
+      <Link href={`/review-item/${slug}`}>
         <Card
           sx={{
             'position': 'relative',

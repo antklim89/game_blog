@@ -46,13 +46,13 @@ async function ReviewsPage({ params }: { params: z.infer<typeof reviewParamsSche
         />
         <Pagination
           currentPage={page}
-          path={`/reviews/${publisher}/${developer}/${genre}`}
+          path={`/review-list/${publisher}/${developer}/${genre}`}
           totalPages={reviews.totalPages}
         />
         <ReviewList reviews={reviews.items} />
         <Pagination
           currentPage={page}
-          path={`/reviews/${publisher}/${developer}/${genre}`}
+          path={`/review-list/${publisher}/${developer}/${genre}`}
           totalPages={reviews.totalPages}
         />
       </Container>

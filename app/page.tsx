@@ -20,7 +20,7 @@ async function HomePage() {
       <Container>
         <GamesCarousel />
         <Box mb={8}>
-          <Link href="/reviews">
+          <Link href="/review-list">
             <Typography
               color="primary"
               component="h3"
@@ -36,7 +36,7 @@ async function HomePage() {
             <Button
               color="primary"
               component={Link}
-              href="/reviews"
+              href="/review-list"
               variant="outlined"
             >
               Show more...
@@ -44,7 +44,7 @@ async function HomePage() {
           </Box>
         </Box>
         <Box mb={8}>
-          <Link href="/news">
+          <Link href="/news-list">
             <Typography
               color="primary"
               component="h3"
@@ -60,7 +60,7 @@ async function HomePage() {
             <Button
               color="primary"
               component={Link}
-              href="/news"
+              href="/news-list"
               variant="outlined"
             >
               Show more...

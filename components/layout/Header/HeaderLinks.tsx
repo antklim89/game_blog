@@ -18,11 +18,11 @@ const LINKS = [
     title: 'home',
   },
   {
-    href: '/reviews',
+    href: '/review-list',
     title: 'reviews',
   },
   {
-    href: '/news',
+    href: '/news-list',
     title: 'news',
   },
   {

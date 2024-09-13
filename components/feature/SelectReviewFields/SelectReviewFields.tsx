@@ -69,6 +69,6 @@ function createReviewsHref({
   developer: string;
   genre: string;
 }): string {
-  return `/reviews/${publisher}/${developer}/${genre}/1`;
+  return `/review-list/${publisher}/${developer}/${genre}/1`;
 }
 
