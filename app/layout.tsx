@@ -1,11 +1,10 @@
-import process from 'node:process';
 import CssBaseline from '@mui/material/CssBaseline';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
-import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from '~/lib/constants';
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, SITE_URL } from '~/lib/constants';
 import { globalStyles, theme } from '~/lib/theme';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/400-italic.css';
@@ -15,7 +14,7 @@ import '@fontsource/roboto/700-italic.css';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    metadataBase: new URL(process.env.URL ?? 'http://localhost:3000'),
+    metadataBase: new URL(SITE_URL ?? 'http://localhost:3000'),
     title: {
       default: DEFAULT_TITLE,
       template: `%s | ${DEFAULT_TITLE}`,
