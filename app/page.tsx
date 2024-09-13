@@ -7,12 +7,13 @@ import GamesCarousel from '~/components/feature/GamesCarousel';
 import NewsList from '~/components/feature/NewsList';
 import ReviewsList from '~/components/feature/ReviewsList';
 import Layout from '~/components/layout/Layout';
-import { getReviews, getTopHeader } from '~/lib/contentLoaders';
+import { getNews, getReviews, getTopHeader } from '~/lib/contentLoaders';
 
 
 async function HomePage() {
   const { homeImage } = await getTopHeader();
   const reviews = await getReviews({ limit: 4 });
+  const news = await getNews({ limit: 4 });
 
   return (
     <Layout image={homeImage}>
@@ -54,7 +55,7 @@ async function HomePage() {
               News
             </Typography>
           </Link>
-          <NewsList />
+          <NewsList news={news.items} />
           <Box display="flex" justifyContent="flex-end">
             <Button
               color="primary"
