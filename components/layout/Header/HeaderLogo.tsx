@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box';
 import Image, { type StaticImageData } from 'next/image';
 import Link from 'next/link';
 import type { FC } from 'react';
@@ -7,7 +8,12 @@ import logo from './Header.logo.svg';
 const HeaderLogo: FC = () => {
   return (
     <Link href="/" key="2">
-      <Image alt="logo" src={logo as StaticImageData} />
+      <Box
+        alt="logo"
+        component={Image}
+        src={logo as StaticImageData}
+        sx={{ width: '100%' }}
+      />
     </Link>
   );
 };
