@@ -26,6 +26,7 @@ const Pagination: FC<PaginationProps> = ({ currentPage, path, totalPages }) => {
             component={Link}
             href={`${path}/${(page ?? 1).toString()}`}
             page={page}
+            scroll={false}
             {...item}
           />
         )}
