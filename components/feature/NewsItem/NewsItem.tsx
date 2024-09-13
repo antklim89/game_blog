@@ -6,12 +6,13 @@ import type { INews } from '~/lib/types';
 import { formatDate } from '~/lib/utils';
 
 
-const NewsItem: FC<INews> = ({
-  title,
-  body,
-  publishedAt,
-  previewImage,
-}) => {
+const NewsItem: FC<{ newsItem: INews }> = ({ newsItem }) => {
+  const {
+    title,
+    body,
+    publishedAt,
+    previewImage,
+  } = newsItem;
   return (
     <article>
       <Typography color="primary" variant="h1">
