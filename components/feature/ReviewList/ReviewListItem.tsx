@@ -8,10 +8,10 @@ import Link from 'next/link';
 import type { FC } from 'react';
 import Image from '~/components/ui/Image';
 import { formatDate } from '~/lib/utils';
-import type { ReviewsListItemProps } from './ReviewsList.types';
+import type { ReviewListItemProps } from './ReviewList.types';
 
 
-const ReviewListItem: FC<ReviewsListItemProps> = ({
+const ReviewListItem: FC<ReviewListItemProps> = ({
   slug,
   title,
   previewImage,

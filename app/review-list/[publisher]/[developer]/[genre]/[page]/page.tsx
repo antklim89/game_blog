@@ -2,7 +2,7 @@ import Container from '@mui/material/Container';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import type { z } from 'zod';
-import ReviewsList from '~/components/feature/ReviewsList';
+import ReviewList from '~/components/feature/ReviewList';
 import SelectReviewFields from '~/components/feature/SelectReviewFields';
 import Layout from '~/components/layout/Layout';
 import Pagination from '~/components/ui/Pagination';
@@ -49,7 +49,7 @@ async function ReviewsPage({ params }: { params: z.infer<typeof reviewParamsSche
           path={`/reviews/${publisher}/${developer}/${genre}`}
           totalPages={reviews.totalPages}
         />
-        <ReviewsList reviews={reviews.items} />
+        <ReviewList reviews={reviews.items} />
         <Pagination
           currentPage={page}
           path={`/reviews/${publisher}/${developer}/${genre}`}

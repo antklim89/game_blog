@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import GamesCarousel from '~/components/feature/GamesCarousel';
 import NewsList from '~/components/feature/NewsList';
-import ReviewsList from '~/components/feature/ReviewsList';
+import ReviewList from '~/components/feature/ReviewList';
 import Layout from '~/components/layout/Layout';
 import { getNews, getReviews, getTopHeader } from '~/lib/contentLoaders';
 
@@ -31,7 +31,7 @@ async function HomePage() {
               Reviews
             </Typography>
           </Link>
-          <ReviewsList reviews={reviews.items} />
+          <ReviewList reviews={reviews.items} />
           <Box display="flex" justifyContent="flex-end">
             <Button
               color="primary"
