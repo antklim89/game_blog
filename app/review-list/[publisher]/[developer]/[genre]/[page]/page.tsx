@@ -15,15 +15,12 @@ export const metadata: Metadata = {
 };
 
 async function ReviewsPage({ params }: { params: z.infer<typeof reviewParamsSchema> }) {
-  const result = await reviewParamsSchema.safeParseAsync(params);
-  if (!result.success) notFound();
-
   const {
     publisher,
     developer,
     genre,
     page,
-  } = result.data;
+  } = await reviewParamsSchema.parseAsync(params).catch(() => notFound());
 
   const { reviewsImage } = await getTopHeader();
   const reviews = await getReviews({
