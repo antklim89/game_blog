@@ -1,11 +1,14 @@
+import type { FC } from 'react';
+import type { SelectReviewFieldsProps } from './SelectReviewFields.types';
+import ClearIcon from '@mui/icons-material/Clear';
 import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import Link from 'next/link';
-import type { FC } from 'react';
 import { getReviewsFields } from '~/lib/contentLoaders';
 import type { ReviewFieldsList } from '~/lib/types';
-import type { SelectReviewFieldsProps } from './SelectReviewFields.types';
 
 
 const SelectReviewFields: FC<SelectReviewFieldsProps> = async ({
@@ -31,6 +34,19 @@ const SelectReviewFields: FC<SelectReviewFieldsProps> = async ({
             select
             key={fieldName}
             label={`Select ${fieldName}`}
+            slotProps={{
+              input: { endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    component={Link}
+                    href={createReviewsHref({ ...fieldSelectedValues, [fieldName]: 'all' })}
+                  >
+                    <ClearIcon />
+                  </IconButton>
+                </InputAdornment>
+              ) },
+            }}
             value={fieldSelectedValues[fieldName as keyof ReviewFieldsList]}
           >
             {/** @ts-expect-error component prop exists */}
