@@ -59,6 +59,7 @@ export default antfu(
       'max-lines-per-function': ['error', 200],
       'max-statements': ['error', 50, { ignoreTopLevelFunctions: true }],
       'style/object-curly-newline': ['error', { consistent: true, minProperties: 4 }],
+      'node/prefer-global/process': 'off',
     },
   },
   {
