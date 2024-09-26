@@ -1,8 +1,7 @@
-import path from 'node:path';
-import process from 'node:process';
-import fs from 'fs-extra';
 import type { ZodObject, ZodRawShape } from 'zod';
 import type { Paginated } from './types';
+import path from 'node:path';
+import fs from 'fs-extra';
 
 
 export const CONTENT_PATH = path.resolve(process.cwd(), 'public/content');

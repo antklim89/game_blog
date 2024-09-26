@@ -1,9 +1,8 @@
+import type { ParsedUrlQuery } from 'node:querystring';
 import path from 'node:path';
-import process from 'node:process';
 import fs from 'fs-extra';
 import chunk from 'lodash/chunk';
 import times from 'lodash/times';
-import type { ParsedUrlQuery } from 'node:querystring';
 import { reviewFieldFilterNames } from '~/lib/constants';
 import { getReviews, getReviewsFields } from './contentLoaders';
 
