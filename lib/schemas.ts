@@ -34,13 +34,6 @@ export const reviewSchema = z.object({
   body: z.string(),
 });
 
-export const reviewParamsSchema = z.object({
-  publisher: z.string().transform(decodeURIComponent),
-  developer: z.string().transform(decodeURIComponent),
-  genre: z.string().transform(decodeURIComponent),
-  page: z.coerce.number().min(1),
-});
-
 export const topHeaderSchema = z.object({
   homeText: z.string(),
   homeImage: z.string(),
