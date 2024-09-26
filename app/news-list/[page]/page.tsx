@@ -1,6 +1,7 @@
-import Container from '@mui/material/Container';
-import { z } from 'zod';
 import type { Metadata } from 'next';
+import Container from '@mui/material/Container';
+import { notFound } from 'next/navigation';
+import { z } from 'zod';
 import NewsList from '~/components/feature/NewsList';
 import Layout from '~/components/layout/Layout';
 import Pagination from '~/components/ui/Pagination';
@@ -11,8 +12,20 @@ export const metadata: Metadata = {
   title: 'News',
 };
 
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const news = await getNews({ limit: Infinity });
+
+  const paths = Array.from({ length: Math.ceil(news.items.length / 8) }, (_, i) => ({
+    page: String(i + 1),
+  }));
+
+  return paths;
+}
+
 async function ReviewsPage({ params }: { params: { page: string } }) {
-  const page = await z.coerce.number().default(1).catch(1).parseAsync(params.page);
+  const page = await z.coerce.number().min(1).parseAsync(params.page).catch(() => notFound());
   const [
     news,
     topHeader,
