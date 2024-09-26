@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 import ReviewList from '~/components/feature/ReviewList';
 import SelectReviewFields from '~/components/feature/SelectReviewFields';
 import Layout from '~/components/layout/Layout';
@@ -94,6 +95,9 @@ async function ReviewsPage({ params }: ReviewsPageProps) {
           totalPages={reviews.totalPages}
         />
         <ReviewList reviews={reviews.items} />
+        {reviews.items.length === 0 && (
+          <Typography textAlign="center" variant="h1">No reviews found</Typography>
+        )}
         <Pagination
           currentPage={page}
           path={`/review-list/${publisher}/${developer}/${genre}`}
