@@ -1,3 +1,4 @@
+import type { FilesFilterOptions, ReviewFieldsList } from './types';
 import { truncate } from 'lodash';
 import {
   filterContent,
@@ -12,7 +13,6 @@ import {
   reviewSchema,
   topHeaderSchema,
 } from './schemas';
-import type { FilesFilterOptions, ReviewFieldsList } from './types';
 
 
 export async function getAbout() {

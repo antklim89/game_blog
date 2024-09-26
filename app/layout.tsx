@@ -1,9 +1,9 @@
+import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
-import type { Metadata } from 'next';
-import type { ReactNode } from 'react';
 import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, SITE_URL } from '~/lib/constants';
 import { globalStyles, theme } from '~/lib/theme';
 import '@fontsource/roboto/400.css';
