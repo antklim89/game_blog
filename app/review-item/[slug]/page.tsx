@@ -1,9 +1,9 @@
-import Container from '@mui/material/Container';
 import type { Metadata } from 'next';
+import Container from '@mui/material/Container';
 import Review from '~/components/feature/Review';
 import Layout from '~/components/layout/Layout';
 import { DEFAULT_DESCRIPTION } from '~/lib/constants';
-import { getReview, getTopHeader } from '~/lib/contentLoaders';
+import { getReview } from '~/lib/contentLoaders';
 
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
@@ -33,11 +33,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 async function ReviewPage({ params }: { params: { slug: string } }) {
-  const { homeImage } = await getTopHeader();
   const review = await getReview(params.slug);
 
   return (
-    <Layout image={homeImage}>
+    <Layout image={review.previewImage}>
       <Container>
         <Review review={review} />
       </Container>
