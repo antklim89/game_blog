@@ -19,15 +19,15 @@ import {
 const nodeCache = new NodeCache({ stdTTL: 60 * 10 });
 
 export async function getAbout() {
-  return getFile('about/index', aboutSchema);
+  return getFile('about', aboutSchema);
 }
 
 export async function getGamesCarousel() {
-  return getFile('gamesCarousel/index', gamesCarouselSchema);
+  return getFile('gamesCarousel', gamesCarouselSchema);
 }
 
 export async function getTopHeader() {
-  return getFile('topHeader/index', topHeaderSchema);
+  return getFile('topHeader', topHeaderSchema);
 }
 
 export async function getReview(slug: string) {

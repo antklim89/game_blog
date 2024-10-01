@@ -1,13 +1,17 @@
 import type { CmsCollection } from 'decap-cms-core';
+import path from 'node:path';
+import { baseContentFolder, baseMediaFolder, basePublicFolder } from './constants';
 
+
+const name = 'news';
 
 export const news: CmsCollection = {
   label: 'News',
-  name: 'news',
-  folder: 'public/content/news',
+  name,
   extension: 'json',
-  media_folder: 'images',
-  public_folder: '/content/news/images',
+  folder: path.join(baseContentFolder, name),
+  media_folder: path.join(baseMediaFolder, name),
+  public_folder: path.join(basePublicFolder, name),
   create: true,
   editor: { preview: false },
   slug: '{{slug}}',

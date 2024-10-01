@@ -1,12 +1,16 @@
 import type { CmsCollectionFile } from 'decap-cms-core';
+import path from 'node:path';
+import { baseContentFolder, baseMediaFolder, basePublicFolder } from './constants';
 
+
+const name = 'topHeader';
 
 export const topHeader: CmsCollectionFile = {
   label: 'Top Header',
-  name: 'topHeader',
-  file: 'public/content/topHeader/index.json',
-  media_folder: 'images',
-  public_folder: '/content/topHeader/images',
+  name,
+  file: path.join(baseContentFolder, `${name}.json`),
+  media_folder: path.join(baseMediaFolder, name),
+  public_folder: path.join(basePublicFolder, name),
   fields: [
     {
       name: 'homeText',

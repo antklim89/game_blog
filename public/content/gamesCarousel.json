@@ -1,0 +1,17 @@
+{
+  "items": [
+    {
+      "image": "/images/gamesCarousel/wesley-tingey-l4uck06unm-unsplash.webp",
+      "text": "lorem ipsum",
+      "link": "/reviews"
+    },
+    {
+      "image": "/images/gamesCarousel/kyle-nieber-simo8twzlym-unsplash.webp",
+      "text": "nesciunt dolorem reprehenderit"
+    },
+    {
+      "image": "/images/gamesCarousel/adam-mills-sgyayrin5hy-unsplash.webp",
+      "text": "reprehenderit voluptas eum eveniet"
+    }
+  ]
+}

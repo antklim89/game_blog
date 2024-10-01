@@ -1,12 +1,16 @@
 import type { CmsCollectionFile } from 'decap-cms-core';
+import path from 'node:path';
+import { baseContentFolder, baseMediaFolder, basePublicFolder } from './constants';
 
+
+const name = 'gamesCarousel';
 
 export const gamesCarousel: CmsCollectionFile = {
   label: 'Games Carousel',
-  name: 'gamesCarousel',
-  file: 'public/content/gamesCarousel/index.json',
-  media_folder: 'images',
-  public_folder: '/content/gamesCarousel/images',
+  name,
+  file: path.join(baseContentFolder, `${name}.json`),
+  media_folder: path.join(baseMediaFolder, name),
+  public_folder: path.join(basePublicFolder, name),
   fields: [
     {
       name: 'items',

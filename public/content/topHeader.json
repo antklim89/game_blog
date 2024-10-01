@@ -1,8 +1,8 @@
 {
   "homeText": "Welcome to our game blog site, where gaming enthusiasts come together to explore the world of gaming. Our site is a hub for all things gaming, from reviews of the latest games to news on upcoming releases, gaming events, and trends.\nSo whether you're looking for the latest gaming news, seeking to enhance your gaming experience, or just want to connect with fellow gamers, our game blog site has something for everyone. Join us and become a part of our vibrant gaming community!",
-  "homeImage": "/content/topHeader/images/ryan-quintal-t8_tn3tqmoi-unsplash.webp",
-  "reviewsImage": "/content/topHeader/images/gene-brutty-nhewmnzmgz4-unsplash.webp",
-  "newsImage": "/content/topHeader/images/kyle-nieber-simo8twzlym-unsplash.webp",
-  "aboutImage": "/content/topHeader/images/adam-mills-sgyayrin5hy-unsplash.webp",
-  "contactsImage": "/content/topHeader/images/wesley-tingey-l4uck06unm-unsplash.webp"
+  "homeImage": "/images/topHeader/ryan-quintal-t8_tn3tqmoi-unsplash.webp",
+  "reviewsImage": "/images/topHeader/gene-brutty-nhewmnzmgz4-unsplash.webp",
+  "newsImage": "/images/topHeader/kyle-nieber-simo8twzlym-unsplash.webp",
+  "aboutImage": "/images/topHeader/adam-mills-sgyayrin5hy-unsplash.webp",
+  "contactsImage": "/images/topHeader/wesley-tingey-l4uck06unm-unsplash.webp"
 }

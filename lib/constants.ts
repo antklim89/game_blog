@@ -9,3 +9,4 @@ export const reviewFieldFilterNames: ReviewFieldsNames[] = ['developer', 'publis
 
 
 export const SITE_URL = process.env.URL ?? 'http://localhost:3000';
+export const REPOSITORY_URL = process.env.REPOSITORY_URL;
