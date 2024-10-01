@@ -1,11 +1,11 @@
+import type { FC } from 'react';
+import type { HeaderProps } from './Header.types';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import type { FC } from 'react';
 import Image from '~/components/ui/Image';
 import Markdown from '~/components/ui/Markdown';
 import HeaderLogo from './HeaderLogo';
-import type { HeaderProps } from './Header.types';
 
 
 const HeaderTop: FC<HeaderProps> = ({ image, text, title }) => {
@@ -58,10 +58,9 @@ const HeaderTop: FC<HeaderProps> = ({ image, text, title }) => {
       <Box
         sx={{
           'position': 'absolute',
-          'top': 0,
+          'top': '-50%',
           'right': 0,
           'left': 0,
-          'bottom': 0,
           '& > span': { position: 'static !important' },
           'zIndex': '0 !important',
           'filter': 'brightness(0.7)',
