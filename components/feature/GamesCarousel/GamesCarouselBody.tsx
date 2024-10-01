@@ -1,4 +1,5 @@
 'use client';
+import type { GamesCarouselProps } from './GamesCarousel.types';
 import ArrowLeftTwoTone from '@mui/icons-material/ArrowLeftTwoTone';
 import ArrowRightTwoTone from '@mui/icons-material/ArrowRightTwoTone';
 import Box from '@mui/material/Box';
@@ -6,10 +7,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import useEmblaCarousel from 'embla-carousel-react';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import type { FC } from 'react';
+import { type FC, useEffect, useState } from 'react';
 import Image from '~/components/ui/Image';
-import type { GamesCarouselProps } from './GamesCarousel.types';
 
 
 const GamesCarousel: FC<GamesCarouselProps> = ({ gamesCarousel }) => {

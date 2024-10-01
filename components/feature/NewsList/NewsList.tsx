@@ -1,5 +1,5 @@
-import List from '@mui/material/List';
 import type { FC } from 'react';
+import List from '@mui/material/List';
 import type { INews } from '~/lib/types';
 import NewsListItem from './NewsListItem';
 

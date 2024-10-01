@@ -1,4 +1,5 @@
 'use client';
+import type { Theme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -9,7 +10,6 @@ import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Link from 'next/link';
 import { type FC, useCallback, useState } from 'react';
-import type { Theme } from '@mui/material';
 
 
 const LINKS = [

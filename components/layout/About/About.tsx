@@ -1,5 +1,5 @@
-import Container from '@mui/material/Container';
 import type { FC } from 'react';
+import Container from '@mui/material/Container';
 import Markdown from '~/components/ui/Markdown';
 import { getAbout } from '~/lib/contentLoaders';
 

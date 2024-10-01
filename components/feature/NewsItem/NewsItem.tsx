@@ -1,5 +1,5 @@
-import Typography from '@mui/material/Typography';
 import type { FC } from 'react';
+import Typography from '@mui/material/Typography';
 import Markdown from '~/components/ui/Markdown';
 import SocialShare from '~/components/ui/SocialShare';
 import type { INews } from '~/lib/types';

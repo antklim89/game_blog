@@ -1,5 +1,5 @@
-import Grid from '@mui/material/Grid2';
 import type { FC } from 'react';
+import Grid from '@mui/material/Grid2';
 import type { IReview } from '~/lib/types';
 import ReviewListItem from './ReviewListItem';
 

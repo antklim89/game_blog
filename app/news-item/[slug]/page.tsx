@@ -1,5 +1,5 @@
-import Container from '@mui/material/Container';
 import type { Metadata } from 'next';
+import Container from '@mui/material/Container';
 import NewsItem from '~/components/feature/NewsItem';
 import Layout from '~/components/layout/Layout';
 import { getNewsItem, getTopHeader } from '~/lib/contentLoaders';

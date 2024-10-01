@@ -1,5 +1,5 @@
-import NextImage, { type ImageProps } from 'next/image';
 import type { FC } from 'react';
+import NextImage, { type ImageProps } from 'next/image';
 
 
 const Image: FC<ImageProps> = ({ src, alt, ...props }) => {
