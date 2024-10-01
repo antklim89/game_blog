@@ -1,5 +1,6 @@
 import type { FilesFilterOptions, ReviewFieldsList } from './types';
 import { truncate } from 'lodash';
+import NodeCache from 'node-cache';
 import {
   filterContent,
   getFile,
@@ -14,6 +15,8 @@ import {
   topHeaderSchema,
 } from './schemas';
 
+
+const nodeCache = new NodeCache({ stdTTL: 60 * 10 });
 
 export async function getAbout() {
   return getFile('about/index', aboutSchema);
@@ -67,9 +70,10 @@ export async function getReviews({
 }
 
 export async function getReviewsFields(): Promise<ReviewFieldsList> {
+  if (nodeCache.has('getReviewsFields')) return nodeCache.get('getReviewsFields') as Promise<ReviewFieldsList>;
   const reviews = await getFiles('reviews', reviewSchema);
 
-  return reviews.reduce<ReviewFieldsList>((acc, review) => {
+  const result = reviews.reduce<ReviewFieldsList>((acc, review) => {
     if (!acc.genre.includes(review.genre)) acc.genre.push(review.genre);
     if (!acc.publisher.includes(review.publisher)) acc.publisher.push(review.publisher);
     if (!acc.developer.includes(review.developer)) acc.developer.push(review.developer);
@@ -79,4 +83,7 @@ export async function getReviewsFields(): Promise<ReviewFieldsList> {
     publisher: [],
     developer: [],
   });
+  nodeCache.set('getReviewsFields', result);
+
+  return result;
 }
