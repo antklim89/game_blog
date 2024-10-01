@@ -8,7 +8,12 @@ function MarkdownImg({ src, alt }: ImgHTMLAttributes<HTMLImageElement>) {
       alt={alt ?? 'image'}
       height={400}
       src={src ?? ''}
-      style={{ objectFit: 'contain', objectPosition: 'left' }}
+      style={{
+        objectFit: 'contain',
+        objectPosition: 'left',
+        width: '100%',
+        height: 'auto',
+      }}
       width={1280}
     />
   );
