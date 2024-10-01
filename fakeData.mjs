@@ -6,7 +6,7 @@ import _ from 'lodash';
 
 
 const NEWS_NUMBER = 50;
-const REVIEWS_NUMBER = 50;
+const REVIEWS_NUMBER = 500;
 
 /**
  * News
@@ -50,7 +50,7 @@ for (let index = 0; index < REVIEWS_NUMBER; index += 1) {
     genre: _.sample(genres),
     publisher: _.sample(publishers),
     developer: _.sample(developers),
-    gameRelease: faker.date.between('1989-01-01T00:00:00.000Z', '2020-01-01T00:00:00.000Z'),
+    gameRelease: faker.date.between({ from: '1989-01-01T00:00:00.000Z', to: '2020-01-01T00:00:00.000Z' }),
     previewImage: `/images/reviews-ph-${_.random(1, 5, false)}.webp`,
   }, null, 4);
 
