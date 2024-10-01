@@ -1,3 +1,5 @@
+import type { FC } from 'react';
+import type { ReviewListItemProps } from './ReviewList.types';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -5,10 +7,8 @@ import CardHeader from '@mui/material/CardHeader';
 import Grid from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
 import Link from 'next/link';
-import type { FC } from 'react';
 import Image from '~/components/ui/Image';
 import { formatDate } from '~/lib/utils';
-import type { ReviewListItemProps } from './ReviewList.types';
 
 
 const ReviewListItem: FC<ReviewListItemProps> = ({
@@ -52,13 +52,12 @@ const ReviewListItem: FC<ReviewListItemProps> = ({
           <Box
             sx={{
               'position': 'absolute',
-              'top': 0,
+              'top': '-50%',
               'right': 0,
               'left': 0,
-              'bottom': 0,
               'zIndex': -1,
               'filter': 'brightness(0.7)',
-              '& img': { objectFit: 'cover', width: '100%' },
+              '& img': { objectFit: 'cover', width: '100%', height: '100%' },
             }}
           >
             <Image
