@@ -17,12 +17,6 @@ export const news: CmsCollection = {
   slug: '{{slug}}',
   fields: [
     {
-      name: 'createdAt',
-      widget: 'datetime',
-      format: 'X',
-      required: true,
-    },
-    {
       name: 'body',
       widget: 'markdown',
       required: true,
