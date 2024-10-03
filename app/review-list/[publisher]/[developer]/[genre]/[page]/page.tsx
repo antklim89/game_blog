@@ -9,6 +9,8 @@ import { getHeader, getReviews, getReviewsFields } from '~/lib/contentLoaders';
 import { filterContent } from '~/lib/fileLoaders';
 
 
+const LIMIT = 8;
+
 interface ReviewsPageProps {
   params: {
     genre: string;
@@ -52,7 +54,7 @@ export async function generateStaticParams() {
       genre: o.genre === 'all' ? undefined : o.genre,
     });
 
-    return Array.from({ length: Math.ceil(contentFiltered.length / 8) }, (_, i) => ({
+    return Array.from({ length: Math.ceil(contentFiltered.length / LIMIT) }, (_, i) => ({
       page: String(i + 1),
       publisher: encodeURIComponent(o.publisher),
       developer: encodeURIComponent(o.developer),
@@ -72,7 +74,7 @@ async function ReviewsPage({ params }: ReviewsPageProps) {
 
   const { reviewsImage } = await getHeader();
   const reviews = await getReviews({
-    limit: 8,
+    limit: LIMIT,
     page,
     search: {
       publisher: publisher === 'all' ? undefined : publisher,

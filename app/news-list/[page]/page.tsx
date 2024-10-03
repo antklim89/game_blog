@@ -8,6 +8,8 @@ import Pagination from '~/components/ui/Pagination';
 import { getHeader, getNews } from '~/lib/contentLoaders';
 
 
+const LIMIT = 8;
+
 export const metadata: Metadata = {
   title: 'News',
 };
@@ -17,7 +19,7 @@ export const dynamicParams = false;
 export async function generateStaticParams() {
   const news = await getNews({ limit: Infinity });
 
-  const paths = Array.from({ length: Math.ceil(news.items.length / 8) }, (_, i) => ({
+  const paths = Array.from({ length: Math.ceil(news.items.length / LIMIT) }, (_, i) => ({
     page: String(i + 1),
   }));
 
@@ -30,7 +32,7 @@ async function ReviewsPage({ params }: { params: { page: string } }) {
     news,
     header,
   ] = await Promise.all([
-    getNews({ limit: 8, page }),
+    getNews({ limit: LIMIT, page }),
     getHeader(),
   ]);
 
