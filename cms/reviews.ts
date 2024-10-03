@@ -24,7 +24,6 @@ export const reviews: CmsCollection = {
     {
       name: 'createdAt',
       widget: 'datetime',
-      format: 'X',
       required: true,
     },
     {
