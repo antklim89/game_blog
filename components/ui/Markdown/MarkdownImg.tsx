@@ -1,20 +1,18 @@
 import type { ImgHTMLAttributes } from 'react';
-import Image from '~/components/ui/Image';
+import StaticImage from '~/components/ui/StaticImage';
 
 
 function MarkdownImg({ src, alt }: ImgHTMLAttributes<HTMLImageElement>) {
   return (
-    <Image
+    <StaticImage
       alt={alt ?? 'image'}
-      height={400}
+      height={768}
       src={src ?? ''}
       style={{
-        objectFit: 'contain',
-        objectPosition: 'left',
         width: '100%',
         height: 'auto',
       }}
-      width={1280}
+      width={1024}
     />
   );
 }

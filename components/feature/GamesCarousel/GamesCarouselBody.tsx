@@ -6,9 +6,9 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import useEmblaCarousel from 'embla-carousel-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { type FC, useEffect, useState } from 'react';
-import Image from '~/components/ui/Image';
 
 
 const GamesCarousel: FC<GamesCarouselProps> = ({ gamesCarousel }) => {

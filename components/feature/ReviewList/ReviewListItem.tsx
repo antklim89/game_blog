@@ -7,7 +7,7 @@ import CardHeader from '@mui/material/CardHeader';
 import Grid from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
 import Link from 'next/link';
-import Image from '~/components/ui/Image';
+import StaticImage from '~/components/ui/StaticImage';
 import { formatDate } from '~/lib/utils';
 
 
@@ -60,7 +60,7 @@ const ReviewListItem: FC<ReviewListItemProps> = ({
               '& img': { objectFit: 'cover', width: '100%', height: '100%' },
             }}
           >
-            <Image
+            <StaticImage
               alt={title}
               height={720}
               src={previewImage}

@@ -6,7 +6,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import Link from 'next/link';
-import Image from '~/components/ui/Image';
+import StaticImage from '~/components/ui/StaticImage';
 import { formatDate } from '~/lib/utils';
 
 
@@ -20,7 +20,7 @@ const NewsListItem: FC<NewsListItemProps> = ({
     <>
       <ListItem component={Link} href={`/news-item/${slug}`}>
         <ListItemAvatar sx={{ display: ['none', 'block'], mr: 4 }}>
-          <Image
+          <StaticImage
             alt="title"
             height={128}
             src={previewImage}

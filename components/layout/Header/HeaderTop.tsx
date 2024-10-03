@@ -3,8 +3,8 @@ import type { HeaderProps } from './Header.types';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import Image from '~/components/ui/Image';
 import Markdown from '~/components/ui/Markdown';
+import StaticImage from '~/components/ui/StaticImage';
 import HeaderLogo from './HeaderLogo';
 
 
@@ -67,7 +67,7 @@ const HeaderTop: FC<HeaderProps> = ({ image, text, title }) => {
           '& img': { objectFit: 'cover', width: '100%' },
         }}
       >
-        <Image
+        <StaticImage
           alt="top image"
           height={720}
           src={image}
