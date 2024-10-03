@@ -5,7 +5,6 @@ import { createBlurDataURL } from '~/lib/createBlurDataURL';
 
 
 const StaticImage: FC<StaticImageProps> = async ({ src, alt, ...props }) => {
-  // TODO: handle http links
   const blurDataURL = await createBlurDataURL(src);
 
   return (
