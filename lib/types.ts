@@ -25,8 +25,6 @@ export interface ReviewFieldsList {
   developer: string[];
 }
 
-export type ReviewFieldsNames = keyof ReviewFieldsList;
-
 export type IAbout = z.infer<typeof aboutSchema>;
 export type IGamesCarousel = z.infer<typeof gamesCarouselSchema>;
 export type INews = z.infer<typeof newsSchema>;
