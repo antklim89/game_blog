@@ -10,9 +10,9 @@ import {
 import {
   aboutSchema,
   gamesCarouselSchema,
+  headerSchema,
   newsSchema,
   reviewSchema,
-  topHeaderSchema,
 } from './schemas';
 
 
@@ -26,8 +26,8 @@ export async function getGamesCarousel() {
   return getFile('gamesCarousel', gamesCarouselSchema);
 }
 
-export async function getTopHeader() {
-  return getFile('topHeader', topHeaderSchema);
+export async function getHeader() {
+  return getFile('header', headerSchema);
 }
 
 export async function getReview(slug: string) {

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Container from '@mui/material/Container';
 import NewsItem from '~/components/feature/NewsItem';
 import Layout from '~/components/layout/Layout';
-import { getNewsItem, getTopHeader } from '~/lib/contentLoaders';
+import { getHeader, getNewsItem } from '~/lib/contentLoaders';
 
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 async function ReviewPage({ params }: { params: { slug: string } }) {
-  const { homeImage } = await getTopHeader();
+  const { homeImage } = await getHeader();
   const newsItem = await getNewsItem(params.slug);
 
   return (

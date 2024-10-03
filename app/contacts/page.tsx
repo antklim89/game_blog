@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Contacts from '~/components/layout/Contacts';
 import Layout from '~/components/layout/Layout';
-import { getTopHeader } from '~/lib/contentLoaders';
+import { getHeader } from '~/lib/contentLoaders';
 
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 async function ContactsPage() {
-  const { contactsImage } = await getTopHeader();
+  const { contactsImage } = await getHeader();
 
   return (
     <Layout image={contactsImage}>

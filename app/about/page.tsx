@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import About from '~/components/layout/About';
 import Layout from '~/components/layout/Layout';
-import { getTopHeader } from '~/lib/contentLoaders';
+import { getHeader } from '~/lib/contentLoaders';
 
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 async function AboutPage() {
-  const { aboutImage } = await getTopHeader();
+  const { aboutImage } = await getHeader();
 
   return (
     <Layout image={aboutImage}>

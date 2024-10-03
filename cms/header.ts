@@ -3,10 +3,10 @@ import path from 'node:path';
 import { baseContentFolder, baseMediaFolder, basePublicFolder } from './constants';
 
 
-const name = 'topHeader';
+const name = 'header';
 
-export const topHeader: CmsCollectionFile = {
-  label: 'Top Header',
+export const header: CmsCollectionFile = {
+  label: 'Header',
   name,
   file: path.join(baseContentFolder, `${name}.json`),
   media_folder: path.join(baseMediaFolder, name),

@@ -5,7 +5,7 @@ import ReviewList from '~/components/feature/ReviewList';
 import SelectReviewFields from '~/components/feature/SelectReviewFields';
 import Layout from '~/components/layout/Layout';
 import Pagination from '~/components/ui/Pagination';
-import { getReviews, getReviewsFields, getTopHeader } from '~/lib/contentLoaders';
+import { getHeader, getReviews, getReviewsFields } from '~/lib/contentLoaders';
 import { filterContent } from '~/lib/fileLoaders';
 
 
@@ -70,7 +70,7 @@ async function ReviewsPage({ params }: ReviewsPageProps) {
   const page = params.page;
 
 
-  const { reviewsImage } = await getTopHeader();
+  const { reviewsImage } = await getHeader();
   const reviews = await getReviews({
     limit: 8,
     page,

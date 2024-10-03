@@ -5,7 +5,7 @@ import { z } from 'zod';
 import NewsList from '~/components/feature/NewsList';
 import Layout from '~/components/layout/Layout';
 import Pagination from '~/components/ui/Pagination';
-import { getNews, getTopHeader } from '~/lib/contentLoaders';
+import { getHeader, getNews } from '~/lib/contentLoaders';
 
 
 export const metadata: Metadata = {
@@ -28,14 +28,14 @@ async function ReviewsPage({ params }: { params: { page: string } }) {
   const page = await z.coerce.number().min(1).parseAsync(params.page).catch(() => notFound());
   const [
     news,
-    topHeader,
+    header,
   ] = await Promise.all([
     getNews({ limit: 8, page }),
-    getTopHeader(),
+    getHeader(),
   ]);
 
   return (
-    <Layout image={topHeader.newsImage}>
+    <Layout image={header.newsImage}>
       <Container>
         <Pagination
           currentPage={page}

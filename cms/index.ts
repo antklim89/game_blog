@@ -3,9 +3,9 @@ import { REPOSITORY_URL, SITE_URL } from '~/lib/constants';
 import { about } from './about';
 import { baseMediaFolder, basePublicFolder } from './constants';
 import { gamesCarousel } from './gamesCarousel';
+import { header } from './header';
 import { news } from './news';
 import { reviews } from './reviews';
-import { topHeader } from './topHeader';
 
 
 const URL_HOSTNAME = new URL(process.env.URL ?? 'http://localhost:3000').hostname;
@@ -50,7 +50,7 @@ export const cmsConfig: InitOptions = {
         editor: { preview: false },
         files: [
           about,
-          topHeader,
+          header,
           gamesCarousel,
         ],
       },

@@ -7,11 +7,11 @@ import GamesCarousel from '~/components/feature/GamesCarousel';
 import NewsList from '~/components/feature/NewsList';
 import ReviewList from '~/components/feature/ReviewList';
 import Layout from '~/components/layout/Layout';
-import { getNews, getReviews, getTopHeader } from '~/lib/contentLoaders';
+import { getHeader, getNews, getReviews } from '~/lib/contentLoaders';
 
 
 async function HomePage() {
-  const { homeImage } = await getTopHeader();
+  const { homeImage } = await getHeader();
   const reviews = await getReviews({ limit: 4 });
   const news = await getNews({ limit: 4 });
 

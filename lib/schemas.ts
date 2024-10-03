@@ -34,7 +34,7 @@ export const reviewSchema = z.object({
   body: z.string(),
 });
 
-export const topHeaderSchema = z.object({
+export const headerSchema = z.object({
   homeText: z.string(),
   homeImage: z.string(),
   reviewsImage: z.string(),
