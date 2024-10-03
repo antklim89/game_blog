@@ -43,6 +43,7 @@
     "react-share": "^5.1.0",
     "react-slick": "^0.30.2",
     "sass": "^1.79.3",
+    "sharp": "^0.33.5",
     "zod": "^3.23.8"
   },
   "devDependencies": {
