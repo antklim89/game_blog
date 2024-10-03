@@ -4,14 +4,11 @@ import ArrowLeftTwoTone from '@mui/icons-material/ArrowLeftTwoTone';
 import ArrowRightTwoTone from '@mui/icons-material/ArrowRightTwoTone';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import useEmblaCarousel from 'embla-carousel-react';
-import Image from 'next/image';
-import Link from 'next/link';
 import { type FC, useEffect, useState } from 'react';
 
 
-const GamesCarousel: FC<GamesCarouselProps> = ({ gamesCarousel }) => {
+const GamesCarousel: FC<GamesCarouselProps> = ({ children }) => {
   const [emblaRef, api] = useEmblaCarousel({ loop: true });
   const [isHover, setIsHover] = useState(false);
 
@@ -34,38 +31,7 @@ const GamesCarousel: FC<GamesCarouselProps> = ({ gamesCarousel }) => {
       onMouseLeave={() => setIsHover(false)}
     >
       <Box sx={{ display: 'flex' }}>
-        {gamesCarousel.map(({ image, text, link = '' }) => (
-          <Box
-            component={link ? Link : 'div'}
-            href={link}
-            key={image}
-            sx={{ flex: '0 0 100%', minWidth: 0, position: 'relative' }}
-          >
-            <Box>
-              <Box sx={{ '& img': { objectFit: 'cover', width: '100%' } }}>
-                <Image
-                  alt={text}
-                  height={480}
-                  src={image}
-                  width={1280}
-                />
-              </Box>
-              <Typography
-                sx={{
-                  position: 'absolute',
-                  bottom: 10,
-                  left: 0,
-                  backgroundColor: 'rgba(255,255,255,0.4)',
-                  px: 8,
-                  py: 1,
-                  borderBottom: ({ palette }) => `4px solid ${palette.primary.main}`,
-                }}
-              >
-                {text}
-              </Typography>
-            </Box>
-          </Box>
-        ))}
+        {children}
       </Box>
       <Box sx={{
         position: 'absolute',

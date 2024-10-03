@@ -1,6 +1,6 @@
-import type { IGamesCarousel } from '~/lib/types';
+import type { ReactNode } from 'react';
 
 
 export interface GamesCarouselProps {
-  gamesCarousel: IGamesCarousel['items'];
+  children: ReactNode;
 }
