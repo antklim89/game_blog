@@ -88,10 +88,14 @@ const HeaderLinks: FC = () => {
         >
           <Box
             sx={{
-              background: 'primary.main',
+              backgroundColor: 'primary.main',
               minWidth: 320,
               color: 'white',
               height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 2,
+              justifyContent: 'center',
             }}
           >
             {links}
