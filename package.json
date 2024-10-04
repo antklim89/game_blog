@@ -1,8 +1,8 @@
 {
-  "name": "nextjs-template",
+  "name": "game_blog",
   "version": "0.1.0",
   "private": true,
-  "description": "Template",
+  "description": "Learning project",
   "scripts": {
     "dev": "run-p dev:**",
     "dev:next": "next dev --turbo",
@@ -32,7 +32,6 @@
     "decap-cms-core": "^3.4.2",
     "embla-carousel-react": "^8.3.0",
     "fs-extra": "^11.2.0",
-    "jimp": "^1.6.0",
     "lodash": "^4.17.21",
     "netlify-identity-widget": "^1.9.2",
     "next": "14.2.13",
@@ -41,8 +40,6 @@
     "react-dom": "18.3.1",
     "react-markdown": "^9.0.1",
     "react-share": "^5.1.0",
-    "react-slick": "^0.30.2",
-    "sass": "^1.79.3",
     "sharp": "^0.33.5",
     "zod": "^3.23.8"
   },
@@ -54,8 +51,6 @@
     "@types/netlify-identity-widget": "^1.9.6",
     "@types/node": "22.7.1",
     "@types/react": "18.3.9",
-    "@types/react-slick": "^0.23.13",
-    "@types/showdown": "^2.0.6",
     "decap-server": "^3.1.2",
     "eslint": "^9.11.1",
     "eslint-config-next": "14.2.13",
