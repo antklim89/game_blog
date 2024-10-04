@@ -1,5 +1,4 @@
 import type { FilesFilterOptions, ReviewFieldsList } from './types';
-import { truncate } from 'lodash';
 import NodeCache from 'node-cache';
 import {
   filterContent,
@@ -46,12 +45,9 @@ export async function getNews({
 }: FilesFilterOptions = {}) {
   const content = await getFiles('news', newsSchema);
 
-  content.forEach((newsItem) => {
-    newsItem.body = truncate(newsItem.body, { length: 200 });
-  });
-
   const contentFiltered = filterContent(content, search);
-  const contentPaginated = paginateContent(contentFiltered, page, limit);
+  const contentSorted = contentFiltered.toSorted((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+  const contentPaginated = paginateContent(contentSorted, page, limit);
 
   return contentPaginated;
 }
@@ -64,7 +60,8 @@ export async function getReviews({
   const content = await getFiles('reviews', reviewSchema);
 
   const contentFiltered = filterContent(content, search);
-  const contentPaginated = paginateContent(contentFiltered, page, limit);
+  const contentSorted = contentFiltered.toSorted((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+  const contentPaginated = paginateContent(contentSorted, page, limit);
 
   return contentPaginated;
 }
