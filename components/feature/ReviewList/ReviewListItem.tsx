@@ -1,14 +1,14 @@
+import Link from 'next/link';
 import type { FC } from 'react';
-import type { ReviewListItemProps } from './ReviewList.types';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Grid from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
-import Link from 'next/link';
 import StaticImage from '~/components/ui/StaticImage';
 import { formatDate } from '~/lib/utils';
+import type { ReviewListItemProps } from './ReviewList.types';
 
 
 const ReviewListItem: FC<ReviewListItemProps> = ({

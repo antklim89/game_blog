@@ -1,8 +1,8 @@
 import type { FC } from 'react';
-import type { LayoutProps } from './Layout.types';
 import Box from '@mui/material/Box';
 import Footer from '~/components/layout/Footer';
 import Header from '~/components/layout/Header';
+import type { LayoutProps } from './Layout.types';
 
 
 const Layout: FC<LayoutProps> = ({ children, ...props }) => {

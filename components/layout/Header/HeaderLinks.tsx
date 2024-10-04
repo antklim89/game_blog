@@ -1,6 +1,8 @@
 'use client';
-import type { Theme } from '@mui/material';
+import Link from 'next/link';
+import { type FC, useCallback, useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
+import type { Theme } from '@mui/material';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
@@ -8,8 +10,6 @@ import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import Link from 'next/link';
-import { type FC, useCallback, useState } from 'react';
 
 
 const LINKS = [

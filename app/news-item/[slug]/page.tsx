@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import Container from '@mui/material/Container';
 import { notFound } from 'next/navigation';
+import Container from '@mui/material/Container';
 import NewsItem from '~/components/feature/NewsItem';
 import Layout from '~/components/layout/Layout';
 import { getHeader, getNewsItem } from '~/lib/contentLoaders';

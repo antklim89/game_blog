@@ -1,10 +1,10 @@
 import type { FC } from 'react';
-import type { HeaderProps } from './Header.types';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Markdown from '~/components/ui/Markdown';
 import StaticImage from '~/components/ui/StaticImage';
+import type { HeaderProps } from './Header.types';
 import HeaderLogo from './HeaderLogo';
 
 

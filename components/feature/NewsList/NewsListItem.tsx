@@ -1,14 +1,14 @@
+import Link from 'next/link';
 import type { FC } from 'react';
-import type { NewsListItemProps } from './NewsList.types';
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
-import Link from 'next/link';
 import StaticImage from '~/components/ui/StaticImage';
 import { formatDate } from '~/lib/utils';
+import type { NewsListItemProps } from './NewsList.types';
 
 
 const NewsListItem: FC<NewsListItemProps> = ({

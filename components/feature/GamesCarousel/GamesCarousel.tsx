@@ -1,6 +1,6 @@
+import Link from 'next/link';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Link from 'next/link';
 import StaticImage from '~/components/ui/StaticImage';
 import { getGamesCarousel } from '~/lib/contentLoaders';
 import GamesCarouselBody from './GamesCarouselBody';

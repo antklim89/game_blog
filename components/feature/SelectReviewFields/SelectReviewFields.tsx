@@ -1,14 +1,14 @@
+import Link from 'next/link';
 import type { FC } from 'react';
-import type { SelectReviewFieldsProps } from './SelectReviewFields.types';
 import ClearIcon from '@mui/icons-material/Clear';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
-import Link from 'next/link';
 import { getReviewsFields } from '~/lib/contentLoaders';
 import type { ReviewFieldsList } from '~/lib/types';
+import type { SelectReviewFieldsProps } from './SelectReviewFields.types';
 
 
 const SelectReviewFields: FC<SelectReviewFieldsProps> = async ({

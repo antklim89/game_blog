@@ -1,7 +1,7 @@
 import type { FC } from 'react';
-import type { HeaderProps } from './Header.types';
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
+import type { HeaderProps } from './Header.types';
 import HeaderLinks from './HeaderLinks';
 import HeaderTop from './HeaderTop';
 

@@ -1,7 +1,7 @@
-import type { FC } from 'react';
-import Box from '@mui/material/Box';
 import Image, { type StaticImageData } from 'next/image';
 import Link from 'next/link';
+import type { FC } from 'react';
+import Box from '@mui/material/Box';
 import logo from './Header.logo.svg';
 
 

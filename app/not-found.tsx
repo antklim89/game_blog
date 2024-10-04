@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
+import NextLink from 'next/link';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
-import NextLink from 'next/link';
 import Layout from '~/components/layout/Layout';
 
 

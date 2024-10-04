@@ -1,5 +1,5 @@
-import type { CmsCollection } from 'decap-cms-core';
 import path from 'node:path';
+import type { CmsCollection } from 'decap-cms-core';
 import {
   baseContentFolder,
   baseMediaFolder,

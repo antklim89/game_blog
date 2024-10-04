@@ -1,10 +1,10 @@
 'use client';
+import Link from 'next/link';
 import type { FC } from 'react';
-import type { PaginationProps } from './Pagination.types';
 import Box from '@mui/material/Box';
 import PaginationMui from '@mui/material/Pagination';
 import PaginationItemMui from '@mui/material/PaginationItem';
-import Link from 'next/link';
+import type { PaginationProps } from './Pagination.types';
 
 
 const Pagination: FC<PaginationProps> = ({ currentPage, path, totalPages }) => {

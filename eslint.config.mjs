@@ -44,8 +44,39 @@ export default antfu(
     ],
 
     rules: {
-      'unused-imports/no-unused-imports': 'error',
       'import/newline-after-import': ['error', { count: 2 }],
+      'perfectionist/sort-imports': [
+        'error',
+        {
+          type: 'alphabetical',
+          order: 'asc',
+          internalPattern: ['@/**', '~/**'],
+          newlinesBetween: 'never',
+          groups: [
+            'custom',
+            'style',
+            'side-effect',
+            'side-effect-style',
+            ['builtin', 'builtin-type'],
+            ['external', 'external-type'],
+            ['internal', 'internal-type'],
+            ['sibling', 'sibling-type'],
+            ['parent', 'parent-type'],
+            ['index', 'index-type'],
+            'object',
+            'unknown',
+          ],
+          customGroups: {
+            value: {
+              custom: ['react', 'react-dom', 'next', 'next/*'],
+            },
+            type: {
+              custom: ['react', 'react-dom', 'next', 'next/*'],
+            },
+          },
+        },
+      ],
+      'unused-imports/no-unused-imports': 'error',
       'no-restricted-imports': ['error', { patterns: ['../'] }],
       'style/no-multiple-empty-lines': ['error', { max: 2 }],
       'antfu/if-newline': 'off',

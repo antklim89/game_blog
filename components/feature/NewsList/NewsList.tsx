@@ -15,4 +15,3 @@ const NewsList: FC<{ news: INews[] }> = async ({ news }) => {
 };
 
 export default NewsList;
-

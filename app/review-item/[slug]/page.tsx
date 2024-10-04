@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import Container from '@mui/material/Container';
 import { notFound } from 'next/navigation';
+import Container from '@mui/material/Container';
 import Review from '~/components/feature/Review';
 import Layout from '~/components/layout/Layout';
 import { DEFAULT_DESCRIPTION } from '~/lib/constants';

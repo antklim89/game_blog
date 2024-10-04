@@ -1,8 +1,7 @@
 'use client';
-import type { FC } from 'react';
-import type { SocialShareProps } from './SocialShare.types';
-import Box from '@mui/material/Box';
 import { usePathname } from 'next/navigation';
+import type { FC } from 'react';
+import Box from '@mui/material/Box';
 import {
   EmailIcon,
   EmailShareButton,
@@ -14,6 +13,7 @@ import {
   VKShareButton,
 } from 'react-share';
 import { SITE_URL } from '~/lib/constants';
+import type { SocialShareProps } from './SocialShare.types';
 
 
 const SocialShare: FC<SocialShareProps> = ({ title, image }) => {

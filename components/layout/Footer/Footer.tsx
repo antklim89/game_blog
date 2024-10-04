@@ -1,8 +1,8 @@
 import type { FC } from 'react';
-import type { FooterProps } from './Footer.types';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+import type { FooterProps } from './Footer.types';
 
 
 const Footer: FC<FooterProps> = () => {

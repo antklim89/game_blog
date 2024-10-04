@@ -1,4 +1,3 @@
-import type { FilesFilterOptions, ReviewFieldsList } from './types';
 import NodeCache from 'node-cache';
 import {
   filterContent,
@@ -13,6 +12,7 @@ import {
   newsSchema,
   reviewSchema,
 } from './schemas';
+import type { FilesFilterOptions, ReviewFieldsList } from './types';
 
 
 const nodeCache = new NodeCache({ stdTTL: 60 * 10 });
