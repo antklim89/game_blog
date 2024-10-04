@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Container from '@mui/material/Container';
+import { notFound } from 'next/navigation';
 import Review from '~/components/feature/Review';
 import Layout from '~/components/layout/Layout';
 import { DEFAULT_DESCRIPTION } from '~/lib/constants';
@@ -7,13 +8,15 @@ import { getReview } from '~/lib/contentLoaders';
 
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const review = await getReview(params.slug);
+  if (review == null) return {};
   const {
     title,
     genre,
     developer,
     publisher,
     previewImage,
-  } = await getReview(params.slug);
+  } = review;
 
   return {
     title,
@@ -34,6 +37,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 async function ReviewPage({ params }: { params: { slug: string } }) {
   const review = await getReview(params.slug);
+  if (review == null) return notFound();
 
   return (
     <Layout image={review.previewImage}>

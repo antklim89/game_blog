@@ -1,6 +1,11 @@
 import type { CmsCollection } from 'decap-cms-core';
 import path from 'node:path';
-import { baseContentFolder, baseMediaFolder, basePublicFolder } from './constants';
+import {
+  baseContentFolder,
+  baseMediaFolder,
+  basePublicFolder,
+  hiddenField,
+} from './constants';
 
 
 const name = 'news';
@@ -16,6 +21,7 @@ export const news: CmsCollection = {
   editor: { preview: false },
   slug: '{{slug}}',
   fields: [
+    hiddenField,
     {
       name: 'body',
       widget: 'markdown',

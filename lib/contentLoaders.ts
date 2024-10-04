@@ -30,11 +30,15 @@ export async function getHeader() {
 }
 
 export async function getReview(slug: string) {
-  return getFile(`reviews/${slug}`, reviewSchema);
+  const result = await getFile(`reviews/${slug}`, reviewSchema);
+  if (result.hidden === true) return null;
+  return result;
 }
 
 export async function getNewsItem(slug: string) {
-  return getFile(`news/${slug}`, newsSchema);
+  const result = await getFile(`news/${slug}`, newsSchema);
+  if (result.hidden === true) return null;
+  return result;
 }
 
 
@@ -43,11 +47,12 @@ export async function getNews({
   page = 1,
   search,
 }: FilesFilterOptions = {}) {
-  const content = await getFiles('news', newsSchema);
+  let content = await getFiles('news', newsSchema);
 
-  const contentFiltered = filterContent(content, search);
-  const contentSorted = contentFiltered.toSorted((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
-  const contentPaginated = paginateContent(contentSorted, page, limit);
+  content = content.filter(i => i.hidden !== true);
+  content = filterContent(content, search);
+  content = content.toSorted((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+  const contentPaginated = paginateContent(content, page, limit);
 
   return contentPaginated;
 }
@@ -57,11 +62,12 @@ export async function getReviews({
   page = 1,
   search,
 }: FilesFilterOptions = {}) {
-  const content = await getFiles('reviews', reviewSchema);
+  let content = await getFiles('reviews', reviewSchema);
 
-  const contentFiltered = filterContent(content, search);
-  const contentSorted = contentFiltered.toSorted((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-  const contentPaginated = paginateContent(contentSorted, page, limit);
+  content = content.filter(i => i.hidden !== true);
+  content = filterContent(content, search);
+  content = content.toSorted((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+  const contentPaginated = paginateContent(content, page, limit);
 
   return contentPaginated;
 }
