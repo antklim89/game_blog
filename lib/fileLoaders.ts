@@ -18,6 +18,7 @@ export function filterContent<T extends Record<string, unknown>>(
     return Object.entries(search).every(([key, value]) => value == null || file[key] === value);
   });
 }
+
 export function paginateContent<T extends Record<string, unknown>>(
   content: T[],
   page: number,
@@ -28,7 +29,6 @@ export function paginateContent<T extends Record<string, unknown>>(
     totalPages: Math.ceil(content.length / limit),
   };
 }
-
 
 export async function getFiles<T extends ZodRawShape>(
   filesFolder: string,
