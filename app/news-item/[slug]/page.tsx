@@ -24,8 +24,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 async function ReviewPage({ params }: { params: { slug: string } }) {
-  const { homeImage } = await getHeader();
-  const newsItem = await getNewsItem(params.slug);
+  const [{ homeImage }, newsItem] = await Promise.all([
+    getHeader(),
+    getNewsItem(params.slug),
+  ]);
 
   return (
     <Layout image={homeImage}>

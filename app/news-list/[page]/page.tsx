@@ -28,27 +28,24 @@ export async function generateStaticParams() {
 
 async function ReviewsPage({ params }: { params: { page: string } }) {
   const page = await z.coerce.number().min(1).parseAsync(params.page).catch(() => notFound());
-  const [
-    news,
-    header,
-  ] = await Promise.all([
-    getNews({ limit: LIMIT, page }),
+  const [{ newsImage }, { items: news, totalPages }] = await Promise.all([
     getHeader(),
+    getNews({ limit: LIMIT, page }),
   ]);
 
   return (
-    <Layout image={header.newsImage}>
+    <Layout image={newsImage}>
       <Container>
         <Pagination
           currentPage={page}
           path="/news-list"
-          totalPages={news.totalPages}
+          totalPages={totalPages}
         />
-        <NewsList news={news.items} />
+        <NewsList news={news} />
         <Pagination
           currentPage={page}
           path="/news-list"
-          totalPages={news.totalPages}
+          totalPages={totalPages}
         />
       </Container>
     </Layout>

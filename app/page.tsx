@@ -11,9 +11,11 @@ import { getHeader, getNews, getReviews } from '~/lib/contentLoaders';
 
 
 async function HomePage() {
-  const { homeImage } = await getHeader();
-  const reviews = await getReviews({ limit: 4 });
-  const news = await getNews({ limit: 4 });
+  const [{ homeImage }, { items: reviews }, { items: news }] = await Promise.all([
+    getHeader(),
+    getReviews({ limit: 4 }),
+    getNews({ limit: 4 }),
+  ]);
 
   return (
     <Layout image={homeImage}>
@@ -31,7 +33,7 @@ async function HomePage() {
               Reviews
             </Typography>
           </Link>
-          <ReviewList reviews={reviews.items} />
+          <ReviewList reviews={reviews} />
           <Box display="flex" justifyContent="flex-end">
             <Button
               color="primary"
@@ -55,7 +57,7 @@ async function HomePage() {
               News
             </Typography>
           </Link>
-          <NewsList news={news.items} />
+          <NewsList news={news} />
           <Box display="flex" justifyContent="flex-end">
             <Button
               color="primary"

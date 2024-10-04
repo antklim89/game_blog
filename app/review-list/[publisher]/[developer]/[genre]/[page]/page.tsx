@@ -25,8 +25,10 @@ export const metadata: Metadata = {
 };
 
 export async function generateStaticParams() {
-  const reviews = await getReviews({ limit: Infinity });
-  const reviewsFields = await getReviewsFields();
+  const [reviews, reviewsFields] = await Promise.all([
+    getReviews({ limit: Infinity }),
+    getReviewsFields(),
+  ]);
   const publishers = reviewsFields.publisher;
   const developers = reviewsFields.developer;
   const genres = reviewsFields.genre;
@@ -72,16 +74,18 @@ async function ReviewsPage({ params }: ReviewsPageProps) {
   const page = params.page;
 
 
-  const { reviewsImage } = await getHeader();
-  const reviews = await getReviews({
-    limit: LIMIT,
-    page,
-    search: {
-      publisher: publisher === 'all' ? undefined : publisher,
-      developer: developer === 'all' ? undefined : developer,
-      genre: genre === 'all' ? undefined : genre,
-    },
-  });
+  const [{ reviewsImage }, { items: reviews, totalPages }] = await Promise.all([
+    getHeader(),
+    getReviews({
+      limit: LIMIT,
+      page,
+      search: {
+        publisher: publisher === 'all' ? undefined : publisher,
+        developer: developer === 'all' ? undefined : developer,
+        genre: genre === 'all' ? undefined : genre,
+      },
+    }),
+  ]);
 
   return (
     <Layout image={reviewsImage}>
@@ -94,16 +98,16 @@ async function ReviewsPage({ params }: ReviewsPageProps) {
         <Pagination
           currentPage={page}
           path={`/review-list/${publisher}/${developer}/${genre}`}
-          totalPages={reviews.totalPages}
+          totalPages={totalPages}
         />
-        <ReviewList reviews={reviews.items} />
-        {reviews.items.length === 0 && (
+        <ReviewList reviews={reviews} />
+        {reviews.length === 0 && (
           <Typography textAlign="center" variant="h1">No reviews found</Typography>
         )}
         <Pagination
           currentPage={page}
           path={`/review-list/${publisher}/${developer}/${genre}`}
-          totalPages={reviews.totalPages}
+          totalPages={totalPages}
         />
       </Container>
     </Layout>
