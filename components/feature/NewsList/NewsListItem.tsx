@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import type { NewsListItemProps } from './NewsList.types';
+import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
@@ -15,6 +16,7 @@ const NewsListItem: FC<NewsListItemProps> = ({
   publishedAt,
   slug,
   previewImage,
+  previewText,
 }) => {
   return (
     <>
@@ -27,12 +29,15 @@ const NewsListItem: FC<NewsListItemProps> = ({
             width={128}
           />
         </ListItemAvatar>
-        <Box>
+        <Box display="flex" flexDirection="column">
           <ListItemText
             primary={title}
             primaryTypographyProps={{ variant: 'h4', component: 'h4', color: 'primary' }}
             secondary={formatDate(publishedAt)}
           />
+          <Typography>
+            {previewText}
+          </Typography>
         </Box>
       </ListItem>
       <Divider component="li" variant="inset" />
@@ -41,3 +46,4 @@ const NewsListItem: FC<NewsListItemProps> = ({
 };
 
 export default NewsListItem;
+

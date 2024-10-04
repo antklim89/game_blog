@@ -28,6 +28,7 @@ for (let index = 0; index < NEWS_NUMBER; index += 1) {
     publishedAt,
     body: generateMarkdown({ images: newsImages }),
     title: _.capitalize(title),
+    previewText: faker.lorem.paragraph({ min: 5, max: 10 }),
     previewImage: _.sample(newsImages),
   };
 

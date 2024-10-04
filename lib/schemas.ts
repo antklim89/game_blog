@@ -7,6 +7,7 @@ export const newsSchema = z.object({
   body: z.string(),
   title: z.string(),
   previewImage: z.string(),
+  previewText: z.string(),
 });
 
 export const aboutSchema = z.object({

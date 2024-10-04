@@ -24,12 +24,19 @@ export const news: CmsCollection = {
     {
       name: 'title',
       widget: 'string',
-      pattern: ['^.{5,500}$', 'The title must be between 5 and 500 letters long.'],
+      pattern: ['^.{5,200}$', 'The title must be between 5 and 500 letters long.'],
       required: true,
     },
     {
       name: 'publishedAt',
       widget: 'datetime',
+      required: true,
+    },
+    {
+      name: 'previewText',
+      pattern: ['^.{5,2000}$', 'The previewText must be between 5 and 2000 letters long.'],
+      widget: 'text',
+      required: false,
     },
     {
       name: 'previewImage',
