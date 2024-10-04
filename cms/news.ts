@@ -24,7 +24,7 @@ export const news: CmsCollection = {
     {
       name: 'title',
       widget: 'string',
-      pattern: ['^.{5,200}$', 'The title must be between 5 and 500 letters long.'],
+      pattern: ['^.{5,200}$', 'The title must be between 5 and 200 letters long.'],
       required: true,
     },
     {

@@ -25,6 +25,7 @@ export const gamesCarousel: CmsCollectionFile = {
         {
           name: 'text',
           widget: 'string',
+          pattern: ['^.{5,200}$', 'The text must be between 5 and 200 letters long.'],
           required: true,
         },
         {

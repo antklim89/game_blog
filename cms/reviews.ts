@@ -29,25 +29,25 @@ export const reviews: CmsCollection = {
     {
       name: 'title',
       widget: 'string',
-      pattern: ['^.{5,500}$', 'The title must be between 5 and 500 letters long.'],
+      pattern: ['^.{5,200}$', 'The title must be between 5 and 500 letters long.'],
       required: true,
     },
     {
       name: 'genre',
       widget: 'string',
-      pattern: ['^.{2,500}$', 'The genre must be between 2 and 500 letters long.'],
+      pattern: ['^.{2,200}$', 'The genre must be between 2 and 200 letters long.'],
       required: true,
     },
     {
       name: 'publisher',
       widget: 'string',
-      pattern: ['^.{5,500}$', 'The publisher must be between 5 and 500 letters long.'],
+      pattern: ['^.{5,200}$', 'The publisher must be between 5 and 200 letters long.'],
       required: true,
     },
     {
       name: 'developer',
       widget: 'string',
-      pattern: ['^.{5,500}$', 'The developer must be between 5 and 500 letters long.'],
+      pattern: ['^.{5,200}$', 'The developer must be between 5 and 200 letters long.'],
       required: true,
     },
     {
