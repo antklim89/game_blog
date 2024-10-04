@@ -1,5 +1,6 @@
+import type { INews } from '~/lib/types';
 
 
 export interface NewsItemProps {
-  // null
+  newsItem: INews;
 }

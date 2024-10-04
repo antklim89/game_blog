@@ -2,17 +2,18 @@ import type { FC } from 'react';
 import Typography from '@mui/material/Typography';
 import Markdown from '~/components/ui/Markdown';
 import SocialShare from '~/components/ui/SocialShare';
-import type { INews } from '~/lib/types';
 import { formatDate } from '~/lib/utils';
+import type { NewsItemProps } from './NewsItem.types';
 
 
-const NewsItem: FC<{ newsItem: INews }> = ({ newsItem }) => {
+const NewsItem: FC<NewsItemProps> = ({ newsItem }) => {
   const {
     title,
     body,
     publishedAt,
     previewImage,
   } = newsItem;
+
   return (
     <article>
       <Typography color="primary" variant="h1">

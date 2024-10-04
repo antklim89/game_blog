@@ -1,10 +1,10 @@
 import type { FC } from 'react';
 import List from '@mui/material/List';
-import type { INews } from '~/lib/types';
+import type { NewsListProps } from './NewsList.types';
 import NewsListItem from './NewsListItem';
 
 
-const NewsList: FC<{ news: INews[] }> = async ({ news }) => {
+const NewsList: FC<NewsListProps> = async ({ news }) => {
   return (
     <List>
       {news.map(newsItem => (

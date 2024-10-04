@@ -1,10 +1,10 @@
 import type { FC } from 'react';
 import Grid from '@mui/material/Grid2';
-import type { IReview } from '~/lib/types';
+import type { ReviewListProps } from './ReviewList.types';
 import ReviewListItem from './ReviewListItem';
 
 
-const ReviewList: FC<{ reviews: IReview[] }> = async ({ reviews }) => {
+const ReviewList: FC<ReviewListProps> = async ({ reviews }) => {
   return (
     <Grid container spacing={1} sx={{ my: 4 }}>
       {reviews.map(review => (

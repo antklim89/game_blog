@@ -3,11 +3,11 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Markdown from '~/components/ui/Markdown';
 import SocialShare from '~/components/ui/SocialShare';
-import type { IReview } from '~/lib/types';
 import { formatDate } from '~/lib/utils';
+import type { ReviewProps } from './Review.types';
 
 
-const Review: FC<{ review: IReview }> = ({ review }) => {
+const Review: FC<ReviewProps> = ({ review }) => {
   const {
     body,
     genre,
