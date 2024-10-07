@@ -2,7 +2,6 @@
 import { type FC, type FormEventHandler, useState } from 'react';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
 import Container from '@mui/material/Container';
@@ -33,9 +32,7 @@ const Contacts: FC = () => {
     <Container component="section">
       <Paper
         component="form"
-        data-netlify="true"
         name="contact"
-        netlify-honeypot="bot-field"
         sx={{
           display: 'flex',
           flexDirection: 'column',
@@ -43,17 +40,9 @@ const Contacts: FC = () => {
         }}
         onSubmit={handleSubmit}
       >
-        <input name="form-name" type="hidden" value="contact" />
-
         <Typography component="h1" sx={{ mb: 4 }} variant="h3">
           Leave a message
         </Typography>
-
-        <Box component="label" sx={{ display: 'none' }}>
-          Don&apos;t fill this out if you&apos;re human:
-          {' '}
-          <input name="bot-field" />
-        </Box>
 
         {status === 'success' && (
           <Alert severity="success" sx={{ mb: '2rem' }}>
